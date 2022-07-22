@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
+use App\Models\Product;
+use App\Models\Transaction;
 
 class User extends Authenticatable
 {
@@ -21,6 +24,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'alamat',
+        'no_telp',
+        'bpoints'
     ];
 
     /**
@@ -41,4 +48,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->hasMany(Role::class);
+    }
+
+    public function product(){
+        return $this->hasMany(Product::class);
+    }
+
+    public function transaction(){
+        return $this->hasMany(Transaction::class);
+    }
 }
