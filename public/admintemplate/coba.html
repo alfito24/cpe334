@@ -1,0 +1,1347 @@
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Oasis Oleh-Oleh</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/906163180328325130/919144472237977640/Trinity.png"
+        style="filter: invert(55%) sepia(91%) saturate(399%) hue-rotate(193deg) brightness(96%) contrast(100%);"
+        type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="http://127.0.0.1:8000/css/sheetstyle.css" rel="stylesheet" type="text/css">
+    <!-- Livewire Styles -->
+<style >
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid] {
+        display: none;
+    }
+
+    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
+        display:none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a href="/" class="navbar-brand" style="margin-left: 10px">
+            <img src="https://cdn.discordapp.com/attachments/906163180328325130/919144472237977640/Trinity.png"
+                class="bi me-2" height="32">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMenu"
+            aria-controls="toggleMenu" aria-expanded="false" aria-label="Toogle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown" style="position: initial;">
+                    <form>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Kategori
+                        </a>
+                        <div class="dropdown-menu" style="margin-top: -1px; left: 0; right: 0;"
+                            aria-labelledby="navbarDropdownMenuLink">
+                            <div class="container-fluid">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pane-A" data-bs-toggle="tab"
+                                            data-bs-target="#paneA" type="button" role="tab" aria-controls="paneA"
+                                            aria-selected="true">Daerah Asal</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pane-B" data-bs-toggle="tab"
+                                            data-bs-target="#paneB" type="button" role="tab" aria-controls="paneB"
+                                            aria-selected="false">Jenis oleh-oleh</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pane-C" data-bs-toggle="tab"
+                                            data-bs-target="#paneC" type="button" role="tab" aria-controls="paneC"
+                                            aria-selected="false">Bahan dasar</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pane-D" data-bs-toggle="tab"
+                                            data-bs-target="#paneD" type="button" role="tab" aria-controls="paneD"
+                                            aria-selected="false">Rasa</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pane-E" data-bs-toggle="tab"
+                                            data-bs-target="#paneE" type="button" role="tab" aria-controls="paneE"
+                                            aria-selected="false">Tekstur</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pane-F" data-bs-toggle="tab"
+                                            data-bs-target="#paneF" type="button" role="tab" aria-controls="paneF"
+                                            aria-selected="false">Cara masak</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="paneA" role="tabpanel"
+                                        aria-labelledby="pane-A">
+                                        <div class="row row-cols-1 row-cols-md-6 g-4 mt-1 mb-2">
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906581978118250506/Balikpapan.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Balikpapan</h6>
+                                                            <a href="/filter/daerah/Balikpapan"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906471250845638746/Banda_Aceh.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Banda Aceh</h6>
+                                                            <a href="/filter/daerah/Banda Aceh"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906576280558911488/Bandar_Lampung.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Bandar Lampung</h6>
+                                                            <a href="/filter/daerah/Bandar Lampung"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906590251865210900/Bandung.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Bandung</h6>
+                                                            <a href="/filter/daerah/Bandung"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906591637008961586/Bogor.jpeg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Bogor</h6>
+                                                            <a href="/filter/daerah/Bogor"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906506164508954674/Bukittinggi.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Bukittinggi</h6>
+                                                            <a href="/filter/daerah/Bukittinggi"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906592001611407360/Cirebon.jpeg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Cirebon</h6>
+                                                            <a href="/filter/daerah/Cirebon"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906605444221521950/Denpasar.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Denpasar</h6>
+                                                            <a href="/filter/daerah/Denpasar"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906596455177932871/Malang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Malang</h6>
+                                                            <a href="/filter/daerah/Malang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906741701371117608/Manokwari.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Manokwari</h6>
+                                                            <a href="/filter/daerah/Manokwari"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906473015422894110/Medan.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Medan</h6>
+                                                            <a href="/filter/daerah/Medan"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906602602261807154/Mojokerto.jpeg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Mojokerto</h6>
+                                                            <a href="/filter/daerah/Mojokerto"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906506104081641492/Padang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Padang</h6>
+                                                            <a href="/filter/daerah/Padang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906504712994570250/Palembang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Palembang</h6>
+                                                            <a href="/filter/daerah/Palembang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906506696992632922/Payakumbuh.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Payakumbuh</h6>
+                                                            <a href="/filter/daerah/Payakumbuh"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906472137374720010/Sabang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Sabang</h6>
+                                                            <a href="/filter/daerah/Sabang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906593159058956368/Semarang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Semarang</h6>
+                                                            <a href="/filter/daerah/Semarang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906592571013341234/Sukabumi.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Sukabumi</h6>
+                                                            <a href="/filter/daerah/Sukabumi"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906595139730944040/Surabaya.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Surabaya</h6>
+                                                            <a href="/filter/daerah/Surabaya"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906594888685076500/Yogyakarta.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Yogyakarta</h6>
+                                                            <a href="/filter/daerah/Yogyakarta"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="paneB" role="tabpanel" aria-labelledby="pane-B">
+                                        <div class="row row-cols-1 row-cols-md-6 g-4 mt-1 mb-2">
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197474551672892/Renyah.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Keripik</h6>
+                                                            <a href="/jenis/Keripik"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197896968429618/Basah.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Kue Basah</h6>
+                                                            <a href="/jenis/Kue Basah"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197653568774174/Kering.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Kue kering</h6>
+                                                            <a href="/jenis/Kue kering"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906458761324036126/Manisan.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Manisan</h6>
+                                                            <a href="/jenis/Manisan"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197811014553610/Berair.png"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Minuman</h6>
+                                                            <a href="/jenis/Minuman"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/917466509515833394/Olahan_Daging.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Olahan Daging</h6>
+                                                            <a href="/jenis/Olahan Daging"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906457965161234442/Sambal.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Sambal</h6>
+                                                            <a href="/jenis/Sambal"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="paneC" role="tabpanel" aria-labelledby="pane-C">
+                                        <div class="row row-cols-1 row-cols-md-6 g-4 mt-1 mb-2">
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906805541655969822/bawang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Bawang
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Bawang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/918198065335246908/Beras.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Beras
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Beras"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/918540381967233054/Buah.jpeg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Buah-buahan
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Buah-buahan"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/919055589697552404/Cabai.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Cabai
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Cabai"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/917467933540773948/Cokelat.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Cokelat
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Cokelat"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/918181325138178088/Ikan.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Ikan
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Ikan"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdns.klimg.com/merdeka.com/i/w/news/2020/12/06/1250450/670x335/15-jenis-jenis-jamur-yang-bisa-dikonsumsi-beserta-manfaatnya-bagi-kesehatan.jpeg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Jamur
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Jamur"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906354771626176602/Kacang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Kacang
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Kacang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/917471931521970236/Kepiting.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Kepiting
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Kepiting"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906354818346536960/Kopi.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Kopi
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Kopi"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/917471964355002398/Pisang.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Pisang
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Pisang"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/918181308423884850/Singkong.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Singkong
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Singkong"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/917472030117490698/Tahu.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Tahu
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Tahu"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906354859547177040/Talas.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Talas
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Talas"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/918335371119591444/Telur.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Telur
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Telur"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906354901368590447/Tepung.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Tepung
+                                                            </h6>
+                                                            <a href="/filter/bahandasar/Tepung"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="paneD" role="tabpanel" aria-labelledby="pane-D">
+                                        <div class="row row-cols-1 row-cols-md-6 g-4 mt-1 mb-2">
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906204762825965638/Asin.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Asin</h6>
+                                                            <a href="/filter/rasa/Asin"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906204580084318208/Manis.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Manis</h6>
+                                                            <a href="/filter/rasa/Manis"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906205196005290064/Pahit.jpeg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Pahit</h6>
+                                                            <a href="/filter/rasa/Pahit"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906204482491265054/Pedas.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Pedas</h6>
+                                                            <a href="/filter/rasa/Pedas"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="paneE" role="tabpanel" aria-labelledby="pane-E">
+                                        <div class="row row-cols-1 row-cols-md-6 g-4 mt-1 mb-2">
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197811014553610/Berair.png"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Berair
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Berair"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197595666391040/Berminyak.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Berminyak
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Berminyak"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197171295113306/Kenyal.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Kenyal
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Kenyal"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906199202810462288/Keras.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Keras
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Keras"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906198675259281448/Lembek.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Lembek
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Lembek"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197283081703454/Lembut.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Lembut
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Lembut"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://cdn.discordapp.com/attachments/906163180328325130/906197474551672892/Renyah.jpg"
+                                                            class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                            style="object-fit: cover">
+                                                        <div >
+                                                            <h6 class="card-text m-2">Renyah
+                                                            </h6>
+                                                            <a href="/filter/tekstur/Renyah"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="paneF" role="tabpanel" aria-labelledby="pane-F">
+                                        <div class="" id="">
+                                            <div class="row row-cols-1 row-cols-md-6 g-4 mt-1 mb-2">
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/915619505064009749/Dibekukan.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Dibekukan</h6>
+                                                                <a href="/filter/caramasak/Dibekukan"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906803300832268318/mengulek.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Digiling</h6>
+                                                                <a href="/filter/caramasak/Digiling"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906200860084805632/Digoreng.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Digoreng</h6>
+                                                                <a href="/filter/caramasak/Digoreng"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906200537861603358/Dikukus.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Dikukus</h6>
+                                                                <a href="/filter/caramasak/Dikukus"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906200479996968960/Dipanggang.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Dipanggang</h6>
+                                                                <a href="/filter/caramasak/Dipanggang"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/918385443261808680/Dipresto.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Dipresto</h6>
+                                                                <a href="/filter/caramasak/Dipresto"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906200719277821962/Direbus.jpeg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Direbus</h6>
+                                                                <a href="/filter/caramasak/Direbus"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906457320794497054/Direduksi.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Direduksi</h6>
+                                                                <a href="/filter/caramasak/Direduksi"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                                    <div class="col">
+                                                        <div class="card h-100">
+                                                            <img src="https://cdn.discordapp.com/attachments/906163180328325130/906456515660115968/Disangrai.jpg"
+                                                                class="card-img-top d-block embed-responsive embed-responsive-16by9 rounded-top"
+                                                                style="object-fit: cover">
+                                                            <div >
+                                                                <h6 class="card-text m-2">
+                                                                    Disangrai</h6>
+                                                                <a href="/filter/caramasak/Disangrai"
+                                                                    class="stretched-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li>
+                    <a class="nav-link" href="/mitra">Mitra</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id=" toggleMenu">
+            <form class="d-flex" action="/search" method="GET" role="search">
+                <input type="hidden" name="_token" value="Ljxwi3EmaFzojtFjlyyLDf7xhpJNM1mW144li0N4">                <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search" name="param">
+            </form>
+                            <ul class="nav" style="margin-right: 10px">
+                    <li><a href="/login" class="nav-link px-2 link-secondary">Login</a></li>
+                    <li><a href="/register" class="nav-link px-2 link-secondary">Register</a></li>
+                </ul>
+                                </div>
+    </nav>
+    <div class="content-wrapper mb-5">
+        
+    <div class="p-5 bg-image rounded-3 mb-4"
+        style="background-image: url('https://awol.junkee.com/wp-content/uploads/2015/07/Huacachina2.jpg');height: 400px; background-repeat: no-repeat; background-size: 100%;">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex h-100">
+                <div class="text-white">
+                    <h1 class="m-3">Oasis Oleh - Oleh</h1>
+                    <h4 class="m-3" style="max-width: 60%">Oasis oleh - oleh merupakan website utama untuk
+                        membantu umat manusia memenuhi kebutuhannya dalam mencari oleh - oleh khas daerah Indonesia.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-4">
+                        <h5>Lokasi Sekarang: Surabaya, Jawa Timur</h5>
+        
+    </div>
+                <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <h5>Rekomendasi oleh - oleh yang cocok untuk perseorangan </h5>
+                    </div>
+                    <div class="col-4 text-end">
+
+                        <a class="btn btn-secondary mb-3 mr-1 btn-sm" data-bs-target="#olehKolega" role="button"
+                            data-bs-slide="prev">
+                            <i class="bi bi-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-secondary mb-3 btn-sm" data-bs-target="#olehKolega" role="button"
+                            data-bs-slide="next">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <div id="olehKolega" class="carousel slide" data-ride="carousel">
+                            <div class="carousel">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/914060163638505542/AlmondCrispyCheese_1.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Almond Crispy Cheese</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Surabaya"
+                                                                style='color: inherit;'>
+                                                                Surabaya
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/21"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text bi bi-heart-fill">
+                                                            0 Orang Menyukai ini</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/916964212767621130/CokelatTempe.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Cokelat Tempe</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Malang"
+                                                                style='color: inherit;'>
+                                                                Malang
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/22"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text bi bi-heart-fill">
+                                                            0 Orang Menyukai ini</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/916962624820879431/PiaMalang_2.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Bakpia Khas Malang</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Malang"
+                                                                style='color: inherit;'>
+                                                                Malang
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/24"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text bi bi-heart-fill">
+                                                            0 Orang Menyukai ini</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <h5>Rekomendasi oleh - oleh yang cocok untuk group </h5>
+                    </div>
+                    <div class="col-4 text-end">
+
+                        <a class="btn btn-secondary mb-3 mr-1 btn-sm" data-bs-target="#olehKeluarga" role="button"
+                            data-bs-slide="prev">
+                            <i class="bi bi-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-secondary mb-3 btn-sm" data-bs-target="#olehKeluarga" role="button"
+                            data-bs-slide="next">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <div id="olehKeluarga" class="carousel slide" data-ride="carousel">
+                            <div class="carousel">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/912726486929276969/Spikoe_3.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Spikoe Surabaya</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Surabaya"
+                                                                style='color: inherit;'>
+                                                                Surabaya
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/25"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text bi bi-heart-fill">
+                                                            0 Orang Menyukai ini</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/916964979205374002/StrudelMalang_2.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Strudel Malang</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Malang"
+                                                                style='color: inherit;'>
+                                                                Malang
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/34"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text bi bi-heart-fill">
+                                                            0 Orang Menyukai ini</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <h5>Rekomendasi oleh - oleh dibawah Rp.40000 </h5>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a class="btn btn-secondary mb-3 mr-1 btn-sm" data-bs-target="#olehHarga" role="button"
+                            data-bs-slide="prev">
+                            <i class="bi bi-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-secondary mb-3 btn-sm" data-bs-target="#olehHarga" role="button"
+                            data-bs-slide="next">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <div id="olehHarga" class="carousel slide" data-ride="carousel">
+                            <div class="carousel">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/916964212767621130/CokelatTempe.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Cokelat Tempe</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Malang"
+                                                                style='color: inherit;'>
+                                                                Malang
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/22"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text">Mulai dari Rp.8000
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/916962624820879431/PiaMalang_2.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Bakpia Khas Malang</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Malang"
+                                                                style='color: inherit;'>
+                                                                Malang
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/24"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text">Mulai dari Rp.18000
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/912726486929276969/Spikoe_3.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Spikoe Surabaya</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Surabaya"
+                                                                style='color: inherit;'>
+                                                                Surabaya
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/25"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text">Mulai dari Rp.33000
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                    <div class="col-md-3 mb-3">
+                                                <div class="card h-100">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src=https://cdn.discordapp.com/attachments/906163180328325130/920464510362472508/sambal_matah_utama.jpg>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Sambal matah</h5>
+                                                        <div style='z-index: 2; position: relative;'>
+                                                            <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                href="/filter/daerah/Surabaya"
+                                                                style='color: inherit;'>
+                                                                Surabaya
+                                                            </a>
+                                                        </div>
+                                                        <a href="/varianoleh/50"
+                                                            class="stretched-link"></a>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <p class="card-text">Mulai dari Rp.30000
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                                                    <div class="carousel-item">
+                                        <div class="row">
+                                                                                            <div class="col-md-3 mb-3">
+                                                    <div class="card h-100">
+                                                        <img class="img-fluid" alt="100%x280"
+                                                            src=https://cdn.discordapp.com/attachments/906163180328325130/920468738472554556/kopi_utama.jpg>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Kopi khas Surabaya
+                                                            </h5>
+                                                            <div style='z-index: 2; position: relative;'>
+                                                                <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                    href="/filter/daerah/Surabaya"
+                                                                    style='color: inherit;'>
+                                                                    Surabaya
+                                                                </a>
+                                                            </div>
+                                                            <a href="/varianoleh/51"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent">
+                                                            <p class="card-text">Mulai dari
+                                                                Rp.30000</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col-md-3 mb-3">
+                                                    <div class="card h-100">
+                                                        <img class="img-fluid" alt="100%x280"
+                                                            src=https://cdn.discordapp.com/attachments/906163180328325130/920506943133614160/bumbu_nasu_goreng_utama.jpg>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Bumbu nasi goreng
+                                                            </h5>
+                                                            <div style='z-index: 2; position: relative;'>
+                                                                <a class="card-text bi bi-geo-alt text-decoration-none"
+                                                                    href="/filter/daerah/Mojokerto"
+                                                                    style='color: inherit;'>
+                                                                    Mojokerto
+                                                                </a>
+                                                            </div>
+                                                            <a href="/varianoleh/56"
+                                                                class="stretched-link"></a>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent">
+                                                            <p class="card-text">Mulai dari
+                                                                Rp.30000</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+    <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=5cdaa3ec393c09829366" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'Ljxwi3EmaFzojtFjlyyLDf7xhpJNM1mW144li0N4';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+    <footer class="footer mt-auto text-center text-white bg-secondary">
+    <div class="text-center p-3">
+        © 2021 Copyright: Kelompok 5 Bisnis Digital 2021
+    </div>
+</footer>
+</body>
+
+</html>
