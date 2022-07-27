@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('login');
+});
+Route::get('/register', function () {
+    return view('register');
 });
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']);
