@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id')->constraint()->default(1);
             $table->text('alamat')->nullable();
             $table->string('no_telp', 20)->nullable();
-            $table->integer('bpoints')->nullable();
+            $table->integer('bpoints')->nullable()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

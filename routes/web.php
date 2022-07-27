@@ -19,10 +19,17 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', [LoginController::class, 'show']);
+
+//fitur register dan login
+Route::get('/login', [LoginController::class, 'show']); //halaman login
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/register', [RegisterController::class, 'show']);
-Route::post('/register', [RegisterController::class, 'store']);
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']);
+Route::post('/logout', [LoginController::class, 'logout']); //logout
+Route::get('/register', [RegisterController::class, 'show']); //halaman register
+Route::post('/register', [RegisterController::class, 'store']); //simpan data user ke database
+
+//fitur admin
+Route::get('/dashboard', [DashboardController::class, 'index']); //halaman dashboard
+
+//fitur produk
+Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']); //halaman tambah produk
+Route::post('/dashboard/tambahproduk', [ProductController::class, 'storeproduct']); //simpan produk ke database

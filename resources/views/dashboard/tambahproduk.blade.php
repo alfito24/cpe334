@@ -2,6 +2,11 @@
 @section('container')
     <!-- Content Header (Page header) -->
     <div class="content-header">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -61,16 +66,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Dikirim Dari</label>
-                                    <input type="text" name="harga_produk" placeholder="" class="form-control">
+                                    <input type="text" name="shipping_point" placeholder="" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputStatus">Bahan</label>
                                     <select id="inputStatus" name="bahan_produk" class="form-control custom-select">
                                         <option selected disabled>Select one</option>
-                                        <option value="pl">Plastic</option>
-                                        <option value="pp">Paper</option>
-                                        <option value="m">Metals</option>
-                                        <option value="g">Glass</option>
+                                        <option value="Plastic">Plastic</option>
+                                        <option value="Paper">Paper</option>
+                                        <option value="Metals">Metals</option>
+                                        <option value="Glass">Glass</option>
                                     </select>
                                 </div>
                             </div>

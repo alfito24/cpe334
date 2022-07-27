@@ -22,7 +22,8 @@
                     <a href="#" class=""><i class="fa-solid fa-xmark"></i></a>
                 </div>
                 <h1 class="font-bold text-2xl text-center mt-1 lg:text-3xl">Let’s login into your account</h1>
-                <form action="">
+                <form action="/login" method="POST">
+                    @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
                             <input type="email" placeholder="Enter your email" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] ">

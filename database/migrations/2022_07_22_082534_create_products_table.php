@@ -21,10 +21,7 @@ class CreateProductsTable extends Migration
             $table->longText('deskripsi');
             $table->integer('stock');
             $table->string('shipping_point');
-            $table->integer('bahan_plastic')->nullable();
-            $table->integer('bahan_paper')->nullable();
-            $table->integer('bahan_metals')->nullable();
-            $table->integer('bahan_glass')->nullable();
+            $table->string('bahan_produk')->nullable();
             $table->timestamps();
         });
     }
