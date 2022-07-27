@@ -51,22 +51,22 @@
                             </div>
                         </label>
                     </div>
-                    <div class="flex justify-between mt-2">
-                        <label class="block my-4">
-                            <input type="checkbox" class=" accent-[#3166AD] focus:hover:text-[#3166AD]">
-                            <span class="py-2 text-sm text-[#B5B3BC] hover:text-[#3166AD]"> Remember me </span>
+                    <div class="flex justify-between mt-2" hidden style="">
+                        <label class="block my-4" hidden>
+                            {{-- <input type="checkbox" class=" accent-[#3166AD] focus:hover:text-[#3166AD]">
+                            <span class="py-2 text-sm text-[#B5B3BC] hover:text-[#3166AD]"> Remember me </span> --}}
                         </label>
-                        <label class="block my-4">
-                            <a href="#" class="cursor-pointer text-[#B5B3BC] hover:text-[#3166AD]">
+                        <label class="block my-4" hidden>
+                            {{-- <a href="#" class="cursor-pointer text-[#B5B3BC] hover:text-[#3166AD]">
                                 <span class="text-sm">Forgot Password?</span>
-                            </a>
+                            </a> --}}
                         </label>
                     </div>
                     <button class="mt-3 text-lg font-semibold bg-[#3166AD] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
                         Login
                     </button>
                 </form>
-                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Don’t have an account? <a href="#" class="text-[#3166AD] font-semibold"> Sign up here </a></p>
+                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Don’t have an account? <a href="/register" class="text-[#3166AD] font-semibold"> Sign up here </a></p>
             </div>
         </div>
     </div>

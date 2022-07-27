@@ -17,31 +17,43 @@
                 <h1 class="font-bold text-center text-white mt-1 lg:text-2xl lg:py-28">We help you to <br> manage your trash</h1>
                 <img src="{{asset('images/login.png')}}" alt="" class="px-16">
             </div>
-            <div class="px-7 py-6 lg:px-8 lg:flex-1">
+            <div class="px-10 py-6 lg:px-8 lg:flex-1">
                 <div class="flex justify-end">
                     <a href="#" class=""><i class="fa-solid fa-xmark"></i></a>
                 </div>
                 <h1 class="font-bold text-2xl text-center mt-1 lg:text-3xl">Let’s make your <br> account!</h1>
-                <form action="">
+                <form action="/register" method="POST">
+                    @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
-                            <input type="email" placeholder="Enter your email" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] ">
-                        </label>
-                    </div>
-                    <div class="mt-5">
-                        <label for="name"><span class="font-semibold text-md">Nama</span>
-                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] ">
+                            <input type="email" placeholder="Enter your email" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="email">
                         </label>
                     </div>
                     <div class="mt-5">
                         <label for="username"><span class="font-semibold text-md">Username</span>
-                            <input type="text" placeholder="Enter your username" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] ">
+                            <input type="text" placeholder="Enter your username" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="username">
                         </label>
                     </div>
+                    <div class="mt-5">
+                        <label for="name"><span class="font-semibold text-md">Nama</span>
+                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="name">
+                        </label>
+                    </div>
+                    <div class="mt-5">
+                        <label for="phone"><span class="font-semibold text-md">Nomor Telepon</span>
+                            <input id="phone" type="text" placeholder="Enter your phone number" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="no_telp">
+                        </label>
+                    </div>
+                    <div class="mt-5">
+                        <label for="address"><span class="font-semibold text-md">Alamat</span>
+                            <input id="address" type="text" placeholder="Enter your home address" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="alamat">
+                        </label>
+                    </div>
+
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
                             <div class="relative">
-                                <input placeholder="Enter your password" :type="show ? 'password' : 'text'"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] ">
+                                <input placeholder="Enter your password" :type="show ? 'password' : 'text'"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="password">
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                                     <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
                                     :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +77,7 @@
                         Sign Up
                     </button>
                 </form>
-                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Already have an account? <a href="#" class="text-[#3166AD] font-semibold"> Login here </a></p>
+                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Already have an account? <a href="/login" class="text-[#3166AD] font-semibold"> Login here </a></p>
             </div>
         </div>
     </div>
