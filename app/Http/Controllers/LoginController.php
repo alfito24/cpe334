@@ -11,13 +11,15 @@ class LoginController extends Controller
         return view('login');
     }
     public function authenticate(Request $request){
-        dd($request);
         $credentials =  $request -> validate([
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
+            if(Auth::user()->role_id === 1){
+                return redirect('/dashboard');
+            }
             return redirect('/');
         }
         return back()->with('loginError', 'Login Failed');
@@ -30,6 +32,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return back();
+        return redirect('/');
     }
 }

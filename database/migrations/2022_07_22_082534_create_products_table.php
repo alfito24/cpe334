@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('judul');
             $table->longText('deskripsi');
             $table->integer('stock');
+            $table->integer('harga');
             $table->string('shipping_point');
             $table->string('bahan_produk')->nullable();
             $table->timestamps();

@@ -58,7 +58,13 @@
       <div class="collapse navbar-collapse justify-content-end" id=" toggleMenu">
 
             <ul class="nav" style="margin-right: 10px">
-                <li><a href="/login" class="nav-link login">Logout</a></li>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <li>
+                <button>Logout</button>
+            </li>
+            </form>
+
 
             </ul>
 
@@ -118,7 +124,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/dashboard/daftarproduk" class="nav-link">
                     <i class="nav-icon fas fas fas fas fa-list"></i>
                     <p>Daftar Produk</p>
                   </a>

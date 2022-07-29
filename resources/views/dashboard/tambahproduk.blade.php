@@ -25,7 +25,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="/tambah" method="POST" enctype="multipart/form-data">
+        <form action="/dashboard/tambahproduk" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container-fluid">
                 <div class="row">

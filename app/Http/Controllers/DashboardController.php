@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -17,4 +18,9 @@ class DashboardController extends Controller
     public function tambah(){
         return view('dashboard.tambahproduk');
     }
+    public function show(){
+        $products = DB::table('products')->get();
+        return view('dashboard.daftarproduk', compact('products'));
+    }
+
 }

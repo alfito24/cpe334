@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ Route::get('/dashboard', [DashboardController::class, 'index']); //halaman dashb
 
 //fitur produk
 Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']); //halaman tambah produk
-Route::post('/dashboard/tambahproduk', [ProductController::class, 'storeproduct']); //simpan produk ke database
+Route::post('/dashboard/tambahproduk', [ProductController::class, 'storeProduct']); //simpan produk ke database
+Route::get('/dashboard/daftarproduk', [DashboardController::class, 'show']); // halaman daftar produk
