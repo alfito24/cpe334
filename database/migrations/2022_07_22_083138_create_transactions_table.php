@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id('transaction_id');
+            $table->uuid('transaction_id')->primary();
             $table->integer('plastic')->nullable();
             $table->integer('paper')->nullable();
             $table->integer('metals')->nullable();

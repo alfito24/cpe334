@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
 use App\Models\Product;
 use App\Models\Transaction;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -49,6 +50,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $guarded = ['user_id'];
+    protected $primaryKey = 'user_id';
+    protected $keyType = 'string';
+    public $incrementing = false;
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function($model){
+            if(empty($model->{$model->getKeyName()})){
+                $model->{$model->getKeyName()} = Str::uuid();
+            }
+        });
+    }
 
     public function role(){
         return $this->hasMany(Role::class);

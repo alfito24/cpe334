@@ -31,8 +31,8 @@ class ProductController extends Controller
        // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'data_file';
 		$file->move($tujuan_upload,$nama_file);
-        DB::table('products')->insert([
-            'user_id'=>1,
+        $insert = Product::create([
+            'user_id'=> Auth::user()->user_id,
             'judul' => $request->nama_produk,
             'deskripsi' => $request->deskripsi_produk,
             'harga' => $request->harga_produk,
@@ -41,9 +41,22 @@ class ProductController extends Controller
             'bahan_produk' =>  $request->bahan_produk,
             'gambar' => $nama_file
         ]);
-        $request->session()->flash('success', 'Produk Anda berhasil ditambahkan');
-        // return redirect('/daftarproduk/'.{{Auth::user()->mitra_id}});
-        return redirect('/dashboard/daftarproduk');
+        // DB::table('products')->insert([
+        //     'user_id'=>1,
+        //     'judul' => $request->nama_produk,
+        //     'deskripsi' => $request->deskripsi_produk,
+        //     'harga' => $request->harga_produk,
+        //     'stock' => $request->stock_produk,
+        //     'shipping_point' => $request->shipping_point,
+        //     'bahan_produk' =>  $request->bahan_produk,
+        //     'gambar' => $nama_file
+        // ]);
+        if($insert) {
+            return redirect('/dashboard/daftarproduk');
+        } else {
+            return 'error, terjadi kesalahan';
+        }
+        // $request->session()->flash('success', 'Produk Anda berhasil ditambahkan');
     }
     public function hapus($id){
         DB::table('products')->where('product_id', $id)->delete();
@@ -71,7 +84,7 @@ class ProductController extends Controller
         $products->update([
                 'gambar' => $nama_file,
         ]);
-        }
+    }
         return redirect('/dashboard/daftarproduk');
     }
 }

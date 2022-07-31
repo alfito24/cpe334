@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'user_id'=>1,
             'name'=>'Alfito',
             'username'=>'alfito24',
             'email'=>'khansaalfito@gmail.com',
@@ -25,7 +24,6 @@ class UserSeeder extends Seeder
             'no_telp'=>'08123456789'
         ]);
         DB::table('users')->insert([
-            'user_id'=>2,
             'name'=>'Liefran',
             'username'=>'liefran20',
             'email'=>'liefran123@gmail.com',

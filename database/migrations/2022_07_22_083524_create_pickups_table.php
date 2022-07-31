@@ -14,7 +14,7 @@ class CreatePickupsTable extends Migration
     public function up()
     {
         Schema::create('pickups', function (Blueprint $table) {
-            $table->id('pickup_id');
+            $table->uuid('pickup_id')->primary();
             $table->string('location');
             $table->date('pickup_date');
             $table->time('pickup_time');
