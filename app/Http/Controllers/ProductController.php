@@ -45,4 +45,33 @@ class ProductController extends Controller
         // return redirect('/daftarproduk/'.{{Auth::user()->mitra_id}});
         return redirect('/dashboard/daftarproduk');
     }
+    public function hapus($id){
+        DB::table('products')->where('product_id', $id)->delete();
+        return redirect('/dashboard/daftarproduk');
+    }
+    public function updateProduct(Request $request, $id){
+        $products = DB::table('products')->where('product_id', $id);
+        $products->update([
+            'judul' => $request->nama_produk,
+            'deskripsi' => $request->deskripsi_produk,
+            'harga' => $request->harga_produk,
+            'stock' => $request->stock_produk,
+            'shipping_point' => $request->shipping_point,
+            'bahan_produk' =>  $request->bahan_produk
+        ]);
+        $this->validate($request, [
+            'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+        ]);
+        // menyimpan data file yang diupload ke variabel $file
+        if ($request->hasFile('file')) {
+        $file = $request->file('file');
+        $nama_file = $file->getClientOriginalName();
+       // isi dengan nama folder tempat kemana file diupload
+        $file->move('data_file',$nama_file);
+        $products->update([
+                'gambar' => $nama_file,
+        ]);
+        }
+        return redirect('/dashboard/daftarproduk');
+    }
 }

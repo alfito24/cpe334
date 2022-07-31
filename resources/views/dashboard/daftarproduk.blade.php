@@ -33,7 +33,7 @@
           <div class="card-header border-0">
             <h3 class="card-title">Produk</h3>
             <div class="card-tools">
-              <a href="/tambahproduk" class="btn btn-tool btn-sm">
+              <a href="/dashboard/tambahproduk" class="btn btn-tool btn-sm">
                 <i class="fas fa-plus"></i>
               </a>
               <a href="listproduk.html" class="btn btn-tool btn-sm">
@@ -58,7 +58,7 @@
                     {{ $m->judul }}
                   </td>
                   <td>Rp.{{ $m->harga }}</td>
-                  <td><a href="" class="btn btn-warning">Edit</a> | <a href="" class="btn btn-danger">Hapus</a></td>
+                  <td><a href="/dashboard/updateproduk/{{ $m->product_id }}" class="btn btn-warning">Edit</a> | <a href="/dashboard/hapusproduk/{{ $m->product_id }}" class="btn btn-danger">Hapus</a></td>
                 </tr>
               </tbody>
               @endforeach

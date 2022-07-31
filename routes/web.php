@@ -35,3 +35,6 @@ Route::get('/dashboard', [DashboardController::class, 'index']); //halaman dashb
 Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']); //halaman tambah produk
 Route::post('/dashboard/tambahproduk', [ProductController::class, 'storeProduct']); //simpan produk ke database
 Route::get('/dashboard/daftarproduk', [DashboardController::class, 'show']); // halaman daftar produk
+Route::get('/dashboard/hapusproduk/{id}', [ProductController::class, 'hapus']); // hapus produk
+Route::get('/dashboard/updateproduk/{id}', [DashboardController::class, 'showEdit']); // halaman edit produk
+Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updateProduct']); //  edit produk

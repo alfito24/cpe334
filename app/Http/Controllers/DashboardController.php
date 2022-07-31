@@ -22,5 +22,9 @@ class DashboardController extends Controller
         $products = DB::table('products')->get();
         return view('dashboard.daftarproduk', compact('products'));
     }
+    public function showEdit($id){
+        $products = DB::table('products')->where('product_id', $id)->first();
+        return view('dashboard.editproduk', compact('products'));
+    }
 
 }
