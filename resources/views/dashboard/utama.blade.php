@@ -307,21 +307,21 @@
             </div>
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                {{-- @foreach ( $mitra_produk as $m)
+                @foreach ( $products as $m)
                 <div class="col-md-3 mb-3">
                     <div class="card h-100">
                         <img class="img-fluid" alt="100%x280"
-                            src="{{ url('/data_file/'.$m->gambar_produkMitra) }}" style="height: 250px;width:250px">
+                            src="{{ url('/data_file/'.$m->gambar) }}" style="height: 250px;width:250px">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $m->nama_produk_mitra }}</h5>
+                            <h5 class="card-title">{{ $m->judul }}</h5>
                             <br>
-                            <h6 class="card-title"> Rp.{{ $m->harga_produk_mitra }}</h6>
+                            <h6 class="card-title"> Rp.{{ $m->harga }}</h6>
 
                             <a href="/varianoleh/21" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
-                @endforeach --}}
+                @endforeach
 
                 {{-- <div class="col-md-3 mb-3">
                     <div class="card h-100">

@@ -11,7 +11,8 @@ class DashboardController extends Controller
 {
     //dashboard
     public function index(){
-        return view('dashboard.utama');
+        $products = DB::table('products')->get();
+        return view('dashboard.utama', compact('products'));
     }
 
     //halaman tambah produk
