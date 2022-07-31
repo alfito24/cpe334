@@ -29,7 +29,7 @@ Route::get('/register', [RegisterController::class, 'show']); //halaman register
 Route::post('/register', [RegisterController::class, 'store']); //simpan data user ke database
 
 //fitur admin
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin'); //halaman dashboard
+Route::get('/dashboard', [DashboardController::class, 'index']); //halaman dashboard
 
 //fitur produk
 Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']); //halaman tambah produk
