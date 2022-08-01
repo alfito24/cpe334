@@ -46,11 +46,11 @@
                                 <div class="form-group">
                                     <label for="formFileMultiple" class="form-label">Gambar Produk</label> <br>
                                     <img src="" alt="" class="img-preview" style="width: 400px;height:400px">
-                                    <input class="form-control" name="file" type="file" id="image" onchange="previewImage()">
+                                    <input class="form-control" name="file" type="file" id="image" onchange="previewImage()" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Nama Produk</label>
-                                    <input type="text" name="nama_produk" class="form-control">
+                                    <input type="text" name="nama_produk" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Deskripsi Produk</label>
@@ -58,20 +58,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Stock Produk</label>
-                                    <input type="number" name="stock_produk" placeholder="" class="form-control">
+                                    <input type="number" name="stock_produk" placeholder="" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Harga Produk</label>
-                                    <input type="number" name="harga_produk" placeholder="Rp" class="form-control">
+                                    <input type="number" name="harga_produk" placeholder="Rp" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Dikirim Dari</label>
-                                    <input type="text" name="shipping_point" placeholder="" class="form-control">
+                                    <input type="text" name="shipping_point" placeholder="" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputStatus">Bahan</label>
-                                    <select id="inputStatus" name="bahan_produk" class="form-control custom-select">
-                                        <option selected disabled>Select one</option>
+                                    <select id="inputStatus" name="bahan_produk" class="form-control custom-select" required>
+                                        <option selected disabled hidden>Select one</option>
                                         <option value="Plastic">Plastic</option>
                                         <option value="Paper">Paper</option>
                                         <option value="Metals">Metals</option>

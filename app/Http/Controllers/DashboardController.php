@@ -11,7 +11,9 @@ class DashboardController extends Controller
 {
     //dashboard
     public function index(){
-        $products = DB::table('products')->get();
+        $products = Product::where('user_id', Auth::id())->get(); //ngambil produk yang diupload user
+
+
         return view('dashboard.utama', compact('products'));
     }
 
@@ -20,7 +22,8 @@ class DashboardController extends Controller
         return view('dashboard.tambahproduk');
     }
     public function show(){
-        $products = DB::table('products')->get();
+        $products = Product::where('user_id', Auth::id())->get();
+
         return view('dashboard.daftarproduk', compact('products'));
     }
     public function showEdit($id){
