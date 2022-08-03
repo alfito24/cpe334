@@ -80,14 +80,14 @@
         <form>
             <div class="relative mt-5">
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                  <svg aria-hidden="true" class="w-5 h-5 text-[#3367AD]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                 </div>
-                <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                <input datepicker datepicker-autohide type="text" class="border-2 border-[#3367AD] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Select date">
             </div>
-            <div class="flex justify-center text-[#3166AD] rounded-lg border-[#3367AD] border-2 mt-5 md:mt-6 h-11 pt-2">
+            <div class="flex justify-center text-gray-900 rounded-lg border-[#3367AD] border-2 mt-5 md:mt-6 h-11 pt-2">
                 <div class=" w-40 bg-white shadow-xl">
                   <div class="flex">
-                    <select name="hours" class="bg-transparent text-xl md:text-2xl appearance-none outline-none px-2 ">
+                    <select name="hours" class="bg-transparent text-xl appearance-none outline-none px-2 ">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -102,13 +102,13 @@
                       <option value="12">12</option>
                     </select>
                     <span class="text-xl mr-3">:</span>
-                    <select name="minutes" class="bg-transparent text-xl md:text-2xl appearance-none outline-none mr-4 px-2">
+                    <select name="minutes" class="bg-transparent text-xl appearance-none outline-none mr-4 px-2">
                       <option value="0">00</option>
                       <option value="15">15</option>
                       <option value="30">30</option>
                       <option value="45">45</option>
                     </select>
-                    <select name="ampm" class="bg-transparent text-xl md:text-2xl appearance-none outline-none px-2">
+                    <select name="ampm" class="bg-transparent text-xl appearance-none outline-none px-2">
                       <option value="am">AM</option>
                       <option value="pm">PM</option>
                     </select>
@@ -145,6 +145,7 @@
         <img src="{{asset('images/pickupkanan.png')}}">
     </div>
 </div>
+<script src="https://cdn.tailwindcss.com"></script>
 @endsection
 
 @section('pickupactive')
