@@ -14,7 +14,7 @@
     <div class="container mx-auto font-poppins max-w-sm m-9 bg-[#FBFCFF]  lg:max-w-4xl">
         <div class="rounded-lg flex shadow-full lg:rounded-none lg:rounded-r-lg">
             <div class="hidden bg-[#3166AD] lg:inline lg:flex-1 lg:rounded-l-lg">
-                <h1 class="font-bold text-center text-white mt-1 lg:text-2xl lg:py-20">We help you to <br> manage your trash</h1>
+                <h1 class="font-bold text-center text-white mt-1 lg:text-2xl lg:py-16">We help you to <br> manage your trash</h1>
                 <img src="{{asset('images/login.png')}}" alt="" class="px-16">
             </div>
             <div class="px-7 py-6 lg:px-8 lg:flex-1">

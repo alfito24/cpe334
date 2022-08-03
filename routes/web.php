@@ -18,8 +18,20 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/template', function () {
+    return view('template');
+});
+
+Route::get('/pickup', function () {
+    return view('pickup.pickup');
+});
+Route::get('/buyproducts', function () {
+    return view('buyproducts.buy');
+});
+
 
 //fitur register dan login
 Route::get('/login', [LoginController::class, 'show']); //halaman login
