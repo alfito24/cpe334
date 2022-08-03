@@ -104,7 +104,7 @@
                             <option value="8">8</option>
                             <option value="9">9</option>
                             <option value="10">10</option>
-                            <option value="11">10</option>
+                            <option value="11">11</option>
                             <option value="12">12</option>
                         </select>
                         <span class="text-xl mr-3">:</span>
@@ -135,12 +135,13 @@
                 <div class="rounded-t-lg border-[#3367AD] border-2 h-11 px-3 py-2.5 mt-5">
                     <img src="{{asset('images/price.png')}}" alt="price" class="w-6 inline">
                     <h4 class="font-semibold inline pl-2 text-[#66737D]">Total Price</h4>
-                    <h4 class="font-semibold float-right  text-[#66737D]">Rp7.500</h4>
+                    <h4 class="font-semibold float-right  text-[#66737D]" id="totalPrice">Rp0</h4>
                 </div>
                 <div class="rounded-b-lg border-[#3367AD] border-t-0 border-2 h-11 px-3 py-2.5">
                     <img src="{{asset('images/pointps.png')}}" alt="price" class="w-6 inline">
                     <h4 class="font-semibold inline pl-2 text-[#66737D]">B Points</h4>
-                    <h4 class="font-semibold float-right  text-[#66737D]">75</h4>
+                    <h4 class="font-semibold float-right  text-[#66737D]" id="bPoints">0</h4>
+                    <input type="hidden" name="bPoints" id="totalbPoints" value="0">
                 </div>
                 <div class="mt-8">
                     <button type="submit" class="py-2 min-w-full bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-[black] transition duration-300">Order</button>
