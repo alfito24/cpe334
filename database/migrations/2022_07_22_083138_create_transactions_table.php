@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateTransactionsTable extends Migration
@@ -19,8 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('paper')->nullable();
             $table->integer('metals')->nullable();
             $table->integer('glass')->nullable();
-            $table->foreignId('user_id')->constraint();
-            $table->foreignId('pickup_id')->constraint();
+            $table->foreignUuid('user_id')->constraint();
             $table->integer('bpoints');
             $table->timestamps();
         });
