@@ -21,6 +21,10 @@ class ProductController extends Controller
 
     //     return redirect()->back()->with('success', 'Produk berhasil ditambahkan');
     // }
+    public function showbuyproducts(){
+        return view('buyproducts.buy');
+    }
+
     public function storeProduct(Request $request){
         $this->validate($request, [
 			'file' => 'required|file|image|mimes:jpeg,png,jpg|max:4096'
