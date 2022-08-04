@@ -82,5 +82,33 @@
             @section('isikonten')
             @show
         </div>
+        <footer class="bg-[#3166AD] mt-16">
+            <div class="flex md:mt-32 py-7 lg:py-12">
+                <div class="flex flex-none w-[30%] lg:w-[35%] px-4 md:px-10 lg:px-24">
+                    <img src="{{asset('images/logo.png')}}" alt="Logo" class="object-contain">
+                </div>
+                <div class="flex-initial w-[35%] lg:w-[35%] font-poppins px-3 lg:px-5">
+                    <div>
+                        <div class="text-white font-bold text-md md:text-lg lg:text-2xl" >
+                            <h1>Our Service</h1>
+                        </div>
+                        <div class="pt-2">
+                            <a href="/pickup" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Pickup</a>
+                        </div>
+                        <div>
+                            <a href="/buyproducts" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Buy Products</a>
+                        </div>
+                        <div>
+                            <a href="#" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Redeem E-money</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-initial w-[35%] lg:w-[30%]">
+                    <div class="text-white font-bold flex items-center justify-center text-lg md:text-2xl lg:text-3xl md:pr-16 ">
+                        <h1>Manage your trash with just a click! </h1>
+                    </div>
+                </div>
+            </div>
+        </footer>
 	</body>
 </html>

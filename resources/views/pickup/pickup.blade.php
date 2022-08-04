@@ -138,7 +138,7 @@
                     <h4 class="font-semibold float-right  text-[#66737D]" id="totalPrice">Rp0</h4>
                 </div>
                 <div class="rounded-b-lg border-[#3367AD] border-t-0 border-2 h-11 px-3 py-2.5">
-                    <img src="{{asset('images/pointps.png')}}" alt="price" class="w-6 inline">
+                    <img src="{{asset('images/points.png')}}" alt="price" class="w-6 inline">
                     <h4 class="font-semibold inline pl-2 text-[#66737D]">B Points</h4>
                     <h4 class="font-semibold float-right  text-[#66737D]" id="bPoints">0</h4>
                     <input type="hidden" name="bPoints" id="totalbPoints" value="0">
