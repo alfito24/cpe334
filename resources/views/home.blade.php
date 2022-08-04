@@ -7,8 +7,8 @@
     <img src="{{asset('images/home.png')}}" class="w-3/5 md:w-2/5 pt-12 md:pt-20">
     <h1 class="pt-20 md:pt-28">Our services</h1>
 </div>
-<div class="grid grid-cols-1 gap-x-10 gap-y-16 font-poppins mt-14 px-32 sm:grid-cols-3 md:mt-24 md:px-44">
-    <div class="py-4 hover:shadow-full hover:rounded-lg">
+<div class="grid grid-cols-1 gap-x-10 gap-y-16 font-poppins mt-14 px-32 sm:grid-cols-3 md:mt-24 md:px-44" >
+    <div class="py-4 hover:shadow-full hover:rounded-lg" onclick='location.href="/pickup"'>
         <img src="{{asset('images/pickupcar.png')}}" alt="Pickup Service" class="w-[60%] mx-auto">
         <div class="pt-9 px-4">
             <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Pickup Service</h3>
