@@ -18,6 +18,7 @@ class CreatePickupsTable extends Migration
             $table->uuid('pickup_id')->primary();
             $table->foreignUuid('transaction_id')->constraint();
             $table->string('location');
+            $table->string('note')->nullable();
             $table->date('pickup_date');
             $table->time('pickup_time');
             $table->string('status');

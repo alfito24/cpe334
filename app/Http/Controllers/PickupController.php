@@ -29,6 +29,7 @@ class PickupController extends Controller
             'bpoints' => $request->bPoints,
         ])->pickup()->create([
             'location' => $request->alamatPickup,
+            'note' => $request->notePickup,
             'pickup_date' => date("d/m/y", strtotime($request->tanggalPickup)),
             'pickup_time' => $pickupTime,
             'status' => 'Belum Diambil'
