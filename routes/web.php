@@ -37,6 +37,7 @@ Route::get('/template', function () {
 //fitur Pickup
 Route::get('/pickup', [PickupController::class, 'index']);
 Route::post('/pickup/storepickup', [PickupController::class, 'storepickup']);
+Route::get('/pickup/cancelpickup/{$id_transaksi}', [PickupController::class, 'cancelpickup']);
 
 //fitur Beli product
 Route::get('/buyproducts', [ProductController::class, 'showbuyproducts']);
