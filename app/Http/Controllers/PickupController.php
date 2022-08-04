@@ -41,6 +41,7 @@ class PickupController extends Controller
         $pickup = Pickup::where('transaction_id', $id_transaksi)->first();
 
         $pickup->status = 'Pickup Dibatalkan';
+        $pickup->save();
 
         return redirect()->back()->with('canceled', 'Pickup berhasil dibatalkan');
     }
