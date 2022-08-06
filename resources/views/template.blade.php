@@ -37,8 +37,12 @@
 
                         <!-- Secondary Navbar items -->
                         <div class="hidden md:flex items-center space-x-3 ">
+                            @guest
                             <a href="/login" class="py-2 px-6 bg-gradient-to-r from-[#3166AD] to-[#BFD9EB] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">Log In</a>
                             <a href="/register" class="py-2 px-6 font-medium text-white rounded hover:bg-[#BFD9EB] transition duration-300">Register</a>
+                            @else
+                            <a href="/register" class="py-2 px-6 font-medium text-white rounded hover:bg-[#BFD9EB] transition duration-300">{{ Auth::user()->name }}</a>
+                            @endguest
                         </div>
                     </div>
 					<!-- Mobile menu button -->
@@ -65,8 +69,12 @@
 					<li><a @yield('home1active') href="/" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Home</a></li>
 					<li><a @yield('pickup1active') href="/pickup" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Pickup</a></li>
 					<li><a @yield('buyproducts1active') href="/buyproducts" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Buy Products</a></li>
-					<li><a href="/login" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Log In</a></li>
+                    @if (Auth::check())
+                    <li><a href="/login" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Logout</a></li>
+                    @else
+                    <li><a href="/login" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Log Inn</a></li>
                     <li><a href="/register" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Register</a></li>
+                    @endif
                 </ul>
 			</div>
 			<script>
