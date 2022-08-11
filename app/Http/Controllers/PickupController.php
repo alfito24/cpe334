@@ -28,7 +28,9 @@ class PickupController extends Controller
             'user_id' => Auth::id(),
             'bpoints' => $request->bPoints,
         ])->pickup()->create([
-            'location' => $request->alamatPickup,
+            'street' => $request->alamatPickup,
+            'number' => $request->number,
+            'city' => $request->city,
             'note' => $request->notePickup,
             'pickup_date' => date("d/m/y", strtotime($request->tanggalPickup)),
             'pickup_time' => $pickupTime,

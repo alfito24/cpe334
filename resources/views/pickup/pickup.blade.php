@@ -69,13 +69,13 @@
 
             <div class="flex mt-5">
                 <div class="flex-auto w-[55%] mr-3">
-                    <input type="text" id="address" class="p-2.5 z-20 w-full text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="address" required name="alamatPickup">
+                    <input type="text" id="address" class="p-2.5 z-20 w-full text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="street" required name="alamatPickup">
                 </div>
                 <div class="flex-auto w-[15%] mr-3">
-                    <input type="text" id="no" class=" p-2.5 w-full text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="no" required>
+                    <input type="text" id="no" class=" p-2.5 w-full text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="no" required name="number">
                 </div>
                 <div class="flex-auto w-[30%]">
-                    <input type="text" id="city" class="p-2.5 w-full text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="city" required>
+                    <input type="text" id="city" class="p-2.5 w-full text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="city" required name="city">
                 </div>
             </div>
             <div class="mt-5">

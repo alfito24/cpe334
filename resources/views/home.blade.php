@@ -70,6 +70,8 @@
         </div>
         <img src="{{asset('images/metal1.png')}}" alt="Metal" class="w-[15%] sm:w-[30%] md:w-[15%]">
     </div>
+    
+
 </div>
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection

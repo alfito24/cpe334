@@ -17,7 +17,9 @@ class CreatePickupsTable extends Migration
         Schema::create('pickups', function (Blueprint $table) {
             $table->uuid('pickup_id')->primary();
             $table->foreignUuid('transaction_id')->constraint();
-            $table->string('location');
+            $table->string('street');
+            $table->string('number');
+            $table->string('city');
             $table->string('note')->nullable();
             $table->date('pickup_date');
             $table->time('pickup_time');
