@@ -97,7 +97,7 @@
                         </div>
                     </li>
                     @else
-                    <li><a href="/login" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Log Inn</a></li>
+                    <li><a href="/login" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Log In</a></li>
                     <li><a href="/register" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Register</a></li>
                     @endif
                 </ul>

@@ -53,3 +53,7 @@ Route::get('/dashboard/daftarproduk', [DashboardController::class, 'show']); // 
 Route::get('/dashboard/hapusproduk/{id}', [ProductController::class, 'hapus']); // hapus produk
 Route::get('/dashboard/updateproduk/{id}', [DashboardController::class, 'showEdit']); // halaman edit produk
 Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updateProduct']); //  edit produk
+
+Route::get('/account', function () {
+    return view('account');
+});

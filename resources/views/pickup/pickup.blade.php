@@ -10,9 +10,9 @@
     @csrf
     <div class="grid grid-cols-2 gap-x-10 gap-y-16 font-poppins mt-14 px-12 md:grid-cols-4 md:mt-24">
         <div>
-            <img src="{{asset('images/plastic.png')}}" alt="plastic" class="w-6 mx-auto">
+            <img src="{{asset('images/plastic.png')}}" alt="newspaper" class="w-6 mx-auto">
             <div class="pt-9">
-                <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic</h3>
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Newspaper</h3>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_plastic" class="plastic" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -23,9 +23,35 @@
         </div>
 
         <div>
-            <img src="{{asset('images/paper.png')}}" alt="paper" class="w-14 mx-auto">
+            <img src="{{asset('images/paper.png')}}" alt="cardboard" class="w-14 mx-auto">
             <div class="pt-9">
-                <h3 class="text-[#66737D] text-center font-semibold text-lg">Paper</h3>
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Cardboard</h3>
+            </div>
+            <div class="pt-3 text-center">
+                <button type="button" id="down_paper" class="paper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_paper" value="0" name="jumlah_paper">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_paper">0 kg</h3>
+                <button type="button" id="up_paper" class="paper" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+            </div>
+        </div>
+
+        <div>
+            <img src="{{asset('images/plastic.png')}}" alt="plasticbag" class="w-6 mx-auto">
+            <div class="pt-9">
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Bag</h3>
+            </div>
+            <div class="pt-3 text-center">
+                <button type="button" id="down_plastic" class="plastic" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_plastic" value="0" name="jumlah_plastic">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_plastic">0 kg</h3>
+                <button type="button" id="up_plastic" class="plastic" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+            </div>
+        </div>
+
+        <div>
+            <img src="{{asset('images/paper.png')}}" alt="plasticglass" class="w-14 mx-auto">
+            <div class="pt-9">
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Glass</h3>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_paper" class="paper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -52,6 +78,32 @@
             <img src="{{asset('images/glass.png')}}" alt="glass" class="w-14 mx-auto pt-1">
             <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Glass</h3>
+            </div>
+            <div class="pt-3 text-center">
+                <button type="button" id="down_glass" class="glass" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_glass" value="0" name="jumlah_glass">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_glass">0 kg</h3>
+                <button type="button" id="up_glass" class="glass" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+            </div>
+        </div>
+
+        <div>
+            <img src="{{asset('images/metals.png')}}" alt="aluminium" class="w-11 mx-auto pt-1">
+            <div class="pt-10">
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Aluminium</h3>
+            </div>
+            <div class="pt-3 text-center">
+                <button type="button" id="down_metals" class="metals" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_metals" value="0" name="jumlah_metals">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_metals">0 kg</h3>
+                <button type="button" id="up_metals" class="metals" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+            </div>
+        </div>
+
+        <div>
+            <img src="{{asset('images/glass.png')}}" alt="copper" class="w-14 mx-auto pt-1">
+            <div class="pt-9">
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Copper</h3>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_glass" class="glass" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
