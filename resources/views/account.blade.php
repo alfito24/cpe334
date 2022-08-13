@@ -17,7 +17,7 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Nama</td>
-                    <td class="w-[50%]">Frankie De Jong</td>
+                    <td class="w-[50%]">{{ $profil->name }}</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
@@ -34,11 +34,11 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Email </td>
-                    <td class="w-[50%]">dejong@gmail.com</td>
+                    <td class="w-[50%]">{{ $profil->email }}</td>
                 </tr>
                 <tr>
                     <td>No. HP</td>
-                    <td>085342352562</td>
+                    <td>{{ $profil->no_telp }}</td>
                 </tr>
             </table>
         </div>
@@ -47,7 +47,7 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Alamat</td>
-                    <td class="w-[50%]">Jalan Kenangan 99 </td>
+                    <td class="w-[50%]">{{ $profil->alamat }}</td>
                 </tr>
             </table>
         </div>

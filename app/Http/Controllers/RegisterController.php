@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -27,5 +29,9 @@ class RegisterController extends Controller
 
          $request->session()->flash('success', 'Registration was successful! Please Login to your account');
          return redirect('/login');
+        }
+        public function account(){
+            $profil = DB::table('users')->where('user_id', Auth::id())->first();
+            return view('account', compact('profil'));
         }
 }
