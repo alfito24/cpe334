@@ -15,10 +15,10 @@
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Newspaper</h3>
             </div>
             <div class="pt-3 text-center">
-                <button type="button" id="down_plastic" class="plastic" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
-                <input type="hidden" id="kuantitas_plastic" value="0" name="jumlah_plastic">
-                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_plastic">0 kg</h3>
-                <button type="button" id="up_plastic" class="plastic" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+                <button type="button" id="down_newspaper" class="newspaper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_newspaper" value="0" name="jumlah_newspaper">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_newspaper">0 kg</h3>
+                <button type="button" id="up_newspaper" class="newspaper" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
             </div>
         </div>
 
@@ -28,10 +28,10 @@
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Cardboard</h3>
             </div>
             <div class="pt-3 text-center">
-                <button type="button" id="down_paper" class="paper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
-                <input type="hidden" id="kuantitas_paper" value="0" name="jumlah_paper">
-                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_paper">0 kg</h3>
-                <button type="button" id="up_paper" class="paper" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+                <button type="button" id="down_cardboard" class="cardboard" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_cardboard" value="0" name="jumlah_cardboard">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_cardboard">0 kg</h3>
+                <button type="button" id="up_cardboard" class="cardboard" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
             </div>
         </div>
 
@@ -41,10 +41,10 @@
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Bag</h3>
             </div>
             <div class="pt-3 text-center">
-                <button type="button" id="down_plastic" class="plastic" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
-                <input type="hidden" id="kuantitas_plastic" value="0" name="jumlah_plastic">
-                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_plastic">0 kg</h3>
-                <button type="button" id="up_plastic" class="plastic" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+                <button type="button" id="down_plasticBag" class="plasticBag" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_plasticBag" value="0" name="jumlah_plasticBag">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_plasticBag">0 kg</h3>
+                <button type="button" id="up_plasticBag" class="plasticBag" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
             </div>
         </div>
 
@@ -54,10 +54,10 @@
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Glass</h3>
             </div>
             <div class="pt-3 text-center">
-                <button type="button" id="down_paper" class="paper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
-                <input type="hidden" id="kuantitas_paper" value="0" name="jumlah_paper">
-                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_paper">0 kg</h3>
-                <button type="button" id="up_paper" class="paper" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+                <button type="button" id="down_plasticGlass" class="plasticGlass" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_plasticGlass" value="0" name="jumlah_plasticGlass">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_plasticGlass">0 kg</h3>
+                <button type="button" id="up_plasticGlass" class="plasticGlass" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
             </div>
         </div>
 
@@ -93,10 +93,10 @@
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Aluminium</h3>
             </div>
             <div class="pt-3 text-center">
-                <button type="button" id="down_metals" class="metals" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
-                <input type="hidden" id="kuantitas_metals" value="0" name="jumlah_metals">
-                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_metals">0 kg</h3>
-                <button type="button" id="up_metals" class="metals" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+                <button type="button" id="down_aluminium" class="aluminium" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_aluminium" value="0" name="jumlah_aluminium">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_aluminium">0 kg</h3>
+                <button type="button" id="up_aluminium" class="aluminium" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
             </div>
         </div>
 
@@ -106,10 +106,10 @@
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Copper</h3>
             </div>
             <div class="pt-3 text-center">
-                <button type="button" id="down_glass" class="glass" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
-                <input type="hidden" id="kuantitas_glass" value="0" name="jumlah_glass">
-                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_glass">0 kg</h3>
-                <button type="button" id="up_glass" class="glass" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
+                <button type="button" id="down_copper" class="copper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
+                <input type="hidden" id="kuantitas_copper" value="0" name="jumlah_copper">
+                <h3 class="font-semibold text-md inline px-3 text-[#3166AD]" id="jumlah_copper">0 kg</h3>
+                <button type="button" id="up_copper" class="copper" onclick="up(this.className)"><img src="{{asset('images/plus.png')}}" alt="plus" class="w-6 inline"></button>
             </div>
         </div>
     </div>
@@ -219,9 +219,47 @@
         if(jumlah>0){
             jumlah--;
             document.getElementById('kuantitas_' + className).value = jumlah; //masukkan perubahan ke input value
+
+            //decrement karena fungsi down
+            document.getElementById('jumlah_' + className).innerHTML = jumlah + " kg";
+
+            let totalHarga = document.getElementById('totalPrice').textContent;
+            let harga = totalHarga.split('Rp');
+
+            //hitung harga baru sesuai dengan jenis sampah yang diubah
+            let hargaBaru = parseInt(harga[1]);
+
+            switch(className){
+                case 'newspaper':
+                hargaBaru-=240;
+                break;
+                case "cardboard":
+                hargaBaru-=100;
+                break;
+                case "plasticBag":
+                hargaBaru-=40;
+                break;
+                case "plasticGlass":
+                hargaBaru-=300;
+                break;
+                case "aluminium":
+                hargaBaru-=1400;
+                break;
+                case "copper":
+                hargaBaru-=9000;
+                break;
+                case "metals":
+                hargaBaru-=200;
+                break;
+                case "glass":
+                hargaBaru-=20;
+                break;
+            }
+
+            //update total price dan bpoints
+            document.getElementById('totalPrice').textContent = 'Rp' + hargaBaru;
+            updateBpoints();
         }
-        //decrement karena fungsi down
-        document.getElementById('jumlah_' + className).innerHTML = jumlah + " kg";
     }
 
     function up(className){
@@ -230,6 +268,52 @@
         jumlah++; //increment karena fungsi up
         document.getElementById('kuantitas_' + className).value = jumlah; //masukkan perubahan ke input value
         document.getElementById('jumlah_' + className).innerHTML = jumlah + " kg";
+
+        //ambil data harga
+        let totalHarga = document.getElementById('totalPrice').textContent;
+        let harga = totalHarga.split('Rp');
+
+        //hitung harga baru sesuai dengan jenis sampah yang diubah
+        let hargaBaru = parseInt(harga[1]);
+
+        switch(className){
+            case 'newspaper':
+            hargaBaru+=240;
+            break;
+            case "cardboard":
+            hargaBaru+=100;
+            break;
+            case "plasticBag":
+            hargaBaru+=40;
+            break;
+            case "plasticGlass":
+            hargaBaru+=300;
+            break;
+            case "aluminium":
+            hargaBaru+=1400;
+            break;
+            case "copper":
+            hargaBaru+=9000;
+            break;
+            case "metals":
+            hargaBaru+=200;
+            break;
+            case "glass":
+            hargaBaru+=20;
+            break;
+        }
+
+        //update total price dan bpoints
+        document.getElementById('totalPrice').textContent = 'Rp' + hargaBaru;
+        updateBpoints();
+    }
+
+    function updateBpoints(){
+        let totalHarga = document.getElementById('totalPrice').textContent;
+        let harga = totalHarga.split('Rp');
+        let bpoints = parseInt(harga[1]) * 0.1;
+        document.getElementById('bPoints').textContent = bpoints + ' pts';
+        document.getElementById('totalbPoints').value = bpoints;
     }
 </script>
 @endsection

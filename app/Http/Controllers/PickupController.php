@@ -21,10 +21,14 @@ class PickupController extends Controller
         $pickupTime = date('H:i', strtotime($request->hours.":".$request->minutes));
 
         Transaction::create([
-            'plastic' => $request->jumlah_plastic,
-            'paper' => $request->jumlah_paper,
+            'plastic_bag' => $request->jumlah_plasticBag,
+            'plastic_glass' => $request->jumlah_plasticGlass,
+            'newspaper' => $request->jumlah_newspaper,
             'metals' => $request->jumlah_metals,
             'glass' => $request->jumlah_glass,
+            'cardboard' => $request->jumlah_cardboard,
+            'aluminium' => $request->jumlah_aluminium,
+            'copper' => $request->jumlah_copper,
             'user_id' => Auth::id(),
             'bpoints' => $request->bPoints,
         ])->pickup()->create([
