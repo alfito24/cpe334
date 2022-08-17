@@ -10,9 +10,12 @@
     @csrf
     <div class="grid grid-cols-2 gap-x-10 gap-y-16 font-poppins mt-14 px-12 md:grid-cols-4 md:mt-24">
         <div>
-            <img src="{{asset('images/plastic.png')}}" alt="newspaper" class="w-6 mx-auto">
+            <img src="{{asset('images/newspaper.png')}}" alt="newspaper" class="w-14 mx-auto">
             <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Newspaper</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_newspaper" class="newspaper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -23,9 +26,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/paper.png')}}" alt="cardboard" class="w-14 mx-auto">
+            <img src="{{asset('images/cardboard.png')}}" alt="cardboard" class="w-14 mx-auto">
             <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Cardboard</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_cardboard" class="cardboard" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -36,9 +42,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/plastic.png')}}" alt="plasticbag" class="w-6 mx-auto">
+            <img src="{{asset('images/plasticbag.png')}}" alt="plasticbag" class="w-14 mx-auto">
             <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Bag</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_plasticBag" class="plasticBag" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -49,9 +58,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/paper.png')}}" alt="plasticglass" class="w-14 mx-auto">
+            <img src="{{asset('images/plasticcup.png')}}" alt="plasticcup" class="w-14 mx-auto">
             <div class="pt-9">
-                <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Glass</h3>
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Plastic Cup</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_plasticGlass" class="plasticGlass" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -62,9 +74,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/metals.png')}}" alt="metals" class="w-11 mx-auto pt-1">
-            <div class="pt-10">
-                <h3 class="text-[#66737D] text-center font-semibold text-lg">Metals</h3>
+            <img src="{{asset('images/steel.png')}}" alt="steel" class="w-14 mx-auto">
+            <div class="pt-9">
+                <h3 class="text-[#66737D] text-center font-semibold text-lg">Steel</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_metals" class="metals" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -75,9 +90,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/glass.png')}}" alt="glass" class="w-14 mx-auto pt-1">
+            <img src="{{asset('images/glass.png')}}" alt="glass" class="w-14 mx-auto">
             <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Glass</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_glass" class="glass" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -88,9 +106,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/metals.png')}}" alt="aluminium" class="w-11 mx-auto pt-1">
-            <div class="pt-10">
+            <img src="{{asset('images/aluminium.png')}}" alt="aluminium" class="w-14 mx-auto">
+            <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Aluminium</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_aluminium" class="aluminium" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>
@@ -101,9 +122,12 @@
         </div>
 
         <div>
-            <img src="{{asset('images/glass.png')}}" alt="copper" class="w-14 mx-auto pt-1">
+            <img src="{{asset('images/copper.png')}}" alt="copper" class="w-14 mx-auto">
             <div class="pt-9">
                 <h3 class="text-[#66737D] text-center font-semibold text-lg">Copper</h3>
+            </div>
+            <div class="pt-2 text-center">
+                <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
             </div>
             <div class="pt-3 text-center">
                 <button type="button" id="down_copper" class="copper" onclick="down(this.className)"><img src="{{asset('images/min.png')}}" alt="min" class="w-6 inline"></button>

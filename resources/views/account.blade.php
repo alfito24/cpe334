@@ -6,9 +6,9 @@
 <div class="text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-28 text-2xl md:mt-36 md:text-3xl">
     <h1>Manage your account</h1>
 </div>
-<div class="grid grid-cols-1 gap-y-10 font-poppins mt-14 lg:grid-cols-[300px_500px_450px]" >
+<div class="grid grid-cols-1 gap-y-10 font-poppins mt-14 lg:grid-cols-[300px_minmax(500px,_1fr)_minmax(450px,_1fr)]" >
     <div class="py-4">
-        <img src="{{asset('images/profile.png')}}" class="w-[50%] md:w-[80%] md:pl-7 mx-auto rounded-full lg:rounded-xl">
+        <img src="{{asset('images/profile.png')}}" class="w-[50%] md:w-[30%] lg:w-[80%] mx-auto rounded-full lg:rounded-xl">
     </div>
     <div class="py-4 md:px-10">
         <a href="" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Ubah</a>
@@ -17,7 +17,7 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Nama</td>
-                    <td class="w-[50%]">{{ $profil->name }}</td>
+                    <td class="w-[50%]">{{--{{ $profil->name }}--}}</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
@@ -34,11 +34,11 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Email </td>
-                    <td class="w-[50%]">{{ $profil->email }}</td>
+                    <td class="w-[50%]">{{--{{ $profil->email }}--}}</td>
                 </tr>
                 <tr>
                     <td>No. HP</td>
-                    <td>{{ $profil->no_telp }}</td>
+                    <td>{{--{{ $profil->no_telp }}--}}</td>
                 </tr>
             </table>
         </div>
@@ -47,7 +47,7 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Alamat</td>
-                    <td class="w-[50%]">{{ $profil->alamat }}</td>
+                    <td class="w-[50%]">{{--{{ $profil->alamat }}--}}</td>
                 </tr>
             </table>
         </div>

@@ -57,3 +57,11 @@ Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updatePr
 Route::get('/account', function () {
     return view('account');
 });
+
+Route::get('/updateprofile', function () {
+    return view('updateprofile');
+});
+
+Route::get('/detail', function () {
+    return view('buyproducts.detail');
+});
