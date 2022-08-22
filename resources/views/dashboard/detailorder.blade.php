@@ -59,14 +59,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Harga Produk</label>
-                                    <input type="number" name="harga_produk" placeholder="Rp" class="form-control" value="{{ $products->harga }}">
+                                    {{-- <input type="number" name="harga_produk" placeholder="Rp" class="form-control" value="{{ $products->harga }}"> --}}
                                 </div>
                                     {{-- @php
                                         $alamat = preg_split('/ /', $o->street);
                                     @endphp --}}
                                 <div class="form-group">
                                     <label for="inputName">Alamat</label>
-                                    <input type="text" name="alamat" placeholder="" class="form-control" value="{{ $o->street }} {{ $o->number }} {{ $o->city }}">
+                                    {{-- <input type="text" name="alamat" placeholder="" class="form-control" value="{{ $o->street }} {{ $o->number }} {{ $o->city }}"> --}}
                                    {{-- @foreach ($alamat as $a )
                                    <iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20
                                    {{$a}}+()&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://www.embedmap.net/'>embedding google maps into website</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=8e0997aceed434fd3ad9ca083fb80e4dc10d418e'></script>
