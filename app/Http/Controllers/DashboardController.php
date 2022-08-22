@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pickup;
 use App\Models\Product;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,11 +13,8 @@ class DashboardController extends Controller
 {
     //dashboard
     public function index(){
-        $orders = DB::table('pickups')
-        ->join('transactions', 'transactions.transaction_id', '=', 'pickups.transaction_id')->get();
-        $orderCustomer = DB::table('transactions')
-        ->join('users', 'users.user_id', '=', 'transactions.transaction_id')->get();
-        return view('dashboard.utama', compact('orders'));
+        $pickupOrder = Transaction::all();
+        return view('dashboard.utama', compact('pickupOrder'));
     }
 
     //halaman tambah produk

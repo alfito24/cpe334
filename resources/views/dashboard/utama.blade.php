@@ -111,13 +111,17 @@
                         <th>Action</th>
                       </tr>
                     </thead>
-                    @foreach ($orders as $o)
+                    @foreach ($pickupOrder as $o)
                     <tbody>
                       <tr>
-                        <td></td>
-                        <td>{{ $o->pickup_date }}</td>
-                        <td>{{ $o->pickup_time }}</td>
-                        <td>{{ $o->status }}</td>
+                        <td>{{ $o->user->name }}</td>
+                        @php
+                            $tanggalPickup = strtotime($o->pickup->pickup_date);
+                            $jamPickup = strtotime($o->pickup->pickup_time);
+                        @endphp
+                        <td>{{ date('d M Y', $tanggalPickup) }}</td>
+                        <td>{{ date('H:i', $jamPickup) }}</td>
+                        <td>{{ $o->pickup->status }}</td>
                         <td><a href="/dashboard/detailorder/{{ $o->transaction_id }}" class="btn btn-success">Detail</a></td>
                       </tr>
                     </tbody>
