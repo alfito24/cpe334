@@ -47,13 +47,27 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputName">Jenis Sampah</label>
-                                            <input type="text" name="nama_produk" class="form-control" value="">
+                                            <input type="text" name="nama_produk" class="form-control" value="" disabled placeholder="Newspaper">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Cardboard">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Plastic Bag">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Plastic Cup">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Steel">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Glass">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Aluminium">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled placeholder="Copper">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputName">Jumlah</label>
                                             <input type="text" name="nama_produk" class="form-control" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
                                         </div>
                                     </div>
                                 </div>
