@@ -11,10 +11,11 @@ class DashboardController extends Controller
 {
     //dashboard
     public function index(){
-        $products = Product::where('user_id', Auth::id())->get(); //ngambil produk yang diupload user
-
-
-        return view('dashboard.utama', compact('products'));
+        $orders = DB::table('pickups')
+        ->join('transactions', 'transactions.transaction_id', '=', 'pickups.transaction_id')->get();
+        $orderCustomer = DB::table('transactions')
+        ->join('users', 'users.user_id', '=', 'transactions.transaction_id')->get();
+        return view('dashboard.utama', compact('orders'));
     }
 
     //halaman tambah produk
@@ -29,6 +30,11 @@ class DashboardController extends Controller
     public function showEdit($id){
         $products = DB::table('products')->where('product_id', $id)->first();
         return view('dashboard.editproduk', compact('products'));
+    }
+    public function detailOrder(){
+        $orders = DB::table('pickups')
+        ->join('transactions', 'transactions.transaction_id', '=', 'pickups.transaction_id')->get();
+        return view('dashboard.detailorder', compact('orders'));
     }
 
 }

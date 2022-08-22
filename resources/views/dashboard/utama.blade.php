@@ -82,268 +82,49 @@
                   </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
               </div>
-            <div class="row mb-2" hidden>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Jonathan</h5>
-                            <div class="card-body bg-transparent">
-                                <br>
-                                <div class="row rating" style="font-weight: 1000; font-size:large;">
-                                    <div class="col-sm-6">
-                                        Overall
-                                    </div>
-                                    <div class="col-sm-6">
-                                        4/5
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kerapihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kebersihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Pelayanan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Jonathan</h5>
-                            <br>
-                            <div class="card-body bg-transparent">
-                                <div class="row rating" style="font-weight: 1000; font-size:large;">
-                                    <div class="col-sm-6">
-                                        Overall
-                                    </div>
-                                    <div class="col-sm-6">
-                                        4/5
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kerapihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kebersihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Pelayanan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Jonathan</h5>
-                            <br>
-                            <div class="card-body bg-transparent">
-                                <div class="row rating" style="font-weight: 1000; font-size:large;">
-                                    <div class="col-sm-6">
-                                        Overall
-                                    </div>
-                                    <div class="col-sm-6">
-                                        4/5
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kerapihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kebersihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Pelayanan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Jonathan</h5>
-                            <br>
-                            <div class="card-body bg-transparent">
-                                <div class="row rating" style="font-weight: 1000; font-size:large;">
-                                    <div class="col-sm-6">
-                                        Overall
-                                    </div>
-                                    <div class="col-sm-6">
-                                        4/5
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kerapihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Kebersihan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        Pelayanan
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="db-title m-0 text-dark " style="font-size: 25px;font-weight:600;"></h1>
                 </div>
             </div>
             <!-- Small boxes (Stat box) -->
-            <div class="row">
-                @foreach ( $products as $m)
-                <div class="col-md-3 mb-3">
-                    <div class="card h-100">
-                        <img class="img-fluid" alt="100%x280"
-                            src="{{ url('/data_file/'.$m->gambar) }}" style="height: 250px;width:250px">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $m->judul }}</h5>
-                            <br>
-                            <h6 class="card-title"> Rp.{{ $m->harga }}</h6>
-
-                            <a href="/varianoleh/21" class="stretched-link"></a>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="card-header border-0">
+                  <h3 class="card-title">Pick Up</h3>
+                  <div class="card-tools">
+                    <a href="/dashboard/tambahproduk" class="btn btn-tool btn-sm">
+                      <i class="fas fa-plus"></i>
+                    </a>
+                    <a href="listproduk.html" class="btn btn-tool btn-sm">
+                      <i class="fas fa-bars"></i>
+                    </a>
+                  </div>
                 </div>
-                @endforeach
-
-                {{-- <div class="col-md-3 mb-3">
-                    <div class="card h-100">
-                        <img class="img-fluid" alt="100%x280"
-                            src=https://cdn.discordapp.com/attachments/906163180328325130/916964212767621130/CokelatTempe.jpg>
-                        <div class="card-body">
-                            <h5 class="card-title">Cokelat Tempe</h5>
-                            <br>
-                            <h6 class="card-title">50 pcs</h6>
-                            <br>
-                            <div class="card-footer bg-transparent">
-                                Rp. 20.000
-                            </div>
-                            <a href="/varianoleh/22" class="stretched-link"></a>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <p class="card-text bi bi-heart-fill">
-                                10 Orang Menyukai ini</p>
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-striped table-valign-middle">
+                    <thead>
+                      <tr>
+                        <th>Nama Customer</th>
+                        <th>Pickup Date</th>
+                        <th>Pickup Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    @foreach ($orders as $o)
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td>{{ $o->pickup_date }}</td>
+                        <td>{{ $o->pickup_time }}</td>
+                        <td>{{ $o->status }}</td>
+                        <td><a href="/dashboard/detailorder/{{ $o->transaction_id }}" class="btn btn-success">Detail</a></td>
+                      </tr>
+                    </tbody>
+                    @endforeach
+                  </table>
+                </div>
+              </div>
             <!-- /.row -->
             <!-- Main row -->
 

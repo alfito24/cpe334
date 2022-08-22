@@ -54,9 +54,16 @@ Route::get('/dashboard/hapusproduk/{id}', [ProductController::class, 'hapus']); 
 Route::get('/dashboard/updateproduk/{id}', [DashboardController::class, 'showEdit']); // halaman edit produk
 Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updateProduct']); //  edit produk
 
+Route::post('/dashboard/detailorder/{id}', [DashboardController::class, 'detailOrder']); //  detail order
+
 Route::get('/account', function () {
     return view('account');
 });
+Route::get('/detailorder', function () {
+    return view('dashboard.detailorder');
+});
+Route::get('/myaccount', [RegisterController::class, 'account'] );
+// Route::get('/updateprofile', [RegisterController::class, 'updateaccount']);
 
 Route::get('/updateprofile', function () {
     return view('updateprofile');

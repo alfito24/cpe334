@@ -11,13 +11,13 @@
         <img src="{{asset('images/profile.png')}}" class="w-[50%] md:w-[30%] lg:w-[80%] mx-auto rounded-full lg:rounded-xl">
     </div>
     <div class="py-4 md:px-10">
-        <a href="" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Ubah</a>
+        <a href="/updateprofile" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Ubah</a>
         <h3 class="font-semibold text-xl md:text-2xl text-center mt-5 md:text-left">Biodata Diri</h3>
         <div class="flex justify-center items-center">
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Nama</td>
-                    <td class="w-[50%]">{{--{{ $profil->name }}--}}</td>
+                    <td class="w-[50%]">{{ $profil->name }}</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
@@ -34,11 +34,11 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Email </td>
-                    <td class="w-[50%]">{{--{{ $profil->email }}--}}</td>
+                    <td class="w-[50%]">{{ $profil->email }}</td>
                 </tr>
                 <tr>
                     <td>No. HP</td>
-                    <td>{{--{{ $profil->no_telp }}--}}</td>
+                    <td>{{ $profil->no_telp }}</td>
                 </tr>
             </table>
         </div>
@@ -47,7 +47,7 @@
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Alamat</td>
-                    <td class="w-[50%]">{{--{{ $profil->alamat }}--}}</td>
+                    <td class="w-[50%]">{{ $profil->alamat }}</td>
                 </tr>
             </table>
         </div>
