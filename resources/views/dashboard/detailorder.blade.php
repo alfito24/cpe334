@@ -60,14 +60,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputName">Jumlah</label>
-                                            <input type="text" name="nama_produk" class="form-control" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="">
+                                            <input type="text" name="nama_produk" class="form-control" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
                                         </div>
                                     </div>
                                 </div>
