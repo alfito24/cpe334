@@ -54,38 +54,35 @@
     </div>
     <div class="py-4 px-12 md:px-8">
         <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Pickup History</h3>
+        @foreach ($transactions as $pickup)
+        @php
+        $tanggalPickup = strtotime($pickup->pickup->pickup_date);
+        $jamPickup = strtotime($pickup->pickup->pickup_time);
+        if ($pickup->pickup->status == "Belum Diambil"){
+            $kodewarna = "E4A972";
+        }elseif ($pickup->pickup->status == "Sudah Diambil") {
+            $kodewarna = "31AD88";
+        }elseif ($pickup->pickup->status == "Pickup Dibatalkan") {
+            $kodewarna = "ed0726";
+        }
+        @endphp
         <div class="rounded-lg flex border-[#3367AD] border-2 mt-5">
             <div class="flex flex-intial w-[25%] px-2 pl-3 py-2.5">
                 <img src="{{asset('images/pickupcar.png')}}" class="object-contain">
             </div>
             <div class="flex flex-intial w-[50%] items-center py-2.5">
                 <h5 class="font-medium pl-4 text-[#66737D]">
-                    Date : <span class="text-[#3367AD]">7 June 2022</span> <br>
-                    Time : <span class="text-[#3367AD]">09:00 WIB</span>
+                    Date : <span class="text-[#3367AD]">{{ date('d M Y', $tanggalPickup) }}</span> <br>
+                    Time : <span class="text-[#3367AD]">{{ date('H:i', $jamPickup) }} WIB</span>
                 </h5>
             </div>
             <div class="flex flex-intial justify-end w-[25%]">
-                <div class="float bg-[#E4A972] h-6 px-5 rounded-tr-md rounded-bl-md">
-                    <h4 class="font-medium text-md text-white">waiting</h4>
+                <div class="float bg-[#{{ $kodewarna }}] h-6 px-5 rounded-tr-md rounded-bl-md">
+                    <h4 class="font-medium text-md text-white">{{ $pickup->pickup->status }}</h4>
                 </div>
             </div>
         </div>
-        <div class="mt-5 rounded-lg flex border-[#3367AD] border-2">
-            <div class="flex flex-intial w-[25%] px-2 pl-3 py-2.5">
-                <img src="{{asset('images/pickupcar.png')}}" class="object-contain">
-            </div>
-            <div class="flex flex-intial w-[50%] items-center py-2.5">
-                <h5 class="font-medium pl-4 text-[#66737D]">
-                    Date : <span class="text-[#3367AD]">4 June 2022</span> <br>
-                    Time : <span class="text-[#3367AD]">09:00 WIB</span>
-                </h5>
-            </div>
-            <div class="flex flex-intial justify-end w-[25%]">
-                <div class="float bg-[#31AD88] h-6 px-5 rounded-tr-md rounded-bl-md">
-                    <h4 class="font-medium text-md text-white">done</h4>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

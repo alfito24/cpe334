@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pickup;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -32,7 +34,8 @@ class RegisterController extends Controller
         }
         public function account(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();
-            return view('account', compact('profil'));
+            $transactions = Transaction::where('user_id', '=', Auth::id())->get();
+            return view('account', compact('profil', 'transactions'));
         }
         public function updateaccount(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();

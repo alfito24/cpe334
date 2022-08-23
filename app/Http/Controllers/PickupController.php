@@ -52,4 +52,13 @@ class PickupController extends Controller
 
         return redirect()->back()->with('canceled', 'Pickup berhasil dibatalkan');
     }
+
+    public function donepickup($id_transaksi){
+        $pickup = Pickup::where('transaction_id', $id_transaksi)->first();
+
+        $pickup->status = 'Sudah Diambil';
+        $pickup->save();
+
+        return redirect()->back()->with('done', 'Pickup sudah diambil');
+    }
 }
