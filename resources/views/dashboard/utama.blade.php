@@ -91,14 +91,6 @@
             <div class="card">
                 <div class="card-header border-0">
                   <h3 class="card-title">Pick Up</h3>
-                  <div class="card-tools">
-                    <a href="/dashboard/tambahproduk" class="btn btn-tool btn-sm">
-                      <i class="fas fa-plus"></i>
-                    </a>
-                    <a href="listproduk.html" class="btn btn-tool btn-sm">
-                      <i class="fas fa-bars"></i>
-                    </a>
-                  </div>
                 </div>
                 <div class="card-body table-responsive p-0">
                   <table class="table table-striped table-valign-middle">
@@ -121,8 +113,13 @@
                         @endphp
                         <td>{{ date('d M Y', $tanggalPickup) }}</td>
                         <td>{{ date('H:i', $jamPickup) }}</td>
-                        <td>{{ $o->pickup->status }}</td>
-                        <td><a href="/dashboard/detailorder/{{ $o->transaction_id }}" class="btn btn-success">Detail</a></td>
+                        <td>
+                            <a href=""
+                            class="btn btn-danger">
+                            {{ $o->pickup->status }}
+                            </a>
+                        </td>
+                        <td><a href="/dashboard/detailorder/{{ $o->transaction_id }}" class="btn btn-dark">Detail</a></td>
                       </tr>
                     </tbody>
                     @endforeach

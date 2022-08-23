@@ -30,9 +30,11 @@ class DashboardController extends Controller
         $products = DB::table('products')->where('product_id', $id)->first();
         return view('dashboard.editproduk', compact('products'));
     }
-    public function detailOrder(){
-        $orders = DB::table('pickups')
-        ->join('transactions', 'transactions.transaction_id', '=', 'pickups.transaction_id')->get();
+    public function detailOrder($id){
+        $orders = Transaction::select("*")
+        ->where([
+            ["transaction_id", "=", $id],
+        ])->get();
         return view('dashboard.detailorder', compact('orders'));
     }
 

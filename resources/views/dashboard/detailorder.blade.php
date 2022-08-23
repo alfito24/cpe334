@@ -60,31 +60,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputName">Jumlah</label>
-                                            <input type="text" name="nama_produk" class="form-control" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
-                                            <input type="text" name="nama_produk" class="form-control mt-2" value="" disabled>
+                                            <input type="text" name="nama_produk" class="form-control" value="{{ $orders[0]->newspaper }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->cardboard }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->plastic_bag }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->plastic_cup }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->steel }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->glass }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->aluminium }}" disabled>
+                                            <input type="text" name="nama_produk" class="form-control mt-2" value="{{ $orders[0]->copper }}" disabled>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputName">Harga Produk</label>
-                                    {{-- <input type="number" name="harga_produk" placeholder="Rp" class="form-control" value="{{ $products->harga }}"> --}}
-                                </div>
-                                    {{-- @php
-                                        $alamat = preg_split('/ /', $o->street);
-                                    @endphp --}}
+                                    @php
+                                        $alamat = preg_split('/ /', $orders[0]->pickup->street);
+                                    @endphp
                                 <div class="form-group">
                                     <label for="inputName">Alamat</label>
-                                    {{-- <input type="text" name="alamat" placeholder="" class="form-control" value="{{ $o->street }} {{ $o->number }} {{ $o->city }}"> --}}
-                                   {{-- @foreach ($alamat as $a )
-                                   <iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20
-                                   {{$a}}+()&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://www.embedmap.net/'>embedding google maps into website</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=8e0997aceed434fd3ad9ca083fb80e4dc10d418e'></script>
-                                   @endforeach --}}
+                                    <input type="text" name="nama_produk" class="form-control mb-4" value="{{ $orders[0]->pickup->street }} Nomor {{ $orders[0]->pickup->number }}, {{ $orders[0]->pickup->city }}">
+                                   <div class="mapouter mt-3"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=
+                                    @foreach ($alamat as $a )
+                                    {{ $a }}%20
+                                    @endforeach
+                                    &t=k&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
                                 </div>
                                 {{-- <div class="form-group">
                                     <label for="inputStatus">Status</label>

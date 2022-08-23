@@ -17,9 +17,9 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('transaction_id')->primary();
             $table->integer('plastic_bag')->nullable();
-            $table->integer('plastic_glass')->nullable();
+            $table->integer('plastic_cup')->nullable();
             $table->integer('newspaper')->nullable();
-            $table->integer('metals')->nullable();
+            $table->integer('steel')->nullable();
             $table->integer('glass')->nullable();
             $table->integer('copper')->nullable();
             $table->integer('aluminium')->nullable();
