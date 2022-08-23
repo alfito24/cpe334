@@ -22,7 +22,9 @@ class ProductController extends Controller
     //     return redirect()->back()->with('success', 'Produk berhasil ditambahkan');
     // }
     public function showbuyproducts(){
-        return view('buyproducts.buy');
+        $products = Product::all();
+
+        return view('buyproducts.buy', compact('products'));
     }
 
     public function storeProduct(Request $request){

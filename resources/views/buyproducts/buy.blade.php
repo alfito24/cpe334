@@ -5,7 +5,26 @@
     <h1>Buy your favorite product</h1>
 </div>
 <div class="grid grid-cols-2 gap-x-10 gap-y-16 font-poppins mt-14 px-12 md:grid-cols-4 md:mt-24">
+    @foreach ($products as $product)
     <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
+        @php
+            $gambar = '';
+            if(!$product->gambar){
+                $gambar = 'images/contohproduk.png';
+            }else {
+                $gambar = $product->gambar;
+            }
+        @endphp
+        <img src="{{asset($gambar)}}" class="rounded-xl mx-auto min-w-full">
+        <div class="pt-4">
+            <h3 class="text-[#66737D] text-center font-semibold text-lg">{{ $product->judul }}</h3>
+        </div>
+        <div class="py-2 text-center">
+            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp {{ $product->harga }}</p>
+        </div>
+    </div>
+    @endforeach
+    {{-- <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
         <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
         <div class="pt-4">
             <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
@@ -13,70 +32,7 @@
         <div class="py-2 text-center">
             <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
         </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
-    <div class="hover:shadow-full hover:rounded-xl hover:transition hover:duration-300">
-        <img src="{{asset('images/contohproduk.png')}}" class="rounded-xl mx-auto min-w-full">
-        <div class="pt-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-lg">Lampu Tidur</h3>
-        </div>
-        <div class="py-2 text-center">
-            <p class="font-semibold text-md inline px-3 text-[#3166AD]">Rp 54000</p>
-        </div>
-    </div>
+    </div> --}}
 </div>
 @endsection
 
