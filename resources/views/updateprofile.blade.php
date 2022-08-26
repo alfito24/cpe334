@@ -8,12 +8,10 @@
     <form action="/updateprofile/{{ Auth::id() }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="py-4">
-            <img
-            {{-- src="{{ url('/data_file/'.$profil->picture) }}" --}}
-            class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full">
+            <img src="{{ url('/data_file/'.$profil->picture) }}" class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full img-preview" onchange="previewImage()">
         </div>
         <div class="px-10 md:w-[75%] md:mx-auto lg:w-[20%]">
-            <input type="file" id="" name="file" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded border-[#3367AD] border-2">
+            <input type="file" id="image" name="file" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded border-[#3367AD] border-2">
         </div>
         <div class="px-10 md:w-[75%] md:mx-auto lg:w-[60%]">
             <h3 class="font-semibold text-xl md:text-2xl text-center mt-5">Biodata Diri</h3>
@@ -36,7 +34,7 @@
             <h3 class="font-semibold text-xl md:text-2xl text-center mt-10">Kontak</h3>
             <p class="font-medium text-md text-[#3166AD] mt-6">Email</p>
             <div class="mt-2">
-                <input value="{{ $profil->email }}" type="text" id="" name="" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded border-[#3367AD] border-2">
+                <input value="{{ $profil->email }}" type="text" id="" name="email" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded border-[#3367AD] border-2">
             </div>
             <p class="font-medium text-md text-[#3166AD] mt-6">Nomor Handphone</p>
             <div class="mt-2">
@@ -54,6 +52,20 @@
             </div>
         </div>
     </form>
+    <script>
+        function previewImage()
+        {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+            imgPreview.style.display = 'block';
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 
 
 @endsection

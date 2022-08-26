@@ -46,7 +46,6 @@ class RegisterController extends Controller
         public function updateprofile(Request $request){
             $user = DB::table('users')->where('user_id', Auth::id());
             $user ->update([
-                'name'=> $request->name,
                 'alamat'=>$request->alamat,
                 'no_telp'=>$request->no_telp,
                 'email'=>$request->email,
