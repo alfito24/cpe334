@@ -61,6 +61,7 @@ Route::get('/dashboard/detailorder/{id}', [DashboardController::class, 'detailOr
 // });
 Route::get('/myaccount', [RegisterController::class, 'account'] );
 Route::get('/updateprofile', [RegisterController::class, 'updateaccount']);
+Route::post('/updateprofile/{id}', [RegisterController::class, 'updateprofile']);
 
 
 Route::get('/detail', function () {

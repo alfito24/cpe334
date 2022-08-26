@@ -43,4 +43,27 @@ class RegisterController extends Controller
                 'profil'=>$profil
             ]);
         }
+        public function updateprofile(Request $request){
+            $user = DB::table('users')->where('user_id', Auth::id());
+            $user ->update([
+                'name'=> $request->name,
+                'alamat'=>$request->alamat,
+                'no_telp'=>$request->no_telp,
+                'email'=>$request->email,
+            ]);
+            $this->validate($request, [
+                'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+            ]);
+            // menyimpan data file yang diupload ke variabel $file
+            if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $nama_file = $file->getClientOriginalName();
+           // isi dengan nama folder tempat kemana file diupload
+            $file->move('data_file',$nama_file);
+            }
+            $user ->update([
+                'picture'=> $nama_file,
+            ]);
+            return redirect('/myaccount');
+        }
 }
