@@ -39,6 +39,8 @@ class RegisterController extends Controller
         }
         public function updateaccount(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();
-            return view('updateprofile', compact('profil'));
+            return view('updateprofile', [
+                'profil'=>$profil
+            ]);
         }
 }

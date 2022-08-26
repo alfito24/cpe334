@@ -56,18 +56,12 @@ Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updatePr
 
 Route::get('/dashboard/detailorder/{id}', [DashboardController::class, 'detailOrder']); //  detail order
 
-Route::get('/account', function () {
-    return view('account');
-});
 // Route::get('/detailorder', function () {
 //     return view('dashboard.detailorder');
 // });
 Route::get('/myaccount', [RegisterController::class, 'account'] );
-// Route::get('/updateprofile', [RegisterController::class, 'updateaccount']);
+Route::get('/updateprofile', [RegisterController::class, 'updateaccount']);
 
-Route::get('/updateprofile', function () {
-    return view('updateprofile');
-});
 
 Route::get('/detail', function () {
     return view('buyproducts.detail');
