@@ -8,7 +8,12 @@
 </div>
 <div class="grid grid-cols-1 gap-y-10 font-poppins mt-14 lg:grid-cols-[300px_minmax(500px,_1fr)_minmax(450px,_1fr)]" >
     <div class="py-4">
-        <img src="{{asset('images/profile.png')}}" class="w-[50%] md:w-[30%] lg:w-[80%] mx-auto rounded-full lg:rounded-xl">
+        @if (!($profil->picture === null))
+        <img src="{{ url('/data_file/'.$profil->picture) }}" class="w-[50%] md:w-[30%] lg:w-[80%] mx-auto rounded-full lg:rounded-xl">
+        @else
+        <img src="https://www.pngitem.com/pimgs/m/404-4042686_my-profile-person-icon-png-free-transparent-png.png" class="w-[50%] md:w-[30%] lg:w-[80%] mx-auto rounded-full lg:rounded-xl">
+        @endif
+
     </div>
     <div class="py-4 md:px-10">
         <a href="/updateprofile" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Ubah</a>
@@ -21,11 +26,11 @@
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
-                    <td>15 Juni 1997</td>
+                    <td>{{ $profil->birth_date }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>Pria</td>
+                    <td>{{ $profil->gender }}</td>
                 </tr>
             </table>
         </div>
@@ -52,6 +57,7 @@
             </table>
         </div>
     </div>
+    @if (count($transactions))
     <div class="py-4 px-12 md:px-8">
         <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Pickup History</h3>
         @foreach ($transactions as $pickup)
@@ -84,6 +90,8 @@
         </div>
         @endforeach
     </div>
+
+    @endif
 </div>
 @endsection
 

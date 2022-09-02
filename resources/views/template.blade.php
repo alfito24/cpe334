@@ -32,7 +32,9 @@
                         <!-- Primary Navbar items -->
                         <div class="hidden md:flex items-center space-x-1">
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Home</a>
+                            @auth
                             <a @yield('pickupactive') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Pickup</a>
+                            @endauth
                             <a @yield('buyproductsactive') href="/buyproducts" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Buy Products</a>
                         </div>
 

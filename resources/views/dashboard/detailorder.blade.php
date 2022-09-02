@@ -25,8 +25,8 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="/dashboard/updateproduk" method="POST" enctype="multipart/form-data">
-            @csrf
+        {{-- <form action="/dashboard/updatepickup/{{ $orders[0]->id }}" method="POST" enctype="multipart/form-data">
+            @csrf --}}
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -76,35 +76,54 @@
                                     @endphp
                                 <div class="form-group">
                                     <label for="inputName">Alamat</label>
-                                    <input type="text" name="nama_produk" class="form-control mb-4" value="{{ $orders[0]->pickup->street }} Nomor {{ $orders[0]->pickup->number }}, {{ $orders[0]->pickup->city }}">
+                                    <input disabled type="text" name="nama_produk" class="form-control mb-4" value="{{ $orders[0]->pickup->street }} Nomor {{ $orders[0]->pickup->number }}, {{ $orders[0]->pickup->city }}">
                                    <div class="mapouter mt-3"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=
                                     @foreach ($alamat as $a )
                                     {{ $a }}%20
                                     @endforeach
                                     &t=k&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
                                 </div>
-                                {{-- <div class="form-group">
+                                <form action="/cancelpickup/{{ $pickup->pickup_id }}" method="POST">
+                                    @csrf
+                                <div class="form-group">
                                     <label for="inputStatus">Status</label>
                                     <select id="inputStatus" name="status" class="form-control custom-select">
                                         <option selected disabled>Select one</option>
-                                        <option {{ $o->status === 'Sudah Diambil' ? 'selected' : '' }} value="Sudah Diambil">Sudah Diambil</option>
-                                        <option {{ $o->status === 'Proses Diambil' ? 'selected' : '' }} value="Proses Diambil">Proses Diambil</option>
-                                        <option {{ $o->status === 'Belum Diambil' ? 'selected' : '' }} value="Belum Diambil">Belum Diambil</option>
+                                        <option {{ $orders[0]->status === 'Sudah Diambil' ? 'selected' : '' }} value="Sudah Diambil">Sudah Diambil</option>
+                                        <option {{ $orders[0]->status === 'Proses Diambil' ? 'selected' : '' }} value="Proses Diambil">Proses Diambil</option>
+                                        <option {{ $orders[0]->status === 'Belum Diambil' ? 'selected' : '' }} value="Belum Diambil">Belum Diambil</option>
                                     </select>
-                                </div> --}}
+                                </div>
+                                <input value="Update" type="submit" class="btn btn-success">
+
+                                </input>
+                                </form>
+                               {{-- <div class="row">
+                                <form action="/cancelpickup/{{ $pickup->pickup_id }}" method="POST">
+                                    @csrf
+                                    <div class="col-3">
+                                        <button type="submit" class="btn btn-danger">
+                                        Batalkan Pickup
+                                        </button>
+                                     </div>
+                                </form>
+                                <form action="/donepickup/{{ $pickup->pickup_id }}" method="POST">
+                                    @csrf
+                                    <div class="col-3">
+                                       <button type="submit" class="btn btn-success">
+                                       Sudah Diambil
+                                       </button>
+                                    </div>
+                                </form>
+                               </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="col-12 mb-3">
-                        <a href="#" class="btn btn-secondary">Cancel</a>
-                        <input type="submit" value="Ubah Data" class="btn btn-success float-right">
-                    </div>
-                </div>
+
                 <!-- /.row -->
                 <!-- Main row -->
-        </form>
+
         <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
     </section>
