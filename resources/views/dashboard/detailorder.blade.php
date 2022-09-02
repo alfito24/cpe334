@@ -91,19 +91,19 @@
                                     @php
                                     $jenisbadge = '';
                                     if($orders->pickup->status == 'Belum Diambil'){
-                                        $jenisbadge = 'badge-danger';
+                                        $jenisbadge = 'btn-danger';
                                     }else {
-                                        $jenisbadge = 'badge-success';
+                                        $jenisbadge = 'btn-success';
                                     }
                                     @endphp
-                                    <div class="badge {{ $jenisbadge }}">
+                                    <div class="btn {{ $jenisbadge }}">
                                         {{ $orders->pickup->status }}
                                     </div>
                                 </div>
                             </form>
 
                             @if ($orders->pickup->status == 'Belum Diambil')
-                            <button class="btn btn-primary" onclick="location.href='/dashboard/detailorder/{{ $orders->transaction_id }}/ambil-order'">Ambil Order</button>
+                            <button class="btn btn-success" onclick="location.href='/dashboard/detailorder/{{ $orders->transaction_id }}/ambil-order'">Ambil Order</button>
                             @endif
                             {{-- <div class="row">
                                 <form action="/cancelpickup/{{ $pickup->pickup_id }}" method="POST">

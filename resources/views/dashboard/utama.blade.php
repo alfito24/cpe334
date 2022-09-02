@@ -3,70 +3,13 @@
 
     <!-- Main content -->
     <section class="content">
+        @if ($message = Session::get('done'))
+        <div class="alert alert-success alert-block mt-3">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>{{ $message }}</strong>
+         </div>
+        @endif
         <div class="container-fluid">
-            <div class="row mb-2" hidden>
-                <div class="col-sm-6">
-                    <h1 class="db-title m-0 text-dark" style="font-size: 25px; font-weight:600;">Online Visitor</h1>
-                </div>
-            </div>
-            <div class="row" hidden>
-                <div class="card" style="width: 100vw;">
-                    <div class="card-header border-0">
-                        <div class="d-flex justify-content-between">
-                            <p class="d-flex flex-column">
-                                <span class="text-bold text-lg">820</span>
-                                <span>Visitors Over Time</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="position-relative mb-4">
-                            <canvas id="myChart" width="1000" height="200"></canvas>
-                            <script>
-                                const labels = [
-                                    'Jan',
-                                    'Feb',
-                                    'Mar',
-                                    'Apr',
-                                    'May',
-                                    'Jun',
-                                    'Jul',
-                                    'Aug',
-                                    'Sep',
-                                    'Oct',
-                                    'Nov',
-                                    'Des',
-                                ];
-                                const data = {
-                                    labels: labels,
-                                    datasets: [{
-                                        label: 'Visitor 2022',
-                                        backgroundColor: 'rgb(255, 99, 132)',
-                                        borderColor: 'rgb(255, 99, 132)',
-                                        data: [0, 10, 5, 2, 20, 30, 45, 50, 20, 55, 40, 25, ],
-                                    }]
-                                };
-
-                                const config = {
-                                    type: 'line',
-                                    data: data,
-                                    options: {}
-                                };
-                                const myChart = new Chart(
-                                    document.getElementById('myChart'),
-                                    config
-                                );
-                            </script>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-2" hidden>
-                <div class="col-sm-6">
-                    <h1 class="db-title m-0 text-dark " style="font-size: 25px;font-weight:600;">Feedback</h1>
-                </div>
-            </div>
             <div class="content-header">
                 <div class="container-fluid">
                   <div class="row mb-2">
@@ -117,12 +60,12 @@
                             @php
                                 $jenisbadge = '';
                                 if($o->pickup->status == 'Belum Diambil'){
-                                    $jenisbadge = 'badge-danger';
+                                    $jenisbadge = 'btn-danger';
                                 }else {
-                                    $jenisbadge = 'badge-success';
+                                    $jenisbadge = 'btn-success';
                                 }
                             @endphp
-                            <div class="badge {{ $jenisbadge }}">
+                            <div class="btn {{ $jenisbadge }}">
                                 {{ $o->pickup->status }}
                             </div>
                         </td>
