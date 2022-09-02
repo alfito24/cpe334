@@ -114,10 +114,17 @@
                         <td>{{ date('d M Y', $tanggalPickup) }}</td>
                         <td>{{ date('H:i', $jamPickup) }}</td>
                         <td>
-                            <a href=""
-                            class="btn btn-danger">
-                            {{ $o->pickup->status }}
-                            </a>
+                            @php
+                                $jenisbadge = '';
+                                if($o->pickup->status == 'Belum Diambil'){
+                                    $jenisbadge = 'badge-danger';
+                                }else {
+                                    $jenisbadge = 'badge-success';
+                                }
+                            @endphp
+                            <div class="badge {{ $jenisbadge }}">
+                                {{ $o->pickup->status }}
+                            </div>
                         </td>
                         <td><a href="/dashboard/detailorder/{{ $o->transaction_id }}" class="btn btn-dark">Detail</a></td>
                       </tr>

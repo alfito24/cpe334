@@ -55,6 +55,7 @@ Route::get('/dashboard/updateproduk/{id}', [DashboardController::class, 'showEdi
 Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updateProduct']); //  edit produk
 
 Route::get('/dashboard/detailorder/{id}', [DashboardController::class, 'detailOrder']); //  detail order
+Route::get('/dashboard/detailorder/{id}/ambil-order', [PickupController::class, 'donepickup']); //  update status sesudah ambil order
 
 // Route::get('/detailorder', function () {
 //     return view('dashboard.detailorder');

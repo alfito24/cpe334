@@ -31,10 +31,7 @@ class DashboardController extends Controller
         return view('dashboard.editproduk', compact('products'));
     }
     public function detailOrder($id){
-        $orders = Transaction::select("*")
-        ->where([
-            ["transaction_id", "=", $id],
-        ])->get();
+        $orders = Transaction::find($id);
         return view('dashboard.detailorder', compact('orders'));
     }
 
