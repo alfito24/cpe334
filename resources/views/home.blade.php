@@ -2,30 +2,30 @@
 @section('title', 'Home')
 @section('isikonten')
 <div class="text-[#3166AD] text-center font-poppins font-bold grid justify-items-center mx-auto mt-28 text-3xl md:mt-36 md:text-4xl">
-    <h1>We help you to manage</h1>
-    <h1 class="pt-3 md:pt-4">your trash</h1>
+    <h1>Streamlining Internship Connections </h1>
+    <h1 class="pt-3 md:pt-4">with Efficiency and Intelligence</h1>
     <img src="{{asset('images/home.png')}}" class="w-3/5 md:w-2/5 pt-12 md:pt-20">
-    <h1 class="pt-20 md:pt-28">Our services</h1>
+    <h1 class="pt-20 md:pt-28">Our Features</h1>
 </div>
 <div class="grid grid-cols-1 gap-x-10 gap-y-16 font-poppins mt-14 px-32 sm:grid-cols-3 md:mt-24 md:px-44" >
     <div class="py-4 hover:shadow-full hover:rounded-lg" onclick='location.href="/pickup"'>
         <img src="{{asset('images/pickupcar.png')}}" alt="Pickup Service" class="w-[60%] mx-auto">
         <div class="pt-9 px-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Pickup Service</h3>
+            <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Apply Job</h3>
         </div>
     </div>
 
     <div class="py-4 hover:shadow-full hover:rounded-lg">
         <img src="{{asset('images/emoney.png')}}" alt="Redeem E-money" class="w-[60%] mx-auto">
         <div class="pt-9 px-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Redeem E-money</h3>
+            <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Track Job</h3>
         </div>
     </div>
 
     <div class="py-4 hover:shadow-full hover:rounded-lg">
         <img src="{{asset('images/product.png')}}" alt="Buy Products" class="w-[55%] mx-auto pt-1">
         <div class="pt-11 px-4">
-            <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Buy Products</h3>
+            <h3 class="text-[#66737D] text-center font-semibold text-xl md:text-2xl">Job Matching</h3>
         </div>
     </div>
 </div>
@@ -34,8 +34,8 @@
         <img src="{{asset('images/home1.png')}}" class="w-[60%] sm:w-[50%] mx-auto">
     </div>
     <div class="order-2 sm:order-1 px-24 sm:px-5 md:px-7 lg:px-32 flex flex-col items-center justify-center md:items-start ">
-        <h3 class="text-white text-center sm:text-start font-bold text-2xl md:text-4xl">Let’s change your trash into a cash!</h3>
-        <button type="submit" class="mt-5 sm:mt-7 py-2 min-w-[50%] sm:min-w-[65%] lg:min-w-[50%] bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-cyan-400 transition duration-300">Redeem</button>
+        <h3 class="text-white text-center sm:text-start font-bold text-2xl md:text-4xl">Let’s find a job that suits you!</h3>
+        <button type="submit" class="mt-5 sm:mt-7 py-2 min-w-[50%] sm:min-w-[65%] lg:min-w-[50%] bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-cyan-400 transition duration-300">View</button>
     </div>
 </div>
 <div class="text-[#3166AD] text-center font-poppins font-bold grid justify-items-center mx-auto mt-16 text-3xl md:mt-28 md:text-4xl">

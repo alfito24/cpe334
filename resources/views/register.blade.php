@@ -14,7 +14,7 @@
     <div class="container mx-auto font-poppins max-w-sm m-9 bg-[rgb(251,252,255)]  lg:max-w-4xl">
         <div class="rounded-lg lg:flex shadow-full lg:rounded-none lg:rounded-r-lg">
             <div class="hidden bg-[#3166AD] lg:inline lg:flex-1 lg:rounded-l-lg">
-                <h1 class="font-bold text-center text-white mt-7 lg:text-2xl lg:py-28">We help you to <br> manage your trash</h1>
+                <h2 class="font-bold text-center text-white mt-7 lg:text-2xl lg:py-28">Streamlining Internship Connections with  <br> Efficiency and Intelligence</h2>
                 <img src="{{asset('images/login.png')}}" alt="" class="px-16">
             </div>
             <div class="px-10 py-6 lg:px-8 lg:flex-1">
@@ -35,17 +35,17 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="name"><span class="font-semibold text-md">Nama</span>
+                        <label for="name"><span class="font-semibold text-md">Full Name</span>
                             <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="name">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="phone"><span class="font-semibold text-md">Nomor Telepon</span>
+                        <label for="phone"><span class="font-semibold text-md">Phone Number</span>
                             <input id="phone" type="text" placeholder="Enter your phone number" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="no_telp">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="address"><span class="font-semibold text-md">Alamat</span>
+                        <label for="address"><span class="font-semibold text-md">Address</span>
                             <input id="address" type="text" placeholder="Enter your home address" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="alamat">
                         </label>
                     </div>

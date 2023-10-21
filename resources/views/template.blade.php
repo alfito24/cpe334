@@ -33,9 +33,9 @@
                         <div class="hidden md:flex items-center space-x-1">
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Home</a>
                             @auth
-                            <a @yield('pickupactive') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Pickup</a>
+                            <a @yield('pickupactive') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Apply Job</a>
                             @endauth
-                            <a @yield('buyproductsactive') href="/buyproducts" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Buy Products</a>
+                            <a @yield('buyproductsactive') href="/buyproducts" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Job Lists</a>
                         </div>
 
                         <!-- Secondary Navbar items -->
@@ -133,22 +133,22 @@
                 <div class="flex-initial w-[35%] lg:w-[35%] font-poppins px-3 lg:px-5">
                     <div>
                         <div class="text-white font-bold text-md md:text-lg lg:text-2xl" >
-                            <h1>Our Service</h1>
+                            <h1>Our Features</h1>
                         </div>
                         <div class="pt-2">
-                            <a href="/pickup" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Pickup</a>
+                            <a href="/pickup" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Apply Job</a>
                         </div>
                         <div>
-                            <a href="/buyproducts" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Buy Products</a>
+                            <a href="/buyproducts" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Track Job</a>
                         </div>
                         <div>
-                            <a href="#" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Redeem E-money</a>
+                            <a href="#" class="text-sm md:text-md lg:text-lg text-white hover:text-[#BFD9EB] transition duration-300">Job Matching</a>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-initial w-[35%] lg:w-[30%]">
                     <div class="text-white font-bold flex items-center justify-center text-lg md:text-2xl lg:text-3xl md:pr-16 ">
-                        <h1>Manage your trash with just a click! </h1>
+                        <h1>Apply Internship with Just a Click! </h1>
                     </div>
                 </div>
             </div>
