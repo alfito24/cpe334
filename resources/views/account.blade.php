@@ -16,25 +16,25 @@
 
     </div>
     <div class="py-4 md:px-10">
-        <a href="/updateprofile" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Ubah</a>
-        <h3 class="font-semibold text-xl md:text-2xl text-center mt-5 md:text-left">Biodata Diri</h3>
+        <a href="/updateprofile" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Edit</a>
+        <h3 class="font-semibold text-xl md:text-2xl text-center mt-5 md:text-left">Profile</h3>
         <div class="flex justify-center items-center">
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
-                    <td class="w-[50%]">Nama</td>
+                    <td class="w-[50%]">Name</td>
                     <td class="w-[50%]">{{ $profil->name }}</td>
                 </tr>
                 <tr>
-                    <td>Tanggal Lahir</td>
+                    <td>Birth Date</td>
                     <td>{{ $profil->birth_date }}</td>
                 </tr>
                 <tr>
-                    <td>Jenis Kelamin</td>
+                    <td>Gender</td>
                     <td>{{ $profil->gender }}</td>
                 </tr>
             </table>
         </div>
-        <h3 class="font-semibold text-xl md:text-2xl text-center mt-7 md:text-left">Kontak</h3>
+        <h3 class="font-semibold text-xl md:text-2xl text-center mt-7 md:text-left">Contact</h3>
         <div class="flex justify-center items-center">
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
@@ -42,24 +42,24 @@
                     <td class="w-[50%]">{{ $profil->email }}</td>
                 </tr>
                 <tr>
-                    <td>No. HP</td>
-                    <td>{{ $profil->no_telp }}</td>
+                    <td>Phone Number</td>
+                    <td>{{ $profil->phone_number }}</td>
                 </tr>
             </table>
         </div>
-        <h3 class="font-semibold text-xl md:text-2xl text-center mt-7 md:text-left">Alamat</h3>
+        <h3 class="font-semibold text-xl md:text-2xl text-center mt-7 md:text-left">Address</h3>
         <div class="flex justify-center items-center">
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
-                    <td class="w-[50%]">Alamat</td>
-                    <td class="w-[50%]">{{ $profil->alamat }}</td>
+                    <td class="w-[50%]">Address</td>
+                    <td class="w-[50%]">{{ $profil->address }}</td>
                 </tr>
             </table>
         </div>
     </div>
     @if (count($transactions))
     <div class="py-4 px-12 md:px-8">
-        <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Pickup History</h3>
+        <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Apply History</h3>
         @foreach ($transactions as $pickup)
         @php
         $tanggalPickup = strtotime($pickup->pickup->pickup_date);
@@ -79,7 +79,7 @@
             <div class="flex flex-intial w-[50%] items-center py-2.5">
                 <h5 class="font-medium pl-4 text-[#66737D]">
                     Date : <span class="text-[#3367AD]">{{ date('d M Y', $tanggalPickup) }}</span> <br>
-                    Time : <span class="text-[#3367AD]">{{ date('H:i', $jamPickup) }} WIB</span>
+                    Status : <span class="text-[#3367AD]">{{ $pickup->pickup->status }}</span>
                 </h5>
             </div>
             <div class="flex flex-intial justify-end w-[25%]">

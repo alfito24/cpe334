@@ -16,22 +16,48 @@ class RegisterController extends Controller
         return view('register');
     }
     public function store(Request $request){
-        $validatedData=  $request->validate([
-             'name' => 'required|max:25',
-             'username' =>'required',
-             'email' => 'required|email:dns|unique:users',
-             'alamat'=>'required',
-             'no_telp'=>'required',
-             'password' => 'required|min:8|max:20'
-         ]);
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required',
+                'username' => 'required',
+                'email' => 'required|unique:users',
+                'address' => 'required',
+                'phone_number' => 'required',
+                'password' => 'required'
+            ]);
+    
+            $validatedData['password'] = Hash::make($validatedData['password']);
+            User::create($validatedData);
+    
+            $request->session()->flash('success', 'Registration was successful! Please Login to your account');
+            return redirect('/login');
+        } catch (\Exception $e) {
 
-         $validatedData['password'] = Hash::make($validatedData['password']);
+            \Log::error('Registration failed: ' . $e->getMessage());
+    
 
-         User::create($validatedData);
+            $request->session()->flash('error', $e->getMessage());
 
-         $request->session()->flash('success', 'Registration was successful! Please Login to your account');
-         return redirect('/login');
+            return redirect()->back()->withInput();
         }
+    }    
+    // public function store(Request $request){
+    //     $validatedData=  $request->validate([
+    //          'name' => 'required',
+    //          'username' =>'required',
+    //          'email' => 'required|unique:users',
+    //          'address'=>'required',
+    //          'phone_number'=>'required',
+    //          'password' => 'required'
+    //      ]);
+
+    //      $validatedData['password'] = Hash::make($validatedData['password']);
+
+    //      User::create($validatedData);
+
+    //      $request->session()->flash('success', 'Registration was successful! Please Login to your account');
+    //      return redirect('/login');
+    //     }
         public function account(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();
             $transactions = Transaction::where('user_id', '=', Auth::id())->get();
@@ -44,25 +70,50 @@ class RegisterController extends Controller
             ]);
         }
         public function updateprofile(Request $request){
+            // $user = DB::table('users')->where('user_id', Auth::id());
+            // $user ->update([
+            //     'address'=>$request->address,
+            //     'phone_number'=>$request->phone_number,
+            //     'email'=>$request->email,
+            //     'gender'=>$request->gender,
+            //     'birth_date'=>$request->birth_date,
+            // ]);
+            // $this->validate($request, [
+            //     'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+            // ]);
+            // if ($request->hasFile('file')) {
+            // $file = $request->file('file');
+            // $picture = $file->getClientOriginalName();
+            // $file->move('data_file',$picture);
+            // }
+            // $user ->update([
+            //     'picture'=> $picture,
+            // ]);
+            // return redirect('/myaccount');
             $user = DB::table('users')->where('user_id', Auth::id());
-            $user ->update([
-                'alamat'=>$request->alamat,
-                'no_telp'=>$request->no_telp,
-                'email'=>$request->email,
+
+            $user->update([
+                'address' => $request->address,
+                'phone_number' => $request->phone_number,
+                'email' => $request->email,
+                'gender' => $request->gender,
+                'birth_date' => $request->birth_date,
             ]);
-            $this->validate($request, [
-                'file' => 'image|mimes:jpeg,png,jpg|max:4096'
-            ]);
-            // menyimpan data file yang diupload ke variabel $file
+
+            // Validate file if it's present
             if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $nama_file = $file->getClientOriginalName();
-           // isi dengan nama folder tempat kemana file diupload
-            $file->move('data_file',$nama_file);
+                $this->validate($request, [
+                    'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+                ]);
+
+                $file = $request->file('file');
+                $picture = $file->getClientOriginalName();
+                $file->move('data_file', $picture);
+
+                // Update 'picture' only if file is uploaded
+                $user->update(['picture' => $picture]);
             }
-            $user ->update([
-                'picture'=> $nama_file,
-            ]);
+
             return redirect('/myaccount');
-        }
+                }
 }

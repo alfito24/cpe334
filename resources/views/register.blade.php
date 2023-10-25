@@ -15,13 +15,24 @@
         <div class="rounded-lg lg:flex shadow-full lg:rounded-none lg:rounded-r-lg">
             <div class="hidden bg-[#3166AD] lg:inline lg:flex-1 lg:rounded-l-lg">
                 <h2 class="font-bold text-center text-white mt-7 lg:text-2xl lg:py-28">Streamlining Internship Connections with  <br> Efficiency and Intelligence</h2>
-                <img src="{{asset('images/login.png')}}" alt="" class="px-16">
+                <img src="{{asset('images/login-removebg-preview.png')}}" alt="" class="px-16">
             </div>
             <div class="px-10 py-6 lg:px-8 lg:flex-1">
                 <div class="flex justify-end">
                     <a href="/" class=""><i class="fa-solid fa-xmark"></i></a>
                 </div>
                 <h1 class="font-bold text-2xl text-center mt-1 lg:text-3xl">Let’s make your <br> account!</h1>
+                @if (session('success'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                    <span class="block sm:inline text-[#FF0000]">{{ session('success') }}</span>
+                </div>
+                @endif
+                @if (session('error'))
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <span class="block sm:inline text-[#FF0000]">{{ session('error') }}</span>
+                    </div>
+                @endif
+
                 <form action="/register" method="POST">
                     @csrf
                     <div class="mt-7">
@@ -40,16 +51,15 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="phone"><span class="font-semibold text-md">Phone Number</span>
-                            <input id="phone" type="text" placeholder="Enter your phone number" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="no_telp">
+                        <label for="name"><span class="font-semibold text-md">Address</span>
+                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="address">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="address"><span class="font-semibold text-md">Address</span>
-                            <input id="address" type="text" placeholder="Enter your home address" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="alamat">
+                        <label for="name"><span class="font-semibold text-md">Phone Number</span>
+                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="phone_number">
                         </label>
                     </div>
-
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
                             <div class="relative">

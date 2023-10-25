@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="icon" href="{{asset('images/internhub-high-resolution-logo.png')}}">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;900&family=Raleway&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css')}}">
@@ -24,7 +25,7 @@
 						<div>
 							<!-- Website Logo -->
 							<a href="/" class="flex items-center py-4 px-2">
-                                <img src="{{asset('images/logo.png')}}" alt="Logo" class="w-28 ">
+                                <img src="{{asset('images/revised_internhub-high-resolution-logo.png')}}" alt="Logo" class="w-28 ">
 							</a>
 						</div>
                     </div>
@@ -128,7 +129,7 @@
         <footer class="bg-[#3166AD] mt-16">
             <div class="flex md:mt-32 py-7 lg:py-12">
                 <div class="flex flex-none w-[30%] lg:w-[35%] px-4 md:px-10 lg:px-24">
-                    <img src="{{asset('images/logo.png')}}" alt="Logo" class="object-contain">
+                    <img src="{{asset('images/revised_internhub-high-resolution-logo.png')}}" alt="Logo" class="object-contain">
                 </div>
                 <div class="flex-initial w-[35%] lg:w-[35%] font-poppins px-3 lg:px-5">
                     <div>
