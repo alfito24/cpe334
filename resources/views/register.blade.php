@@ -37,17 +37,17 @@
                     @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
-                            <input type="email" placeholder="Enter your email" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="email">
+                            <input type="email" placeholder="Enter your email" value="{{ old('email') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="email">
                         </label>
                     </div>
                     <div class="mt-5">
                         <label for="username"><span class="font-semibold text-md">Username</span>
-                            <input type="text" placeholder="Enter your username" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="username">
+                            <input type="text" placeholder="Enter your username" value="{{ old('username') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="username">
                         </label>
                     </div>
                     <div class="mt-5">
                         <label for="name"><span class="font-semibold text-md">Full Name</span>
-                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="name">
+                            <input type="text" placeholder="Enter your name" value="{{ old('name') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="name">
                         </label>
                     </div>
                     <div class="mt-5">
@@ -60,17 +60,17 @@
                     </div>
                     <div class="mt-5">
                         <label for="birthdate"><span class="font-semibold text-md">Birth Date</span>
-                            <input name='birth_date' type="date" placeholder="Select your birth date" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="birthdate">
+                            <input name='birth_date' type="date" placeholder="Select your birth date" value="{{ old('birth_date') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="birthdate">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="name"><span class="font-semibold text-md">Address</span>
-                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="address">
+                        <label for="address"><span class="font-semibold text-md">Address</span>
+                            <input name="address" type="text" placeholder="Enter your Address" value="{{ old('address') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="address">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="name"><span class="font-semibold text-md">Phone Number</span>
-                            <input type="text" placeholder="Enter your name" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="phone_number">
+                        <label for="phone_number"><span class="font-semibold text-md">Phone Number</span>
+                            <input type="phone_number" placeholder="Enter your name" value="{{ old('phone_number') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="phone_number">
                         </label>
                     </div>
                     <div class="mt-5">
@@ -147,9 +147,9 @@
                             <label for="hospitality">Tourism</label>
                         </div>
                     </div>
-                    
-                    
-                    
+
+
+
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
                             <div class="relative">
