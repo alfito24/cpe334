@@ -34,9 +34,9 @@
                         <div class="hidden md:flex items-center space-x-1">
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Home</a>
                             @auth
-                            <a @yield('pickupactive') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Apply Job</a>
+                            <a @yield('pickupactive') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Apply Internship</a>
                             @endauth
-                            <a @yield('buyproductsactive') href="/buyproducts" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Job Lists</a>
+                            <a @yield('buyproductsactive') href="/buyproducts" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
                         </div>
 
                         <!-- Secondary Navbar items -->

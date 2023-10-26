@@ -30,7 +30,9 @@ class User extends Authenticatable
         'address',
         'phone_number',
         'gender',
-        'birth_date'
+        'birth_date',
+        'education',
+        'area_of_interest'
     ];
 
     /**

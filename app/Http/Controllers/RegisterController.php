@@ -23,41 +23,28 @@ class RegisterController extends Controller
                 'email' => 'required|unique:users',
                 'address' => 'required',
                 'phone_number' => 'required',
-                'password' => 'required'
+                'password' => 'required',
+                'education' => 'required',
+                'area_of_interest' => 'required|array',
             ]);
-    
+            
             $validatedData['password'] = Hash::make($validatedData['password']);
+            
+            if(isset($validatedData['area_of_interest'])) {
+                $validatedData['area_of_interest'] = implode(',', $validatedData['area_of_interest']);
+            }
+
             User::create($validatedData);
     
             $request->session()->flash('success', 'Registration was successful! Please Login to your account');
             return redirect('/login');
         } catch (\Exception $e) {
-
             \Log::error('Registration failed: ' . $e->getMessage());
-    
-
             $request->session()->flash('error', $e->getMessage());
-
             return redirect()->back()->withInput();
         }
-    }    
-    // public function store(Request $request){
-    //     $validatedData=  $request->validate([
-    //          'name' => 'required',
-    //          'username' =>'required',
-    //          'email' => 'required|unique:users',
-    //          'address'=>'required',
-    //          'phone_number'=>'required',
-    //          'password' => 'required'
-    //      ]);
-
-    //      $validatedData['password'] = Hash::make($validatedData['password']);
-
-    //      User::create($validatedData);
-
-    //      $request->session()->flash('success', 'Registration was successful! Please Login to your account');
-    //      return redirect('/login');
-    //     }
+    }
+    
         public function account(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();
             $transactions = Transaction::where('user_id', '=', Auth::id())->get();
@@ -65,32 +52,15 @@ class RegisterController extends Controller
         }
         public function updateaccount(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();
+            $userInterests = explode(',', $profil->area_of_interest);
             return view('updateprofile', [
-                'profil'=>$profil
+                'profil'=>$profil,
+                'userInterests'=>$userInterests
             ]);
         }
         public function updateprofile(Request $request){
-            // $user = DB::table('users')->where('user_id', Auth::id());
-            // $user ->update([
-            //     'address'=>$request->address,
-            //     'phone_number'=>$request->phone_number,
-            //     'email'=>$request->email,
-            //     'gender'=>$request->gender,
-            //     'birth_date'=>$request->birth_date,
-            // ]);
-            // $this->validate($request, [
-            //     'file' => 'image|mimes:jpeg,png,jpg|max:4096'
-            // ]);
-            // if ($request->hasFile('file')) {
-            // $file = $request->file('file');
-            // $picture = $file->getClientOriginalName();
-            // $file->move('data_file',$picture);
-            // }
-            // $user ->update([
-            //     'picture'=> $picture,
-            // ]);
-            // return redirect('/myaccount');
             $user = DB::table('users')->where('user_id', Auth::id());
+            $area_of_interest = implode(',', $request->input('area_of_interest'));
 
             $user->update([
                 'address' => $request->address,
@@ -98,9 +68,10 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'gender' => $request->gender,
                 'birth_date' => $request->birth_date,
+                'education' => $request->education,
+                'area_of_interest' => $area_of_interest,
             ]);
 
-            // Validate file if it's present
             if ($request->hasFile('file')) {
                 $this->validate($request, [
                     'file' => 'image|mimes:jpeg,png,jpg|max:4096'

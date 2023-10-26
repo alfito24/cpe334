@@ -32,6 +32,14 @@
                     <td>Gender</td>
                     <td>{{ $profil->gender }}</td>
                 </tr>
+                <tr>
+                    <td>Highest Education</td>
+                    <td>{{ $profil->education }}</td>
+                </tr>
+                <tr>
+                    <td>Area of Interest</td>
+                    <td>{{ $profil->area_of_interest }}</td>
+                </tr>
             </table>
         </div>
         <h3 class="font-semibold text-xl md:text-2xl text-center mt-7 md:text-left">Contact</h3>
