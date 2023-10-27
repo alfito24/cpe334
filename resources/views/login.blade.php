@@ -19,7 +19,7 @@
             </div>
             <div class="px-7 py-6 lg:px-8 lg:flex-1">
                 <div class="flex justify-end">
-                    <a href="#" class=""><i class="fa-solid fa-xmark"></i></a>
+                    <a href="/" class=""><i class="fa-solid fa-xmark"></i></a>
                 </div>
                 <h1 class="font-bold text-2xl text-center mt-1 lg:text-3xl">Let’s login into your account</h1>
                 <form action="/login" method="POST">

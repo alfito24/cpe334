@@ -18,15 +18,21 @@ use App\Http\Controllers\ProductController;
 |
 */
 //fitur register dan login
-Route::get('/login', [LoginController::class, 'show']); //halaman login
+Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']); //logout
-Route::get('/register', [RegisterController::class, 'show']); //halaman register
-Route::post('/register', [RegisterController::class, 'store']); //simpan data user ke database
+Route::post('/logout', [LoginController::class, 'logout']); 
+Route::get('/register', [RegisterController::class, 'show']); 
+Route::post('/register', [RegisterController::class, 'store']);
 
 //Landing Page
 Route::get('/', function () {
     return view('home');
+});
+Route::get('/internshiplist', function () {
+    return view('internshiplist');
+});
+Route::get('/jobdetail', function () {
+    return view('jobdetail');
 });
 
 //template
@@ -44,18 +50,18 @@ Route::get('/buyproducts', [ProductController::class, 'showbuyproducts']);
 
 
 //fitur admin
-Route::get('/dashboard', [DashboardController::class, 'index']); //halaman dashboard
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 //fitur produk
-Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']); //halaman tambah produk
-Route::post('/dashboard/tambahproduk', [ProductController::class, 'storeProduct']); //simpan produk ke database
-Route::get('/dashboard/daftarproduk', [DashboardController::class, 'show']); // halaman daftar produk
-Route::get('/dashboard/hapusproduk/{id}', [ProductController::class, 'hapus']); // hapus produk
-Route::get('/dashboard/updateproduk/{id}', [DashboardController::class, 'showEdit']); // halaman edit produk
-Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updateProduct']); //  edit produk
+Route::get('/dashboard/tambahproduk', [DashboardController::class, 'tambah']);
+Route::post('/dashboard/tambahproduk', [ProductController::class, 'storeProduct']);
+Route::get('/dashboard/daftarproduk', [DashboardController::class, 'show']);
+Route::get('/dashboard/hapusproduk/{id}', [ProductController::class, 'hapus']); 
+Route::get('/dashboard/updateproduk/{id}', [DashboardController::class, 'showEdit']); 
+Route::post('/dashboard/updateproduk/{id}', [ProductController::class, 'updateProduct']); 
 
-Route::get('/dashboard/detailorder/{id}', [DashboardController::class, 'detailOrder']); //  detail order
-Route::get('/dashboard/detailorder/{id}/ambil-order', [PickupController::class, 'donepickup']); //  update status sesudah ambil order
+Route::get('/dashboard/detailorder/{id}', [DashboardController::class, 'detailOrder']); 
+Route::get('/dashboard/detailorder/{id}/ambil-order', [PickupController::class, 'donepickup']); 
 
 // Route::get('/detailorder', function () {
 //     return view('dashboard.detailorder');
