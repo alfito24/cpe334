@@ -67,7 +67,7 @@
                         Login
                     </button>
                 </form>
-                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Don’t have an account? <a href="/register" class="text-[#3166AD] font-semibold"> Sign up here </a></p>
+                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Don’t have an account? <a href="/chooserole" class="text-[#3166AD] font-semibold"> Sign up here </a></p>
             </div>
         </div>
     </div>

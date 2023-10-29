@@ -11,6 +11,7 @@ use App\Models\Role;
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
+use App\Models\job;
 
 class User extends Authenticatable
 {
@@ -21,19 +22,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'username',
-        'email',
-        'password',
-        'role_id',
-        'address',
-        'phone_number',
-        'gender',
-        'birth_date',
-        'education',
-        'area_of_interest'
-    ];
+// protected $fillable = [
+//     'name',
+//     'username',
+//     'email',
+//     'password',
+//     'role_id',
+//     'address',
+//     'phone_number',
+//     'gender',
+//     'birth_date',
+//     'education',
+//     'area_of_interest',
+//     'company'
+// ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -66,16 +68,8 @@ class User extends Authenticatable
             }
         });
     }
-
-    public function role(){
-        return $this->hasMany(Role::class);
-    }
-
-    public function product(){
-        return $this->hasMany(Product::class);
-    }
-
-    public function transaction(){
-        return $this->hasMany(Transaction::class, 'user_id', 'user_id');
+    public function jobs()
+    {
+        return $this->hasMany(job::class, 'user_id', 'user_id');
     }
 }

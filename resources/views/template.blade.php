@@ -33,17 +33,27 @@
                         <!-- Primary Navbar items -->
                         <div class="hidden md:flex items-center space-x-1">
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Home</a>
+                            @guest
+                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
+                            @endguest
                             @auth
-                            <a @yield('pickupactive') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Apply Internship</a>
+                            @if(Auth::user()->role_id == 0)
+                            <a @yield('applyinternship') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Apply Internship</a>
+                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
+                            @endif
+                            @if(Auth::user()->role_id == 1)
+                            <a @yield('addinternship') href="/addinternship" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Add Internship</a>
+                            <a @yield('internshiplist') href="/myinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
+                            @endif
                             @endauth
-                            <a @yield('internshiplist') href="/internshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
+                           
                         </div>
 
                         <!-- Secondary Navbar items -->
                         <div class="hidden md:flex items-center space-x-3 ">
                             @guest
                             <a href="/login" class="py-2 px-6 bg-gradient-to-r from-[#3166AD] to-[#BFD9EB] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">Log In</a>
-                            <a href="/register" class="py-2 px-6 font-medium text-white rounded hover:bg-[#BFD9EB] transition duration-300">Register</a>
+                            <a href="/chooserole" class="py-2 px-6 font-medium text-white rounded hover:bg-[#BFD9EB] transition duration-300">Register</a>
                             @else
                             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" class="flex flex-row items-center py-2 px-6 font-semibold text-white rounded hover:bg-[#BFD9EB] transition duration-300">
@@ -90,8 +100,8 @@
 			<div class="hidden mobile-menu">
 				<ul class="">
 					<li><a @yield('home1active') href="/" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Home</a></li>
-					<li><a @yield('pickup1active') href="/pickup" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Pickup</a></li>
-					<li><a @yield('buyproducts1active') href="/buyproducts" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Buy Products</a></li>
+					<li><a @yield('pickup1active') href="/pickup" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Apply Internship</a></li>
+					<li><a @yield('buyproducts1active') href="/buyproducts" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Internship List</a></li>
                     @if (Auth::check())
                     <li>
                         <div @click.away="open = false" class="relative" x-data="{ open: false }">
@@ -109,7 +119,7 @@
                     </li>
                     @else
                     <li><a href="/login" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Log In</a></li>
-                    <li><a href="/register" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Register</a></li>
+                    <li><a href="/chooserole" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Register</a></li>
                     @endif
                 </ul>
 			</div>
@@ -126,8 +136,8 @@
             @section('isikonten')
             @show
         </div>
-        <footer class="bg-[#3166AD] mt-16">
-            <div class="flex md:mt-32 py-7 lg:py-12">
+        <footer class="bg-[#3166AD]">
+            <div class="flex mt-10 md:mt-30 py-7 lg:py-12">
                 <div class="flex flex-none w-[30%] lg:w-[35%] px-4 md:px-10 lg:px-24">
                     <img src="{{asset('images/revised_internhub-high-resolution-logo.png')}}" alt="Logo" class="object-contain">
                 </div>

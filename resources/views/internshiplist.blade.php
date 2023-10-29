@@ -1,30 +1,55 @@
 @extends('template')
-@section('title', 'Home')
+@section('title', 'Internship List')
 @section('isikonten')
-
+@php
+use Carbon\Carbon;
+@endphp
 <div class="mb-8 text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-20 text-2xl md:mt-36 md:text-3xl">
     <h1>Apply your internship here</h1>
 </div>
+
 <div class="grid grid-cols-1 gap-x-10 gap-y-16">
-    <div class="w-1/2 mx-auto flex p-6 bg-white border-[#3367AD] border-2 rounded-lg space-x-6 flex-col mt-10">
-        <div class="flex items-center space-x-6 mb-4">
-            <div class="flex-shrink-0">
-                <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <img src="{{asset('images/apply.png')}}" alt="Grab Logo" class="h-12 w-auto">
-                </div>
-            </div>
-            <div class="flex-grow">
-                <h3 class="text-lg font-medium mb-2">Software Engineer</h3>
-                <p class="text-gray-600 mb-1">Grab</p>
-                <p class="text-gray-600">Thailand (On-site)</p>
+   @foreach ($jobs as $job )
+   @if(Carbon::now()->lessThanOrEqualTo($job->deadline))
+   <div class="w-1/2 mx-auto flex p-6 bg-white border-[#3367AD] border-2 rounded-lg space-x-6 flex-col mt-10">
+    <div class="flex items-center space-x-6 mb-4">
+        <div class="flex-shrink-0">
+            <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center">
+                @if (!($job->user->picture === null))
+                <img src="{{ url('/data_file/'.$job->user->picture) }}" alt="Grab Logo" class="h-12 w-auto">
+                @else
+                <img src="{{asset('images/apply.png')}}" alt="Grab Logo" class="h-12 w-auto">
+                @endif
             </div>
         </div>
-        <div class="flex justify-end">
-            <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
-                Details
-            </button>
+        <div class="flex-grow">
+            <h3 class="text-lg font-medium mb-2">{{$job->position}}</h3>
+            <p class="text-gray-600 mb-1">{{$job->user->company}}</p>
+            <p class="text-gray-600">{{$job->location}} ({{$job->worktype}})</p>
+            <p class="text-gray-600">Deadline Application: {{ Carbon::parse($job->deadline)->format('j F Y') }}</p>
         </div>
     </div>
+    @auth
+   <a href="/internshipdetail/{{$job->job_id}}">
+    <div class="flex justify-end">
+        <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
+            Details
+        </button>
+    </div>
+   </a>
+    @endauth
+    @guest
+    <a href="/login">
+        <div class="flex justify-end">
+            <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
+                Login to Get the Details
+            </button>
+        </div>
+    </a>
+    @endguest
+</div>
+    @endif
+   @endforeach
 </div>
 
 

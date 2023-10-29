@@ -16,33 +16,56 @@ class RegisterController extends Controller
         return view('register');
     }
     public function store(Request $request){
-        try {
-            $validatedData = $request->validate([
-                'name' => 'required',
-                'username' => 'required',
-                'email' => 'required|unique:users',
-                'address' => 'required',
-                'phone_number' => 'required',
-                'password' => 'required',
-                'education' => 'required',
-                'area_of_interest' => 'required|array',
-            ]);
-            
-            $validatedData['password'] = Hash::make($validatedData['password']);
-            
-            if(isset($validatedData['area_of_interest'])) {
-                $validatedData['area_of_interest'] = implode(',', $validatedData['area_of_interest']);
-            }
-
-            User::create($validatedData);
-    
-            $request->session()->flash('success', 'Registration was successful! Please Login to your account');
-            return redirect('/login');
-        } catch (\Exception $e) {
-            \Log::error('Registration failed: ' . $e->getMessage());
-            $request->session()->flash('error', $e->getMessage());
-            return redirect()->back()->withInput();
+        if (isset($request->area_of_interest) && is_array($request->area_of_interest)) {
+            $area_of_interest = implode(',', $request->area_of_interest);
+        } else {
+            $area_of_interest = $request->area_of_interest;
         }
+        $insert = User::create([
+            'name' => $request->name,
+            'username' => $request->username,
+            'company' => $request->company,
+            'company_description' => $request->company_description,
+            'company_established' => $request->company_established,
+            'email' => $request->email,
+            'address' => $request->address,
+            'phone_number' => $request->phone_number,
+            'password' => Hash::make($request->password),
+            'education' => $request->education,
+            'role_id' => $request->role_id,
+            'area_of_interest' => $area_of_interest,
+        ]);
+        $request->session()->flash('success', 'Registration was successful! Please Login to your account');
+        return redirect('/login');
+        // try {
+        //     $validatedData = $request->validate([
+        //         'name' => 'required',
+        //         'username' => 'required',
+        //         'email' => 'required|unique:users',
+        //         'address' => 'required',
+        //         'phone_number' => 'required',
+        //         'password' => 'required',
+        //         'education' => 'required',
+        //         'role_id' => 'required',
+        //         'area_of_interest' => 'required|array',
+        //         // 'company' => '',
+        //     ]);
+            
+        //     $validatedData['password'] = Hash::make($validatedData['password']);
+            
+        //     if(isset($validatedData['area_of_interest'])) {
+        //         $validatedData['area_of_interest'] = implode(',', $validatedData['area_of_interest']);
+        //     }
+
+        //     User::create($validatedData);
+    
+        //     $request->session()->flash('success', 'Registration was successful! Please Login to your account');
+        //     return redirect('/login');
+        // } catch (\Exception $e) {
+        //     \Log::error('Registration failed: ' . $e->getMessage());
+        //     $request->session()->flash('error', $e->getMessage());
+        //     return redirect()->back()->withInput();
+        // }
     }
     
         public function account(){

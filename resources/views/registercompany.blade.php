@@ -40,35 +40,19 @@
                             <input type="email" placeholder="Enter your email" value="{{ old('email') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="email">
                         </label>
                     </div>
-                    <div class="mt-5" hidden>
-                        <label for="education"><span class="font-semibold text-md">Highest Education</span>
-                            <select name="role_id" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
-                                <option selected value="0">0</option>
-                                <option value="1">1</option>
-                            </select>
+                    <div class="mt-5">
+                        <label for="username"><span class="font-semibold text-md">Company Name</span>
+                            <input type="text" placeholder="Enter your username" value="{{ old('username') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="username"><span class="font-semibold text-md">Username</span>
-                            <input type="text" placeholder="Enter your username" value="{{ old('username') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="username">
+                        <label for="username"><span class="font-semibold text-md">Company Description</span>
+                            <input type="text" placeholder="Enter your company description" value="{{ old('company_description') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company_description">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="name"><span class="font-semibold text-md">Full Name</span>
-                            <input type="text" placeholder="Enter your name" value="{{ old('name') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="name">
-                        </label>
-                    </div>
-                    <div class="mt-5">
-                        <label for="gender"><span class="font-semibold text-md">Gender</span>
-                            <select name="gender" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="mt-5">
-                        <label for="birthdate"><span class="font-semibold text-md">Birth Date</span>
-                            <input name='birth_date' type="date" placeholder="Select your birth date" value="{{ old('birth_date') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="birthdate">
+                        <label for="username"><span class="font-semibold text-md">Company Established</span>
+                            <input type="text" placeholder="Enter your company established" value="{{ old('company_established') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company_established">
                         </label>
                     </div>
                     <div class="mt-5">
@@ -81,18 +65,16 @@
                             <input type="phone_number" placeholder="Enter your name" value="{{ old('phone_number') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="phone_number">
                         </label>
                     </div>
-                    <div class="mt-5">
+                    <div class="mt-5" hidden>
                         <label for="education"><span class="font-semibold text-md">Highest Education</span>
-                            <select name="education" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
-                                <option value="high_school">High Schoool</option>
-                                <option value="bachelor">Bachelor</option>
-                                <option value="master">Master</option>
-                                <option value="phd">Ph.D</option>
+                            <select name="role_id" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
+                                <option value="0">0</option>
+                                <option selected value="1">1</option>
                             </select>
                         </label>
                     </div>
                     <div class="mt-5 grid grid-cols-2 gap-3">
-                        <label class="font-semibold text-md col-span-2">Area of Interest</label>
+                        <label class="font-semibold text-md col-span-2">Area of Business</label>
                         <br>
                         <div>
                             <input type="checkbox" id="it" name="area_of_interest[]" value="IT">
@@ -155,8 +137,6 @@
                             <label for="hospitality">Tourism</label>
                         </div>
                     </div>
-
-
 
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
