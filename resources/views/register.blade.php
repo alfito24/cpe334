@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;900&family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="icon" href="{{asset('images/internhub-high-resolution-logo.png')}}">
   <title>Register</title>
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
@@ -84,10 +85,10 @@
                     <div class="mt-5">
                         <label for="education"><span class="font-semibold text-md">Highest Education</span>
                             <select name="education" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
-                                <option value="high_school">High Schoool</option>
-                                <option value="bachelor">Bachelor</option>
-                                <option value="master">Master</option>
-                                <option value="phd">Ph.D</option>
+                                <option value="High School">High Schoool</option>
+                                <option value="Bachelor">Bachelor</option>
+                                <option value="Master">Master</option>
+                                <option value="Ph. D">Ph.D</option>
                             </select>
                         </label>
                     </div>

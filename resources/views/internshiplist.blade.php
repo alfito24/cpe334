@@ -1,6 +1,6 @@
 @extends('template')
 @section('title', 'Internship List')
-@section('isikonten')
+@section('content')
 @php
 use Carbon\Carbon;
 @endphp

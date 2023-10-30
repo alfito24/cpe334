@@ -1,6 +1,6 @@
 @extends('template')
 @section('title', 'Buy Products')
-@section('isikonten')
+@section('content')
 <div class="text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-28 text-2xl md:mt-36 md:text-3xl">
     <h1>Update your profile</h1>
 </div>
@@ -31,9 +31,9 @@
             <p class="font-medium text-md text-[#3166AD] mt-6">Highest Education</p>
             <div class="mt-2">
                 <select name="education" id="cars" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded border-[#3367AD] border-2">
-                    <option {{ $profil->education === 'high_school' ? 'selected' : '' }} value="high_school">High School</option>
-                    <option {{ $profil->education === 'bachelor' ? 'selected' : '' }} value="bachelor">Bachelor</option>
-                    <option {{ $profil->education === 'master' ? 'selected' : '' }} value="master">Master</option>
+                    <option {{ $profil->education === 'High School' ? 'selected' : '' }} value="high_school">High School</option>
+                    <option {{ $profil->education === 'Bachelor' ? 'selected' : '' }} value="bachelor">Bachelor</option>
+                    <option {{ $profil->education === 'Master' ? 'selected' : '' }} value="master">Master</option>
                     <option {{ $profil->education === 'Ph.D' ? 'selected' : '' }} value="Ph.D">Ph.D</option>
                 </select>
             </div>

@@ -2,7 +2,7 @@
 
 @section('title', 'My Account')
 
-@section('isikonten')
+@section('content')
 <div class="text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-28 text-2xl md:mt-36 md:text-3xl">
     <h1>Manage your account</h1>
 </div>
@@ -65,36 +65,34 @@
             </table>
         </div>
     </div>
-    @if (count($transactions))
+    @if (count($applications))
     <div class="py-4 px-12 md:px-8">
-        <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Apply History</h3>
-        @foreach ($transactions as $pickup)
+        <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Application History</h3>
+        @foreach ($applications as $a)
         @php
-        $tanggalPickup = strtotime($pickup->pickup->pickup_date);
-        $jamPickup = strtotime($pickup->pickup->pickup_time);
-        if ($pickup->pickup->status == "Belum Diambil"){
-            $kodewarna = "E4A972";
-        }elseif ($pickup->pickup->status == "Sudah Diambil") {
+        if ($a->status == "submitted"){
+            $kodewarna = "3367AD";
+        }elseif ($a->status == "accepted") {
             $kodewarna = "31AD88";
-        }elseif ($pickup->pickup->status == "Pickup Dibatalkan") {
-            $kodewarna = "ed0726";
+        }elseif ($a->status == "rejected") {
+            $kodewarna = "FF0000";
         }
         @endphp
         <div class="rounded-lg flex border-[#3367AD] border-2 mt-5">
             <div class="flex flex-intial w-[25%] px-2 pl-3 py-2.5">
                 <img src="{{asset('images/pickupcar.png')}}" class="object-contain">
             </div>
-            <div class="flex flex-intial w-[50%] items-center py-2.5">
-                <h5 class="font-medium pl-4 text-[#66737D]">
-                    Date : <span class="text-[#3367AD]">{{ date('d M Y', $tanggalPickup) }}</span> <br>
-                    Status : <span class="text-[#3367AD]">{{ $pickup->pickup->status }}</span>
+            <div class="flex flex-intial w-[100%] items-center py-2.5">
+                <h5 class="font-medium pl-4">
+                    <span class="text-[#66737D]">Company</span> : <span class="text-[#3367AD]">{{ $a->job->user->company }}</span> <br>
+                    <span class="text-[#66737D]">Postion</span> : <span class="text-[#3367AD]">{{ $a->job->position }}</span> <br>
+                    <span class="text-[#66737D]">Date</span> : <span class="text-[#3367AD]">{{ \Carbon\Carbon::parse($a->submission_date)->format('d F Y') }}</span> <br>
+                    {{-- <span class="text-[#66737D]">Status</span> : <span style="color: #{{ $kodewarna }};">{{ $a->status }}</span> --}}
                 </h5>
             </div>
-            <div class="flex flex-intial justify-end w-[25%]">
-                <div class="float bg-[#{{ $kodewarna }}] h-6 px-5 rounded-tr-md rounded-bl-md">
-                    <h4 class="font-medium text-md text-white">{{ $pickup->pickup->status }}</h4>
-                </div>
-            </div>
+            <span style="color: #{{ $kodewarna }};" class="bg-orange-300 text-orange-800 px-4 py-2 rounded-full">
+                {{ $a->status }}
+            </span>
         </div>
         @endforeach
     </div>

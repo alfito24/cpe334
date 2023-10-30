@@ -2,7 +2,7 @@
 
 @section('title', 'Add Internship')
 
-@section('isikonten')
+@section('content')
 @if ($message = Session::get('success'))
 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
     <strong class="font-bold">Holy smokes!</strong>
@@ -38,9 +38,9 @@
             </div>
             <div class="mt-3">
                 <div class=" font-poppins font-bold grid justify-items-center mx-auto">
-                    <h1>Internship Start</h1>
+                    <h1>Deadline Application</h1>
                 </div>
-                <input type="date" id="start" name="start" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum">
+                <input type="date" id="deadline" name="deadline" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
             </div>
         </div>
         <div>
@@ -74,9 +74,9 @@
             </div>
             <div class="mt-3">
                 <div class=" font-poppins font-bold grid justify-items-center mx-auto">
-                    <h1>Deadline Application</h1>
+                    <h1>Internship Start</h1>
                 </div>
-                <input type="date" id="deadline" name="deadline" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
+                <input type="date" id="start" name="start" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum">
             </div>
             
         </div>

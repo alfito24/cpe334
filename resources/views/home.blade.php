@@ -1,6 +1,6 @@
 @extends('template')
 @section('title', 'Home')
-@section('isikonten')
+@section('content')
 <div class="text-[#3166AD] text-center font-poppins font-bold grid justify-items-center mx-auto mt-20 text-3xl md:mt-30 md:text-4xl">
     <h1>Streamlining Internship Connections </h1>
     <h1 class="pt-3 md:pt-4">with Efficiency and Intelligence</h1>

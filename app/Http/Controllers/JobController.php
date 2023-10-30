@@ -16,7 +16,6 @@ class JobController extends Controller
      */
     public function index()
     {
-        // $jobs = DB::table('jobs')->where('user_id', Auth::id())->get();
         $jobs = job::where('user_id', Auth::id())->get();
         return view('internshiplist', compact('jobs'));
     }
@@ -27,10 +26,14 @@ class JobController extends Controller
     }
     public function detail($id)
     {
-        $job = DB::table('jobs')->where('job_id', $id)->first();
+        $job = job::where('job_id', $id)->first();
         return view('internshipdetail', compact('job'));
     }
-
+    public function apply($id)
+    {
+        $job = job::where('job_id', $id)->first();
+        return view('apply', compact('job'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -38,16 +41,6 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        // $insert = job::create([
-        //     'user_id'=> Auth::user()->user_id,
-        //     'position' => $request->position,
-        //     'description' => $request->description,
-        //     'qualifications' => $request->qualifications,
-        //     'duration' => $request->duration,
-        //     'location' => $request->location,
-        //     'worktype' => $request->worktype,
-        //     'deadline' => $request->deadline,
-        // ]);
         $validatedData = $request->validate([
             'position' => 'required',
             'description' => 'required',

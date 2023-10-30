@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
 use App\Models\job;
+use App\Models\application;
 
 class User extends Authenticatable
 {
@@ -71,5 +72,9 @@ class User extends Authenticatable
     public function jobs()
     {
         return $this->hasMany(job::class, 'user_id', 'user_id');
+    }
+    public function applications()
+    {
+        return $this->hasMany(application::class, 'user_id', 'user_id');
     }
 }
