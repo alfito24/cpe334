@@ -65,7 +65,7 @@
             </table>
         </div>
     </div>
-    @if (count($applications))
+    @if(isset($a->job->user->company))
     <div class="py-4 px-12 md:px-8">
         <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Application History</h3>
         @foreach ($applications as $a)
@@ -78,6 +78,7 @@
             $kodewarna = "FF0000";
         }
         @endphp
+
         <div class="rounded-lg flex border-[#3367AD] border-2 mt-5">
             <div class="flex flex-intial w-[25%] px-2 pl-3 py-2.5">
                 <img src="{{asset('images/tracking.jpg')}}" class="object-contain">
@@ -95,9 +96,9 @@
             </span>
         </div>
         @endforeach
+        @endif
     </div>
 
-    @endif
 </div>
 @endsection
 
