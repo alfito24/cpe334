@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>Birth Date</td>
-                    <td>{{ $profil->birth_date }}</td>
+                    <td>{{ \Carbon\Carbon::parse($profil->birth_date)->format('d F Y') }}</td>
                 </tr>
                 <tr>
                     <td>Gender</td>
@@ -80,7 +80,7 @@
         @endphp
         <div class="rounded-lg flex border-[#3367AD] border-2 mt-5">
             <div class="flex flex-intial w-[25%] px-2 pl-3 py-2.5">
-                <img src="{{asset('images/pickupcar.png')}}" class="object-contain">
+                <img src="{{asset('images/tracking.jpg')}}" class="object-contain">
             </div>
             <div class="flex flex-intial w-[100%] items-center py-2.5">
                 <h5 class="font-medium pl-4">

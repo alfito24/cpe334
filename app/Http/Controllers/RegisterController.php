@@ -22,6 +22,16 @@ class RegisterController extends Controller
         } else {
             $area_of_interest = $request->area_of_interest;
         }
+        if ($request->hasFile('file')) {
+            $this->validate($request, [
+                'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+            ]);
+
+            $file = $request->file('file');
+            $picture = $file->getClientOriginalName();
+            $file->move('data_file', $picture);
+        }
+        
         $insert = User::create([
             'name' => $request->name,
             'username' => $request->username,
@@ -37,6 +47,7 @@ class RegisterController extends Controller
             'education' => $request->education,
             'role_id' => $request->role_id,
             'area_of_interest' => $area_of_interest,
+            'picture'=> $picture
         ]);
         $request->session()->flash('success', 'Registration was successful! Please Login to your account');
         return redirect('/login');
@@ -79,7 +90,6 @@ class RegisterController extends Controller
                 $picture = $file->getClientOriginalName();
                 $file->move('data_file', $picture);
 
-                // Update 'picture' only if file is uploaded
                 $user->update(['picture' => $picture]);
             }
 

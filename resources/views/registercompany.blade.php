@@ -33,8 +33,7 @@
                         <span class="block sm:inline text-[#FF0000]">{{ session('error') }}</span>
                     </div>
                 @endif
-
-                <form action="/register" method="POST">
+                <form action="/register" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
@@ -44,6 +43,12 @@
                     <div class="mt-5">
                         <label for="username"><span class="font-semibold text-md">Company Name</span>
                             <input type="text" placeholder="Enter your username" value="{{ old('username') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company">
+                        </label>
+                    </div>
+                    <div class="mt-5">
+                        <label for="username"><span class="font-semibold text-md">Company Logo</span>
+                            <img id="imagePreview" src="" class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full">
+                            <input type="file" id='imageUpload' class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 border-[#3166AD] " name="file" onchange="previewImage()">
                         </label>
                     </div>
                     <div class="mt-5">
@@ -171,5 +176,22 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <script>
+        function previewImage() {
+        const file = document.getElementById('imageUpload').files[0];
+        const preview = document.getElementById('imagePreview');
+    
+        if (file) {
+            const reader = new FileReader();
+    
+            reader.onload = function(event) {
+                // Update the source of the image preview element with the uploaded image data
+                preview.src = event.target.result;
+            }
+    
+            reader.readAsDataURL(file);
+        }
+    }
+        </script>
 </body>
 </html>
