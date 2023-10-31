@@ -65,7 +65,6 @@
             </table>
         </div>
     </div>
-    @if(isset($a->job->user->company))
     <div class="py-4 px-12 md:px-8">
         <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Application History</h3>
         @foreach ($applications as $a)
@@ -78,7 +77,6 @@
             $kodewarna = "FF0000";
         }
         @endphp
-
         <div class="rounded-lg flex border-[#3367AD] border-2 mt-5">
             <div class="flex flex-intial w-[25%] px-2 pl-3 py-2.5">
                 <img src="{{asset('images/tracking.jpg')}}" class="object-contain">
@@ -88,15 +86,11 @@
                     <span class="text-[#66737D]">Company</span> : <span class="text-[#3367AD]">{{ $a->job->user->company }}</span> <br>
                     <span class="text-[#66737D]">Postion</span> : <span class="text-[#3367AD]">{{ $a->job->position }}</span> <br>
                     <span class="text-[#66737D]">Date</span> : <span class="text-[#3367AD]">{{ \Carbon\Carbon::parse($a->submission_date)->format('d F Y') }}</span> <br>
-                    {{-- <span class="text-[#66737D]">Status</span> : <span style="color: #{{ $kodewarna }};">{{ $a->status }}</span> --}}
+                    <span class="text-[#66737D]">Status</span> : <span class="text-[#{{ $kodewarna }}]">{{ $a->status }}</span> <br>
                 </h5>
             </div>
-            <span style="color: #{{ $kodewarna }};" class="bg-orange-300 text-orange-800 px-4 py-2 rounded-full">
-                {{ $a->status }}
-            </span>
         </div>
-        @endforeach
-        @endif
+@endforeach
     </div>
 
 </div>

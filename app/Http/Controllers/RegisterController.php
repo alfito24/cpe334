@@ -22,15 +22,23 @@ class RegisterController extends Controller
         } else {
             $area_of_interest = $request->area_of_interest;
         }
-        if ($request->hasFile('file')) {
-            $this->validate($request, [
-                'file' => 'image|mimes:jpeg,png,jpg|max:4096'
-            ]);
-
-            $file = $request->file('file');
-            $picture = $file->getClientOriginalName();
-            $file->move('data_file', $picture);
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/pictures', $filename);
+            $picture = $filename;
+        } else {
+            $picture = null; 
         }
+        // if ($request->hasFile('file')) {
+        //     $this->validate($request, [
+        //         'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+        //     ]);
+
+        //     $file = $request->file('file');
+        //     $picture = $file->getClientOriginalName();
+        //     $file->move('data_file', $picture);
+        // }
         
         $insert = User::create([
             'name' => $request->name,
@@ -56,8 +64,7 @@ class RegisterController extends Controller
         public function account(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();
             $applications = application::where('user_id', '=', Auth::id())->get();
-            $transactions = Transaction::where('user_id', '=', Auth::id())->get();
-            return view('account', compact('profil', 'transactions', 'applications'));
+            return view('account', compact('profil', 'applications'));
         }
         public function updateaccount(){
             $profil = DB::table('users')->where('user_id', Auth::id())->first();

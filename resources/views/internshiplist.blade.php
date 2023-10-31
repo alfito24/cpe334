@@ -16,13 +16,14 @@ use Carbon\Carbon;
         <div class="flex-shrink-0">
             <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center">
                 @if (!($job->user->picture === null))
-                <img src="{{ url('/data_file/'.$job->user->picture) }}" alt="Grab Logo" class="h-12 w-auto">
+                <img src="{{ url('/data_file/'.$job->user->picture) }}" alt="Grab Logo" class="" style="width: 245px;height:199px">
+                {{-- <img src="{{asset('images/apply.png')}}" alt="Grab Logo" class="h-12 w-auto"> --}}
                 @else
                 <img src="{{asset('images/apply.png')}}" alt="Grab Logo" class="h-12 w-auto">
                 @endif
             </div>
         </div>
-        <div class="flex-grow">
+        <div class="flex-grow ml-4">
             <h3 class="text-lg font-medium mb-2">{{$job->position}}</h3>
             <p class="text-gray-600 mb-1">{{$job->user->company}}</p>
             <p class="text-gray-600">{{$job->location}} ({{$job->worktype}})</p>
