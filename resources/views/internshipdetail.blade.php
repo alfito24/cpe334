@@ -20,7 +20,7 @@ use Carbon\Carbon;
       </div>
       <div class="mt-5">
           <img src="{{asset('images/mdi_calendar.png')}}" alt="location" class=" px-1 inline">
-          <h4 class="font-medium inline pl-2 text-[#66737D]">{{$job->duration}} months, Start at {{ Carbon::parse($job->start)->format('F, Y') }}</h4>
+          <h4 class="font-medium inline pl-2 text-[#66737D]">{{$job->duration}} months, Start at {{ \Carbon\Carbon::parse($job->start)->format('d F Y') }}</h4>
       </div>
       @if(Auth::user()->role_id == 0)
       <div class="flex justify-start mt-4">
@@ -35,6 +35,11 @@ use Carbon\Carbon;
         <a href="/viewapplicantslist/{{$job->job_id}}">
           <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
             View Applicants
+          </button>
+        </a>
+        <a href="/editinternship/{{$job->job_id}}" class="ml-2">
+          <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
+            Edit Internship
           </button>
         </a>
     </div>

@@ -39,6 +39,8 @@ Route::get('/chooserole', function () {
 });
 
 // Job/InternhipController
+Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
+Route::post('/editinternship/{id}', [JobController::class, 'update'] );
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
 Route::get('/myinternshiplist', [JobController::class, 'index'] );
 Route::get('/viewapplicantslist/{id}', [JobController::class, 'applicants'] );

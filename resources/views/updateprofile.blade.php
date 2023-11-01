@@ -32,9 +32,9 @@
             <p class="font-medium text-md text-[#3166AD] mt-6">Highest Education</p>
             <div class="mt-2">
                 <select name="education" id="cars" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded border-[#3367AD] border-2">
-                    <option {{ $profil->education === 'High School' ? 'selected' : '' }} value="high_school">High School</option>
-                    <option {{ $profil->education === 'Bachelor' ? 'selected' : '' }} value="bachelor">Bachelor</option>
-                    <option {{ $profil->education === 'Master' ? 'selected' : '' }} value="master">Master</option>
+                    <option {{ $profil->education === 'High School' ? 'selected' : '' }} value="High School">High School</option>
+                    <option {{ $profil->education === 'Bachelor' ? 'selected' : '' }} value="Bachelor">Bachelor</option>
+                    <option {{ $profil->education === 'Master' ? 'selected' : '' }} value="Master">Master</option>
                     <option {{ $profil->education === 'Ph.D' ? 'selected' : '' }} value="Ph.D">Ph.D</option>
                 </select>
             </div>

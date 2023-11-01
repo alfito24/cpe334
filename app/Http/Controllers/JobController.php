@@ -70,11 +70,6 @@ class JobController extends Controller
      * @param  \App\Models\job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $job = DB::table('job')->where('job_id', $id)->first();
-        return view('editjob', compact('job'));
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -82,11 +77,11 @@ class JobController extends Controller
      * @param  \App\Models\job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit(job $job)
+    public function edit($id)
     {
-        //
+        $job = DB::table('jobs')->where('job_id', $id)->first();
+        return view('editinternship', compact('job'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -96,16 +91,21 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $job = DB::table('job')->where('job_id', Auth::id())->first();
-        $insert = job::update([
-            'position' => $request->position,
-            'description' => $request->description,
-            'qualifications' => $request->qualifications,
-            'duration' => $request->duration,
-            'location' => $request->location,
-            'worktype' => $request->worktype,
-        ]);
-        return redirect('/addinternship');
+        $job = job::find($id); // Use the job Eloquent model to find the job
+        if ($job) {
+            $job->update([
+                'position' => $request->position,
+                'description' => $request->description,
+                'qualifications' => $request->qualifications,
+                'duration' => $request->duration,
+                'location' => $request->location,
+                'worktype' => $request->worktype,
+                'deadline' => $request->deadline,
+                'start' => $request->start,
+            ]);
+        }
+    
+        return redirect('/myinternshiplist');
     }
 
     /**
