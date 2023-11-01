@@ -31,10 +31,10 @@
                 <input type="text" id="position" name="position" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Position :">
             </div>
             <div class="mt-3">
-                <input type="text" id="description" name="description" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Description :">
+                <textarea id="description" name="description" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Description :"></textarea>
             </div>
             <div class="mt-3">
-                <input type="text" id="qualifications" name="qualifications" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum">
+                <input type="text" id="location" name="location" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
             </div>
             <div class="mt-3">
                 <div class=" font-poppins font-bold grid justify-items-center mx-auto">
@@ -62,7 +62,7 @@
                 </select>
             </div>
             <div class="mt-3">
-                <input type="text" id="location" name="location" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
+                <textarea id="qualifications" name="qualifications" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum"></textarea>
             </div>
             <div class="mt-3">
                 <select id="worktype" name="worktype" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2">

@@ -22,8 +22,8 @@ class CreateApplicationsTable extends Migration
             $table->string('cv_file_path')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
         });
     }
 

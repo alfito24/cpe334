@@ -30,6 +30,14 @@ use Carbon\Carbon;
           </button>
         </a>
     </div>
+      @elseif (Auth::user()->role_id == 1)
+      <div class="flex justify-start mt-4">
+        <a href="/viewapplicantslist/{{$job->job_id}}">
+          <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
+            View Applicants
+          </button>
+        </a>
+    </div>
       @endif
     </div>
     <div class="py-10 lg:pt-6 lg:pb-10 lg:col-start-1 lg:col-span-2 lg:pr-8 ">

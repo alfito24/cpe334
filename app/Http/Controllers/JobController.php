@@ -6,6 +6,7 @@ use App\Models\job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\application;
 
 class JobController extends Controller
 {
@@ -117,5 +118,9 @@ class JobController extends Controller
     {
         DB::table('job')->where('job_id', $id)->delete();
         return redirect('/addinternship');
+    }
+    public function applicants($id){
+        $applications = application::where('job_id', '=', $id)->get();
+        return view('viewapplicantslist', compact('applications'));
     }
 }

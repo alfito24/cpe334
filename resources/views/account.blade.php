@@ -19,6 +19,7 @@
         <a href="/updateprofile" class="text-[#3166AD] text-sm font-semibold flex justify-end px-10 md:px-0">Edit</a>
         <h3 class="font-semibold text-xl md:text-2xl text-center mt-5 md:text-left">Profile</h3>
         <div class="flex justify-center items-center">
+            @if (Auth::user()->role_id == 0)
             <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
                 <tr>
                     <td class="w-[50%]">Name</td>
@@ -41,6 +42,22 @@
                     <td>{{ $profil->area_of_interest }}</td>
                 </tr>
             </table>
+            @elseif (Auth::user()->role_id == 1)
+            <table class="pt-3 text-md md:text-md lg:text-lg text-gray-500 border-separate border-spacing-y-3 w-[65%] md:w-[100%]">
+                <tr>
+                    <td class="w-[50%]">Company Name</td>
+                    <td class="w-[50%]">{{ $profil->company }}</td>
+                </tr>
+                <tr>
+                    <td>Company Established</td>
+                    <td>{{ \Carbon\Carbon::parse($profil->company_established)->format('d F Y') }}</td>
+                </tr>
+                <tr>
+                    <td>Area of Business</td>
+                    <td>{{ $profil->area_of_interest }}</td>
+                </tr>
+            </table>
+            @endif
         </div>
         <h3 class="font-semibold text-xl md:text-2xl text-center mt-7 md:text-left">Contact</h3>
         <div class="flex justify-center items-center">
@@ -65,6 +82,7 @@
             </table>
         </div>
     </div>
+    @if (Auth::user()->role_id == 0)
     <div class="py-4 px-12 md:px-8">
         <h3 class="font-semibold text-xl md:text-2xl text-center md:text-left">Application History</h3>
         @foreach ($applications as $a)
@@ -90,8 +108,9 @@
                 </h5>
             </div>
         </div>
-@endforeach
+        @endforeach
     </div>
+    @endif
 
 </div>
 @endsection

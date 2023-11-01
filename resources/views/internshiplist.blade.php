@@ -4,20 +4,19 @@
 @php
 use Carbon\Carbon;
 @endphp
-<div class="mb-8 text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-20 text-2xl md:mt-36 md:text-3xl">
-    <h1>Apply your internship here</h1>
+<div class="mb-10 text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-20 text-2xl md:mt-36 md:text-3xl">
+    <h1 class="mb-10">Apply your internship here</h1>
 </div>
 
-<div class="grid grid-cols-1 gap-x-10 gap-y-16">
+<div class="grid grid-cols-1 gap-x-10 gap-y-16 mt-5">
    @foreach ($jobs as $job )
    @if(Carbon::now()->lessThanOrEqualTo($job->deadline))
-   <div class="w-1/2 mx-auto flex p-6 bg-white border-[#3367AD] border-2 rounded-lg space-x-6 flex-col mt-10">
+   <div class="w-1/2 mx-auto flex p-6 bg-white border-[#3367AD] border-2 rounded-lg space-x-6 flex-col">
     <div class="flex items-center space-x-6 mb-4">
         <div class="flex-shrink-0">
             <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center">
                 @if (!($job->user->picture === null))
                 <img src="{{ url('/data_file/'.$job->user->picture) }}" alt="Grab Logo" class="" style="width: 245px;height:199px">
-                {{-- <img src="{{asset('images/apply.png')}}" alt="Grab Logo" class="h-12 w-auto"> --}}
                 @else
                 <img src="{{asset('images/apply.png')}}" alt="Grab Logo" class="h-12 w-auto">
                 @endif

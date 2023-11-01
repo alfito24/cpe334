@@ -48,7 +48,7 @@
                     <div class="mt-5">
                         <label for="username"><span class="font-semibold text-md">Company Logo</span>
                             <img id="imagePreview" src="" class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full">
-                            <input type="file" id='imageUpload' class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 border-[#3166AD] " name="file" onchange="previewImage()">
+                            <input type="file" id='imageUpload' name="file" class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 border-[#3166AD]" name="file" onchange="previewImage()">
                         </label>
                     </div>
                     <div class="mt-5">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="mt-5">
                         <label for="username"><span class="font-semibold text-md">Company Established</span>
-                            <input type="text" placeholder="Enter your company established" value="{{ old('company_established') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company_established">
+                            <input type="date" placeholder="Enter your company established" value="{{ old('company_established') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company_established">
                         </label>
                     </div>
                     <div class="mt-5">

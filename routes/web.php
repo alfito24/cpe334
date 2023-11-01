@@ -41,6 +41,8 @@ Route::get('/chooserole', function () {
 // Job/InternhipController
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
 Route::get('/myinternshiplist', [JobController::class, 'index'] );
+Route::get('/viewapplicantslist/{id}', [JobController::class, 'applicants'] );
+Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
 
 // ApplicationController
 Route::post('/applyinternship/{id}/apply', [ApplicationController::class, 'store']);
@@ -56,9 +58,9 @@ Route::get('/addinternship', function () {
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/allinternshiplist', function () {
-    return view('internshiplist');
-});
+// Route::get('/allinternshiplist', function () {
+//     return view('internshiplist');
+// });
 Route::get('/allinternshiplist', [JobController::class, 'indexall']); 
 Route::get('//applyinternship/{id}', [JobController::class, 'apply']); 
 Route::get('/jobdetail', function () {

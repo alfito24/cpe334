@@ -62,8 +62,8 @@
                     <div class="mt-5">
                         <label for="gender"><span class="font-semibold text-md">Gender</span>
                             <select name="gender" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </label>
                     </div>

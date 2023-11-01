@@ -22,24 +22,17 @@ class RegisterController extends Controller
         } else {
             $area_of_interest = $request->area_of_interest;
         }
-        if ($request->hasFile('picture')) {
-            $file = $request->file('picture');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/pictures', $filename);
-            $picture = $filename;
+        if ($request->hasFile('file')) {
+            $this->validate($request, [
+                'file' => 'image|mimes:jpeg,png,jpg|max:4096'
+            ]);
+
+            $file = $request->file('file');
+            $picture = $file->getClientOriginalName();
+            $file->move('data_file', $picture);
         } else {
             $picture = null; 
         }
-        // if ($request->hasFile('file')) {
-        //     $this->validate($request, [
-        //         'file' => 'image|mimes:jpeg,png,jpg|max:4096'
-        //     ]);
-
-        //     $file = $request->file('file');
-        //     $picture = $file->getClientOriginalName();
-        //     $file->move('data_file', $picture);
-        // }
-        
         $insert = User::create([
             'name' => $request->name,
             'username' => $request->username,
@@ -85,6 +78,8 @@ class RegisterController extends Controller
                 'gender' => $request->gender,
                 'birth_date' => $request->birth_date,
                 'education' => $request->education,
+                'company' => $request->company,
+                'company_established' => $request->company_established,
                 'area_of_interest' => $area_of_interest,
             ]);
 

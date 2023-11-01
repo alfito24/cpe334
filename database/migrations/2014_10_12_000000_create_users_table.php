@@ -19,9 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique()->nullable();
             $table->string('company')->nullable();
             $table->string('company_description')->nullable();
-            $table->string('company_established')->nullable();
+            $table->date('company_established')->nullable();
             $table->text('picture')->nullable();
-            // $table->text('company_picture')->nullable();
             $table->string('email')->unique();
             $table->string('gender')->nullable();
             $table->string('education')->nullable();
@@ -38,7 +37,7 @@ class CreateUsersTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations
      *
      * @return void
      */
