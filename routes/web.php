@@ -46,7 +46,8 @@ Route::get('/myinternshiplist', [JobController::class, 'index'] );
 Route::get('/viewapplicantslist/{id}', [JobController::class, 'applicants'] );
 Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
 Route::get('/allinternshiplist', [JobController::class, 'indexall']); 
-Route::get('//applyinternship/{id}', [JobController::class, 'apply']); 
+Route::get('/applyinternship/{id}', [JobController::class, 'apply']); 
+Route::get('/internship/search', [JobController::class, 'search']); 
 
 // ApplicationController
 Route::post('/applyinternship/{id}/apply', [ApplicationController::class, 'store']);

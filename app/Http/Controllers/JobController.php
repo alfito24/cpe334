@@ -123,4 +123,23 @@ class JobController extends Controller
         $applications = application::where('job_id', '=', $id)->get();
         return view('viewapplicantslist', compact('applications'));
     }
+    public function search(Request $request){
+        $search = $request->search;
+        $keywords = explode(' ', $search);
+
+        $query = job::query();
+
+        foreach ($keywords as $keyword) {
+            $query->orWhere('position', 'like', '%' . $keyword . '%');
+        }
+
+        $jobs = $query->get();
+        return view('searchinternshiplist', [
+            'jobs'=>$jobs,
+            'title'=>'Search Intern',
+            'search'=>$search
+        ]);
+
+    }
+    
 }

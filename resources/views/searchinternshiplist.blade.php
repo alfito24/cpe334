@@ -5,17 +5,10 @@
 use Carbon\Carbon;
 @endphp
 <div class="mb-10 text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-20 text-2xl md:mt-36 md:text-3xl">
-    <h1 class="mb-10">Apply your internship here</h1>
+    <h1 class="mb-10">the Result for {{ ucwords($search) }} Position</h1>
 </div>
 <div class="w-1/2 mx-auto mt-5 md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
-    <form action="/internship/search" method="get" class="w-full flex items-center">
-        <input type="text" name="search" id="search" class="w-full p-2 rounded-lg border-2 border-[#3367AD] focus:outline-none" placeholder="Search internships...">
-        <button type="submit" class="ml-4 px-4 py-2 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
-            Search
-        </button>
-    </form>
 </div>
-
 
 <div class="grid grid-cols-1 gap-x-10 gap-y-16 mt-5">
    @foreach ($jobs as $job )
