@@ -35,7 +35,7 @@ Route::get('/companyregister', function () {
     return view('registercompany');
 });
 Route::get('/chooserole', function () {
-    return view('choosrole');
+    return view('chooserole');
 });
 
 // Job/InternhipController
@@ -45,6 +45,8 @@ Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
 Route::get('/myinternshiplist', [JobController::class, 'index'] );
 Route::get('/viewapplicantslist/{id}', [JobController::class, 'applicants'] );
 Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
+Route::get('/allinternshiplist', [JobController::class, 'indexall']); 
+Route::get('//applyinternship/{id}', [JobController::class, 'apply']); 
 
 // ApplicationController
 Route::post('/applyinternship/{id}/apply', [ApplicationController::class, 'store']);
@@ -60,16 +62,11 @@ Route::get('/addinternship', function () {
 Route::get('/', function () {
     return view('home');
 });
-// Route::get('/allinternshiplist', function () {
-//     return view('internshiplist');
-// });
-Route::get('/allinternshiplist', [JobController::class, 'indexall']); 
-Route::get('//applyinternship/{id}', [JobController::class, 'apply']); 
-Route::get('/jobdetail', function () {
-    return view('jobdetail');
-});
 
 //template
 Route::get('/template', function () {
     return view('template');
+});
+Route::get('/tryaddinternship', function () {
+    return view('tryaddinternship');
 });

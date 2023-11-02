@@ -92,73 +92,30 @@
                             </select>
                         </label>
                     </div>
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                        <label class="font-semibold text-md col-span-2">Area of Interest</label>
-                        <br>
-                        <div>
-                            <input type="checkbox" id="it" name="area_of_interest[]" value="IT">
-                            <label for="it">IT</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="healthcare" name="area_of_interest[]" value="Medicine">
-                            <label for="healthcare">Medicine</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="finance" name="area_of_interest[]" value="Finance">
-                            <label for="finance">Finance and Banking</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="marketing" name="area_of_interest[]" value="Marketing">
-                            <label for="marketing">Marketing</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="education" name="area_of_interest[]" value="Education">
-                            <label for="education">Education</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="engineering" name="area_of_interest[]" value="Engineering">
-                            <label for="engineering">Engineering</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="environmental" name="area_of_interest[]" value="Environmental Science">
-                            <label for="environmental">Environmental Science</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="hr" name="area_of_interest[]" value="Human Resources">
-                            <label for="hr">Human Resources</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="art" name="area_of_interest[]" value="Art">
-                            <label for="art">Art</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="social" name="area_of_interest[]" value="Social Services">
-                            <label for="social">Social Services</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="business" name="area_of_interest[]" value="Business">
-                            <label for="business">Business</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="law" name="area_of_interest[]" value="Law">
-                            <label for="law">Law</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="research" name="area_of_interest[]" value="Research">
-                            <label for="research">Research</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="media" name="area_of_interest[]" value="Communication">
-                            <label for="media">Communication</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="hospitality" name="area_of_interest[]" value="Tourism">
-                            <label for="hospitality">Tourism</label>
-                        </div>
+                    <div class="mt-5">
+                        <label for="education"><span class="font-semibold text-md">Area of Interest</span>
+                            <select id="skillsDropdown"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
+                                <option value="" disabled selected>Select Area of Interest</option>
+                                <option value="IT">IT</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Education">Education</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Environmental">Environmental</option>
+                                <option value="Human Resources">Human Resources</option>
+                                <option value="Art">Art</option>
+                                <option value="Social">Social</option>
+                                <option value="Law">Law</option>
+                                <option value="Research">Research</option>
+                                <option value="Communication">Communication</option>
+                                <option value="Tourism">Tourism</option>
+                            </select>
+                        </label>
                     </div>
-
-
-
+                    <div class="mt-5">
+                        <input type="text" id="selectedSkills" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Interest" readonly>
+                    </div>
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
                             <div class="relative">
@@ -191,5 +148,22 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillsDropdown = document.getElementById('skillsDropdown');
+            const selectedSkills = document.getElementById('selectedSkills');
+        
+            skillsDropdown.addEventListener('change', function() {
+                if (selectedSkills.value) {
+                    selectedSkills.value += ', ' + this.value;
+                } else {
+                    selectedSkills.value = this.value;
+                }
+        
+                // Reset dropdown setelah dipilih
+                this.selectedIndex = 0;
+            });
+        });
+        </script>
 </body>
 </html>

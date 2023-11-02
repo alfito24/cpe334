@@ -17,11 +17,10 @@ class RegisterController extends Controller
         return view('register');
     }
     public function store(Request $request){
-        if (isset($request->area_of_interest) && is_array($request->area_of_interest)) {
-            $area_of_interest = implode(',', $request->area_of_interest);
-        } else {
-            $area_of_interest = $request->area_of_interest;
-        }
+        // $area_of_interest = null;
+        // if ($request->has('area_of_interest')) {
+        //     $area_of_interest = implode(',', $request->area_of_interest);
+        // }
         if ($request->hasFile('file')) {
             $this->validate($request, [
                 'file' => 'image|mimes:jpeg,png,jpg|max:4096'
@@ -47,7 +46,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             'education' => $request->education,
             'role_id' => $request->role_id,
-            'area_of_interest' => $area_of_interest,
+            'area_of_interest' => $request->area_of_interest,
             'picture'=> $picture
         ]);
         $request->session()->flash('success', 'Registration was successful! Please Login to your account');

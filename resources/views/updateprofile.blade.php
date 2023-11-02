@@ -205,7 +205,6 @@
         const reader = new FileReader();
 
         reader.onload = function(event) {
-            // Update the source of the image preview element with the uploaded image data
             preview.src = event.target.result;
         }
 
