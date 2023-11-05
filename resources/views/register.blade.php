@@ -40,6 +40,11 @@
                         <label for="email"><span class="font-semibold text-md">Email</span>
                             <input type="email" placeholder="Enter your email" value="{{ old('email') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="email">
                         </label>
+                        @error('email')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5" hidden>
                         <label for="education"><span class="font-semibold text-md">Highest Education</span>
@@ -53,11 +58,21 @@
                         <label for="username"><span class="font-semibold text-md">Username</span>
                             <input type="text" placeholder="Enter your username" value="{{ old('username') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="username">
                         </label>
+                        @error('username')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label for="name"><span class="font-semibold text-md">Full Name</span>
                             <input type="text" placeholder="Enter your name" value="{{ old('name') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="name">
                         </label>
+                        @error('name')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label for="gender"><span class="font-semibold text-md">Gender</span>
@@ -65,22 +80,42 @@
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            @error('gender')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                         </label>
                     </div>
                     <div class="mt-5">
                         <label for="birthdate"><span class="font-semibold text-md">Birth Date</span>
                             <input name='birth_date' type="date" placeholder="Select your birth date" value="{{ old('birth_date') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="birthdate">
                         </label>
+                        @error('birth_date')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label for="address"><span class="font-semibold text-md">Address</span>
                             <input name="address" type="text" placeholder="Enter your Address" value="{{ old('address') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="address">
                         </label>
+                        @error('address')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label for="phone_number"><span class="font-semibold text-md">Phone Number</span>
                             <input type="phone_number" placeholder="Enter your name" value="{{ old('phone_number') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="phone_number">
                         </label>
+                        @error('phone_number')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label for="education"><span class="font-semibold text-md">Highest Education</span>
@@ -91,9 +126,14 @@
                                 <option value="Ph. D">Ph.D</option>
                             </select>
                         </label>
+                        @error('education')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
-                        <label for="education"><span class="font-semibold text-md">Area of Expertise</span>
+                        <label for="area_of_interest"><span class="font-semibold text-md">Area of Expertise</span>
                             <select id="skillsDropdown"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
                                 <option value="" disabled selected>Select Area of Expertise</option>
                                 <option value="Software Development">Software Development</option>
@@ -128,9 +168,14 @@
                                 <option value="Film and Media Production">Film and Media Production</option>
                             </select>
                         </label>
+                        @error('')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mt-5">
-                        <input type="text" id="selectedSkills" value="{{ old('education') }}" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Expertise" readonly>
+                        <input type="text" id="selectedSkills" value="{{ old('area_of_interest') }}" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Expertise" readonly>
                     </div>
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
@@ -154,6 +199,11 @@
                                 </div>
                             </div>
                         </label>
+                        @error('password')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <button class="mt-8 text-lg font-semibold bg-[#3166AD] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
                         Sign Up

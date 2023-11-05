@@ -19,12 +19,12 @@ class RegisterController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'username' => 'required',
+            'username' => 'required|unique:users',
             'gender' => 'required',
-            'birth_date' => 'required',
-            'email' => 'required',
+            'birth_date' => 'required|date|before:today',
+            'email' => 'required|unique:users|email:dns',
             'address' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|unique:users',
             'password' => 'required',
             'education' => 'required',
             'role_id' => 'required',
@@ -33,24 +33,19 @@ class RegisterController extends Controller
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
-        $request->session()->flash('success', 'Registration was successful! Please Login to your account');
-        return redirect('/login');
+        // $request->session()->flash('success', 'Registration was successful! Please Login to your account');
+        return redirect('/login')->with('success', 'Registration was successful! Please Login to your account');
     }
 
     public function storeCompany(Request $request)
     {
-        // $area_of_interest = null;
-        // if ($request->has('area_of_interest')) {
-        //     $area_of_interest = implode(',', $request->area_of_interest);
-        // }
         $validatedData = $request->validate([
-            // 'username' => 'required',
             'company' => 'required',
             'company_description' => 'required',
-            'company_established' => 'required',
-            'email' => 'required',
+            'company_established' => 'required|date|before:today',
+            'email' => 'required|unique:users|email:dns',
             'address' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|unique:users',
             'password' => 'required',
             'business_area' => 'required',
             'role_id' => 'required',
@@ -66,7 +61,6 @@ class RegisterController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['picture'] = $filename;
         User::create($validatedData);
-        $request->session()->flash('success', 'Registration was successful! Please Login to your account');
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Registration was successful! Please Login to your account');
     }
 }
