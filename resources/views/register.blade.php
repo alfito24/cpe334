@@ -34,7 +34,7 @@
                     </div>
                 @endif
 
-                <form action="/register" method="POST">
+                <form action="/registerStudent" method="POST">
                     @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
@@ -130,7 +130,7 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <input type="text" id="selectedSkills" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Expertise" readonly>
+                        <input type="text" id="selectedSkills" value="{{ old('education') }}" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Expertise" readonly>
                     </div>
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
@@ -168,14 +168,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             const skillsDropdown = document.getElementById('skillsDropdown');
             const selectedSkills = document.getElementById('selectedSkills');
-        
+
             skillsDropdown.addEventListener('change', function() {
                 if (selectedSkills.value) {
                     selectedSkills.value += ', ' + this.value;
                 } else {
                     selectedSkills.value = this.value;
                 }
-        
+
                 // Reset dropdown setelah dipilih
                 this.selectedIndex = 0;
             });

@@ -26,8 +26,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 
 // RegisterController
-Route::get('/studentregister', [RegisterController::class, 'show']); 
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/studentregister', [RegisterController::class, 'show']);
+Route::post('/registerStudent', [RegisterController::class, 'storeStudent']);
+Route::post('/registerCompany', [RegisterController::class, 'storeCompany']);
 Route::get('/myaccount', [RegisterController::class, 'account'] );
 Route::get('/updateprofile', [RegisterController::class, 'updateaccount']);
 Route::post('/updateprofile/{id}', [RegisterController::class, 'updateprofile']);
@@ -44,11 +45,11 @@ Route::post('/editinternship/{id}', [JobController::class, 'update'] );
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
 Route::get('/myinternshiplist', [JobController::class, 'index'] );
 Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
-Route::get('/allinternshiplist', [JobController::class, 'indexall']); 
-Route::get('/applyinternship/{id}', [JobController::class, 'apply']); 
-Route::get('/internship/search', [JobController::class, 'search']); 
-Route::get('/internship/search/company', [JobController::class, 'search2']); 
-Route::get('/internship/matching', [JobController::class, 'match']); 
+Route::get('/allinternshiplist', [JobController::class, 'indexall']);
+Route::get('/applyinternship/{id}', [JobController::class, 'apply']);
+Route::get('/internship/search', [JobController::class, 'search']);
+Route::get('/internship/search/company', [JobController::class, 'search2']);
+Route::get('/internship/matching', [JobController::class, 'match']);
 
 // ApplicationController
 Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );

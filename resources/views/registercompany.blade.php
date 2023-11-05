@@ -33,7 +33,7 @@
                         <span class="block sm:inline text-[#FF0000]">{{ session('error') }}</span>
                     </div>
                 @endif
-                <form action="/register" method="POST" enctype="multipart/form-data">
+                <form action="/registerCompany" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
@@ -41,12 +41,12 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="username"><span class="font-semibold text-md">Company Name</span>
-                            <input type="text" placeholder="Enter your username" value="{{ old('username') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company">
+                        <label for="company"><span class="font-semibold text-md">Company Name</span>
+                            <input type="text" placeholder="Enter your company name" value="{{ old('company') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company">
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="username"><span class="font-semibold text-md">Company Logo</span>
+                        <label for="file"><span class="font-semibold text-md">Company Logo</span>
                             <img id="imagePreview" src="" class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full">
                             <input type="file" id='imageUpload' name="file" class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 border-[#3166AD]" name="file" onchange="previewImage()">
                         </label>
@@ -56,7 +56,7 @@
                         <textarea placeholder="Enter your company description" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]" name="company_description" rows="4">{{ old('company_description') }}</textarea>
                     </div>
                     <div class="mt-5">
-                        <label for="username"><span class="font-semibold text-md">Company Established</span>
+                        <label for="company_established"><span class="font-semibold text-md">Company Established</span>
                             <input type="date" placeholder="Enter your company established" value="{{ old('company_established') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="company_established">
                         </label>
                     </div>
@@ -79,8 +79,8 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="education"><span class="font-semibold text-md">Area of Business</span>
-                            <select id="skillsDropdown"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
+                        <label for="business_area"><span class="font-semibold text-md">Area of Business</span>
+                            <select id="skillsDropdown" name="business_area"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
                                 <option value="" disabled selected>Select Area of Business</option>
                                 <option value="IT">IT</option>
                                 <option value="Medicine">Medicine</option>
@@ -100,7 +100,7 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <input type="text" id="selectedSkills" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Business" readonly>
+                        <input type="text" id="selectedSkills" value="{{ old('business_area') }}" name="business_area" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Business" readonly>
                     </div>
 
                     <div class="mt-5" x-data="{ show: true }">
@@ -139,14 +139,14 @@
         function previewImage() {
         const file = document.getElementById('imageUpload').files[0];
         const preview = document.getElementById('imagePreview');
-    
+
         if (file) {
             const reader = new FileReader();
-    
+
             reader.onload = function(event) {
                 preview.src = event.target.result;
             }
-    
+
             reader.readAsDataURL(file);
         }
     }
@@ -155,14 +155,14 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const skillsDropdown = document.getElementById('skillsDropdown');
                 const selectedSkills = document.getElementById('selectedSkills');
-            
+
                 skillsDropdown.addEventListener('change', function() {
                     if (selectedSkills.value) {
                         selectedSkills.value += ', ' + this.value;
                     } else {
                         selectedSkills.value = this.value;
                     }
-            
+
                     // Reset dropdown setelah dipilih
                     this.selectedIndex = 0;
                 });
