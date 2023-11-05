@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -29,15 +30,17 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/studentregister', [RegisterController::class, 'show']);
 Route::post('/registerStudent', [RegisterController::class, 'storeStudent']);
 Route::post('/registerCompany', [RegisterController::class, 'storeCompany']);
-Route::get('/myaccount', [RegisterController::class, 'account'] );
-Route::get('/updateprofile', [RegisterController::class, 'updateaccount']);
-Route::post('/updateprofile/{id}', [RegisterController::class, 'updateprofile']);
 Route::get('/companyregister', function () {
     return view('registercompany');
 });
 Route::get('/chooserole', function () {
     return view('chooserole');
 });
+
+// AccountController
+Route::get('/myaccount', [AccountController::class, 'account'] );
+Route::get('/updateprofile', [AccountController::class, 'updateaccount']);
+Route::post('/updateprofile/{id}', [AccountController::class, 'updateprofile']);
 
 // Job/InternhipController
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
