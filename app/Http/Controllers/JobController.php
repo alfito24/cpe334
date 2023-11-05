@@ -24,19 +24,24 @@ class JobController extends Controller
     {
         $jobs = job::all();
         return view('internshiplist', [
-            'jobs'=>$jobs,
-            'title'=>'View All Internships',
+            'jobs' => $jobs,
+            'title' => 'View All Internships',
         ]);
     }
     public function match()
     {
         $currentUser = Auth::user(); // Get the currently authenticated user
-        $areaOfExpertise = $currentUser->area_of_interest;
-        $jobs = job::where('area_of_expertise', 'like', '%'. $areaOfExpertise . '%')->get();
-        return view('matchinternship', [
-            'jobs'=>$jobs,
-            'title'=>'View All Internships that Match your Profile'
-        ]);
+        if ($currentUser) {
+            $areaOfExpertise = $currentUser->area_of_interest;
+            $jobs = job::where('area_of_expertise', 'like', '%' . $areaOfExpertise . '%')->get();
+            return view('matchinternship', [
+                'jobs' => $jobs,
+                'title' => 'View All Internships that Match your Profile'
+            ]);
+        }
+        else{
+            return redirect('/login');
+        }
     }
     public function detail($id)
     {
@@ -62,7 +67,7 @@ class JobController extends Controller
             'duration' => 'required',
             'location' => 'required',
             'worktype' => 'required',
-            'area_of_expertise'=>'required',
+            'area_of_expertise' => 'required',
             'deadline' => 'required|date|after_or_equal:today',
             'start' => 'required|date|after_or_equal:today',
         ]);
@@ -116,10 +121,10 @@ class JobController extends Controller
                 'worktype' => $request->worktype,
                 'deadline' => $request->deadline,
                 'start' => $request->start,
-                'area_of_expertise'=>$request->area_of_expertise
+                'area_of_expertise' => $request->area_of_expertise
             ]);
         }
-    
+
         return redirect('/myinternshiplist');
     }
 
@@ -134,7 +139,8 @@ class JobController extends Controller
         DB::table('job')->where('job_id', $id)->delete();
         return redirect('/addinternship');
     }
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $search = $request->search;
         $keywords = explode(' ', $search);
 
@@ -146,24 +152,24 @@ class JobController extends Controller
 
         $jobs = $query->get();
         return view('searchinternshiplist', [
-            'jobs'=>$jobs,
-            'title'=>'Search Intern',
-            'search'=>$search
+            'jobs' => $jobs,
+            'title' => 'Search Intern',
+            'search' => $search
         ]);
-
     }
-    public function search2(Request $request){
+    public function search2(Request $request)
+    {
         $search = $request->search;
         $keywords = explode(' ', $search);
-    
+
         $query = job::where('user_id', Auth::id());
-    
+
         foreach ($keywords as $keyword) {
-            $query->orWhere(function($q) use ($keyword) {
+            $query->orWhere(function ($q) use ($keyword) {
                 $q->where('position', 'like', '%' . $keyword . '%');
             });
         }
-    
+
         $jobs = $query->get();
         return view('searchinternshiplist', [
             'jobs' => $jobs,
@@ -171,5 +177,4 @@ class JobController extends Controller
             'search' => $search
         ]);
     }
-    
 }
