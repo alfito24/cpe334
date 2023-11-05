@@ -27,6 +27,10 @@ class ApplicationController extends Controller
     {
         //
     }
+    public function applicants($id){
+        $applications = application::where('job_id', '=', $id)->where('status', '=', 'submitted')->get();
+        return view('viewapplicantslist', compact('applications'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -58,9 +62,21 @@ class ApplicationController extends Controller
      * @param  \App\Models\application  $application
      * @return \Illuminate\Http\Response
      */
-    public function show(application $application)
+    public function accept($id)
     {
-        //
+        $application = application::where('user_id', $id)->first();
+        $application->status = 'accepted';
+        $application->save();
+
+        return back();
+    }
+    public function reject($id)
+    {
+        $application = application::where('user_id', $id)->first();
+        $application->status = 'rejected';
+        $application->save();
+
+        return back();
     }
 
     /**

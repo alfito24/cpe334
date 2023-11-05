@@ -43,14 +43,18 @@ Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
 Route::post('/editinternship/{id}', [JobController::class, 'update'] );
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
 Route::get('/myinternshiplist', [JobController::class, 'index'] );
-Route::get('/viewapplicantslist/{id}', [JobController::class, 'applicants'] );
 Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
 Route::get('/allinternshiplist', [JobController::class, 'indexall']); 
 Route::get('/applyinternship/{id}', [JobController::class, 'apply']); 
 Route::get('/internship/search', [JobController::class, 'search']); 
+Route::get('/internship/search/company', [JobController::class, 'search2']); 
+Route::get('/internship/matching', [JobController::class, 'match']); 
 
 // ApplicationController
+Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );
 Route::post('/applyinternship/{id}/apply', [ApplicationController::class, 'store']);
+Route::get('/internship/{id}/accept', [ApplicationController::class, 'accept']);
+Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
 Route::get('/applyinternship', function () {
     return view('/apply');
 });

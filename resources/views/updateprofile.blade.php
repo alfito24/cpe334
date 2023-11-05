@@ -38,69 +38,6 @@
                     <option {{ $profil->education === 'Ph.D' ? 'selected' : '' }} value="Ph.D">Ph.D</option>
                 </select>
             </div>
-            <p class="font-medium text-md text-[#3166AD] mt-6">Area of Interest</p>
-            <div class="mt-2 grid grid-cols-2 gap-3">
-                <div>
-                    <input {{ in_array('IT', $userInterests) ? 'checked' : '' }} type="checkbox" id="it" name="area_of_interest[]" value="IT">
-                    <label for="it">IT</label>
-                </div>
-                <div>
-                    <input {{ in_array('Medicine', $userInterests) ? 'checked' : '' }} type="checkbox" id="healthcare" name="area_of_interest[]" value="Medicine">
-                    <label for="healthcare">Medicine</label>
-                </div>
-                <div>
-                    <input {{ in_array('Finance', $userInterests) ? 'checked' : '' }} type="checkbox" id="finance" name="area_of_interest[]" value="Finance">
-                    <label for="finance">Finance and Banking</label>
-                </div>
-                <div>
-                    <input {{ in_array('Marketing', $userInterests) ? 'checked' : '' }} type="checkbox" id="marketing" name="area_of_interest[]" value="Marketing">
-                    <label for="marketing">Marketing</label>
-                </div>
-                <div>
-                    <input {{ in_array('Education', $userInterests) ? 'checked' : '' }} type="checkbox" id="education" name="area_of_interest[]" value="Education">
-                    <label for="education">Education</label>
-                </div>
-                <div>
-                    <input {{ in_array('Engineering', $userInterests) ? 'checked' : '' }} type="checkbox" id="engineering" name="area_of_interest[]" value="Engineering">
-                    <label for="engineering">Engineering</label>
-                </div>
-                <div>
-                    <input {{ in_array('Environmental Science', $userInterests) ? 'checked' : '' }} type="checkbox" id="environmental" name="area_of_interest[]" value="Environmental Science">
-                    <label for="environmental">Environmental Science</label>
-                </div>
-                <div>
-                    <input {{ in_array('Human Resources', $userInterests) ? 'checked' : '' }} type="checkbox" id="hr" name="area_of_interest[]" value="Human Resources">
-                    <label for="hr">Human Resources</label>
-                </div>
-                <div>
-                    <input {{ in_array('Art', $userInterests) ? 'checked' : '' }} type="checkbox" id="art" name="area_of_interest[]" value="Art">
-                    <label for="art">Art</label>
-                </div>
-                <div>
-                    <input {{ in_array('Social Services', $userInterests) ? 'checked' : '' }} type="checkbox" id="social" name="area_of_interest[]" value="Social Services">
-                    <label for="social">Social Services</label>
-                </div>
-                <div>
-                    <input {{ in_array('Business', $userInterests) ? 'checked' : '' }} type="checkbox" id="business" name="area_of_interest[]" value="Business">
-                    <label for="business">Business</label>
-                </div>
-                <div>
-                    <input {{ in_array('Law', $userInterests) ? 'checked' : '' }} type="checkbox" id="law" name="area_of_interest[]" value="Law">
-                    <label for="law">Law</label>
-                </div>
-                <div>
-                    <input {{ in_array('Research', $userInterests) ? 'checked' : '' }} type="checkbox" id="research" name="area_of_interest[]" value="Research">
-                    <label for="research">Research</label>
-                </div>
-                <div>
-                    <input {{ in_array('Communication', $userInterests) ? 'checked' : '' }}  type="checkbox" id="media" name="area_of_interest[]" value="Communication">
-                    <label for="media">Communication</label>
-                </div>
-                <div>
-                    <input {{ in_array('Tourism', $userInterests) ? 'checked' : '' }} type="checkbox" id="Tourism" name="area_of_interest[]" value="Tourism">
-                    <label for="Tourism">Tourism</label>
-                </div>
-            </div>
             @elseif (Auth::user()->role_id == 1)
             <p class="font-medium text-md text-[#3166AD] mt-6">Company Name</p>
             <div class="mt-2">

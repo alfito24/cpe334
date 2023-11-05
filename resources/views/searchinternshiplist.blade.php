@@ -5,7 +5,7 @@
 use Carbon\Carbon;
 @endphp
 <div class="mb-10 text-[#3166AD] font-poppins font-bold grid justify-items-center mx-auto mt-20 text-2xl md:mt-36 md:text-3xl">
-    <h1 class="mb-10">the Result for {{ ucwords($search) }} Position</h1>
+    <h1 class="mb-10">the Result for "{{ ucwords($search) }}" Position</h1>
 </div>
 <div class="w-1/2 mx-auto mt-5 md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
 </div>

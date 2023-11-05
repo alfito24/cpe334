@@ -68,7 +68,7 @@ class RegisterController extends Controller
         }
         public function updateprofile(Request $request){
             $user = DB::table('users')->where('user_id', Auth::id());
-            $area_of_interest = implode(',', $request->input('area_of_interest'));
+            // $area_of_interest = implode(', ', $request->input('area_of_interest'));
 
             $user->update([
                 'address' => $request->address,
@@ -79,7 +79,7 @@ class RegisterController extends Controller
                 'education' => $request->education,
                 'company' => $request->company,
                 'company_established' => $request->company_established,
-                'area_of_interest' => $area_of_interest,
+                // 'area_of_interest' => $area_of_interest,
             ]);
 
             if ($request->hasFile('file')) {

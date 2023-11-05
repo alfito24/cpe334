@@ -22,6 +22,7 @@ class CreateJobsTable extends Migration
             $table->string('duration');
             $table->string('location');
             $table->string('worktype');
+            $table->string('area_of_expertise');
             $table->date('start');
             $table->date('deadline');
             $table->timestamps();

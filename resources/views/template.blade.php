@@ -34,12 +34,13 @@
                         <div class="hidden md:flex items-center space-x-1">
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Home</a>
                             @guest
-                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
+                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">All Internship Lists</a>
                             @endguest
                             @auth
                             @if(Auth::user()->role_id == 0)
                             {{-- <a @yield('applyinternship') href="/pickup" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Apply Internship</a> --}}
-                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Internship Lists</a>
+                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">All Intern Lists</a>
+                            <a @yield('matchinternship') href="/internship/matching" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Intern For Me</a>
                             @endif
                             @if(Auth::user()->role_id == 1)
                             <a @yield('addinternship') href="/addinternship" class="py-4 px-2 text-white font-semibold hover:text-[#BFD9EB] transition duration-300">Add Internship</a>
@@ -102,7 +103,7 @@
 				<ul class="">
 					<li><a @yield('home1active') href="/" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Home</a></li>
 					<li><a @yield('pickup1active') href="/pickup" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Apply Internship</a></li>
-					<li><a @yield('buyproducts1active') href="/allinternshiplist" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">Internship List</a></li>
+					<li><a @yield('buyproducts1active') href="/allinternshiplist" class="block text-sm px-2 py-4 text-white hover:bg-[#BFD9EB] transition duration-300">All Internship List</a></li>
                     @if (Auth::check())
                     <li>
                         <div @click.away="open = false" class="relative" x-data="{ open: false }">

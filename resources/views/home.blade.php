@@ -38,7 +38,7 @@
     </div>    
     <div class="order-2 sm:order-1 px-24 sm:px-5 md:px-7 lg:px-32 flex flex-col items-center justify-center md:items-start ">
         <h3 class="text-[#3166AD] text-center sm:text-start font-bold text-2xl md:text-4xl">Let’s find a job that suits you!</h3>
-        <a href="/allinternshiplist" class="mt-5 sm:mt-7 py-2 min-w-[50%] sm:min-w-[65%] lg:min-w-[50%] bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-cyan-400 transition duration-300 block text-center">View</a>
+        <a href="/internship/matching" class="mt-5 sm:mt-7 py-2 min-w-[50%] sm:min-w-[65%] lg:min-w-[50%] bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-cyan-400 transition duration-300 block text-center">View</a>
     </div>
 </div>
 <script src="https://cdn.tailwindcss.com"></script>

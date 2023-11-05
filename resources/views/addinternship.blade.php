@@ -38,9 +38,15 @@
             </div>
             <div class="mt-3">
                 <div class=" font-poppins font-bold grid justify-items-center mx-auto">
-                    <h1>Deadline Application</h1>
+                    <h1>Application Deadline</h1>
                 </div>
                 <input type="date" id="deadline" name="deadline" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
+            </div>
+            <div class="mt-3">
+                <div class=" font-poppins font-bold grid justify-items-center mx-auto">
+                    <h1>Internship Start</h1>
+                </div>
+                <input  type="date" id="dateInput" name="start" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum">
             </div>
         </div>
         <div>
@@ -73,12 +79,43 @@
                 </select>
             </div>
             <div class="mt-3">
-                <div class=" font-poppins font-bold grid justify-items-center mx-auto">
-                    <h1>Internship Start</h1>
-                </div>
-                <input type="date" id="start" name="start" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum">
+                <select id="skillsDropdown" name="select_area" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2">
+                    <option value="" disabled selected> Select Area of Expertise :</option>
+                    <option value="Software Development">Software Development</option>
+                    <option value="UX/UI Design">UX/UI Design</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Data Analysis">Data Analysis</option>
+                    <option value="System Administration">System Administration</option>
+                    <option value="Project Management">Project Management</option>
+                    <option value="Market Research">Market Research</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Law">Law</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Public Health">Public Health</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Interior Design">Interior Design</option>
+                    <option value="Public Health">Public Health</option>
+                    <option value="Visual Arts">Visual Arts</option>
+                    <option value="Sociology">Sociology</option>
+                    <option value="Music">Music</option>
+                    <option value="Risk Analysis">Risk Analysis</option>
+                    <option value="Sports Management">Sports Management</option>
+                    <option value="Journalism">Journalism</option>
+                    <option value="Sustainable Development">Sustainable Development</option>
+                    <option value="Climate">Climate</option>
+                    <option value="Film and Media Production">Film and Media Production</option>
+                </select>
             </div>
-            
+            <div class="mt-3">
+                <input type="text" id="selectedSkills" name="area_of_expertise" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Area of Expertise :">
+            </div>
         </div>
     </div>
     <div class="md:flex">
@@ -104,3 +141,21 @@ class='border-b-4 border-[#BFD9EB] text-white font-semibold py-4 px-2'
 @section('addinternship')
 class='block text-sm px-2 py-4 bg-[#FBE0C4] font-semibold'
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const skillsDropdown = document.getElementById('skillsDropdown');
+        const selectedSkills = document.getElementById('selectedSkills');
+    
+        skillsDropdown.addEventListener('change', function() {
+            if (selectedSkills.value) {
+                selectedSkills.value += ', ' + this.value;
+            } else {
+                selectedSkills.value = this.value;
+            }
+    
+            // Reset dropdown setelah dipilih
+            this.selectedIndex = 0;
+        });
+    });
+</script>

@@ -93,28 +93,44 @@
                         </label>
                     </div>
                     <div class="mt-5">
-                        <label for="education"><span class="font-semibold text-md">Area of Interest</span>
+                        <label for="education"><span class="font-semibold text-md">Area of Expertise</span>
                             <select id="skillsDropdown"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
-                                <option value="" disabled selected>Select Area of Interest</option>
-                                <option value="IT">IT</option>
-                                <option value="Medicine">Medicine</option>
+                                <option value="" disabled selected>Select Area of Expertise</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="UX/UI Design">UX/UI Design</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Data Analysis">Data Analysis</option>
+                                <option value="System Administration">System Administration</option>
+                                <option value="Project Management">Project Management</option>
+                                <option value="Market Research">Market Research</option>
                                 <option value="Finance">Finance</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Education">Education</option>
-                                <option value="Engineering">Engineering</option>
-                                <option value="Environmental">Environmental</option>
                                 <option value="Human Resources">Human Resources</option>
-                                <option value="Art">Art</option>
-                                <option value="Social">Social</option>
+                                <option value="Marketing">Marketing</option>
                                 <option value="Law">Law</option>
-                                <option value="Research">Research</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
                                 <option value="Communication">Communication</option>
-                                <option value="Tourism">Tourism</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Pharmacy">Pharmacy</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Public Health">Public Health</option>
+                                <option value="Graphic Design">Graphic Design</option>
+                                <option value="Interior Design">Interior Design</option>
+                                <option value="Public Health">Public Health</option>
+                                <option value="Visual Arts">Visual Arts</option>
+                                <option value="Sociology">Sociology</option>
+                                <option value="Music">Music</option>
+                                <option value="Risk Analysis">Risk Analysis</option>
+                                <option value="Sports Management">Sports Management</option>
+                                <option value="Journalism">Journalism</option>
+                                <option value="Sustainable Development">Sustainable Development</option>
+                                <option value="Climate">Climate</option>
+                                <option value="Film and Media Production">Film and Media Production</option>
                             </select>
                         </label>
                     </div>
                     <div class="mt-5">
-                        <input type="text" id="selectedSkills" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Interest" readonly>
+                        <input type="text" id="selectedSkills" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Selected Area of Expertise" readonly>
                     </div>
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>

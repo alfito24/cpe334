@@ -29,20 +29,11 @@ use Carbon\Carbon;
 @endif
 
 </div>
-@guest
+
+@auth
+@if (Auth::user()->role_id == 0)
 <div class="w-1/2 mx-auto mt-5 md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
     <form action="/internship/search" method="get" class="w-full flex items-center">
-        <input type="text" name="search" id="search" class="w-full p-2 rounded-lg border-2 border-[#3367AD] focus:outline-none" placeholder="Search internships...">
-        <button type="submit" class="ml-4 px-4 py-2 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
-            Search
-        </button>
-    </form>
-</div>  
-@endguest
-@auth
-@if (Auth::user()->role_id == 1)
-<div class="w-1/2 mx-auto mt-5 md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
-    <form action="/internship/search/company" method="get" class="w-full flex items-center">
         <input type="text" name="search" id="search" class="w-full p-2 rounded-lg border-2 border-[#3367AD] focus:outline-none" placeholder="Search internships...">
         <button type="submit" class="ml-4 px-4 py-2 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
             Search
@@ -99,7 +90,7 @@ use Carbon\Carbon;
 
 @endsection
 
-@section('internshiplist')
+@section('matchinternship')
 class='border-b-4 border-[#BFD9EB] text-white font-semibold py-4 px-2'
 @endsection
 
