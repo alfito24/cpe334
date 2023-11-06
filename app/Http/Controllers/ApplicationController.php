@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\ApplicationStatusChanged;
+use Illuminate\Support\Facades\Mail;
 
 class ApplicationController extends Controller
 {
@@ -66,15 +68,20 @@ class ApplicationController extends Controller
     {
         $application = application::where('user_id', $id)->first();
         $application->status = 'accepted';
+        $status = 'accepted';
+        $email_data = ['subject' => 'Internship Selection Announcement'];
         $application->save();
-
+        Mail::to($application->user->email)->send(new ApplicationStatusChanged($application, $status, $email_data));
         return back();
     }
     public function reject($id)
     {
         $application = application::where('user_id', $id)->first();
         $application->status = 'rejected';
+        $status = 'rejected';
+        $email_data = ['subject' => 'Internship Selection Announcement'];
         $application->save();
+        Mail::to($application->user->email)->send(new ApplicationStatusChanged($application, $status, $email_data));
 
         return back();
     }
@@ -112,4 +119,5 @@ class ApplicationController extends Controller
     {
         //
     }
+
 }

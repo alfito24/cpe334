@@ -8,6 +8,7 @@ use App\Http\Controllers\PickupController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('/chooserole', function () {
 });
 
 // Job/InternhipController
+Route::post('/addinternship', [JobController::class, 'store']);
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
 Route::post('/editinternship/{id}', [JobController::class, 'update'] );
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
@@ -58,7 +60,8 @@ Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
 Route::get('/applyinternship', function () {
     return view('/apply');
 });
-Route::post('/addinternship', [JobController::class, 'store']);
+Route::post('/application/{id}/review', [ApplicationController::class, 'markAsUnderReview'])->name('application.under_review');
+
 Route::get('/addinternship', function () {
     return view('addinternship');
 });
@@ -75,3 +78,5 @@ Route::get('/template', function () {
 Route::get('/tryaddinternship', function () {
     return view('tryaddinternship');
 });
+
+Route::get('/email', [EmailController::class, 'index'] );

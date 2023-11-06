@@ -1,6 +1,7 @@
 @extends('template')
 @section('title', 'Applicant List')
 @section('content')
+
 @php
 use Carbon\Carbon;
 @endphp
@@ -12,10 +13,6 @@ use Carbon\Carbon;
     <h1 class="mb-10">No Applicants</h1>
 @endif
 </div>
-
-
-
-
 <div class="grid grid-cols-1 gap-x-10 gap-y-16 mt-5">
    @foreach ($applications as $a )
    <div class="w-1/2 mx-auto flex p-6 bg-white border-[#3367AD] border-2 rounded-lg space-x-6 flex-col">
@@ -36,13 +33,6 @@ use Carbon\Carbon;
             <p class="text-gray-600 mb-1">{{$a->user->area_of_interest}}</p>
         </div>
     </div>
-   {{-- <a href="{{ asset('storage/cvs/' . $a->cv_file_path) }}" target="_blank">
-    <div class="flex justify-end">
-        <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
-            View CV
-        </button>
-    </div>
-   </a> --}}
    <div class="flex justify-end space-x-3">
     <a href="{{ asset('storage/cvs/' . $a->cv_file_path) }}" target="_blank">
         <button class="py-2 px-6 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
@@ -59,8 +49,6 @@ use Carbon\Carbon;
 </div>
    @endforeach
 </div>
-
-
 @endsection
 
 @section('internshiplist')
@@ -70,3 +58,4 @@ class='border-b-4 border-[#BFD9EB] text-white font-semibold py-4 px-2'
 @section('home1active')
 class='block text-sm px-2 py-4 bg-[#FBE0C4] font-semibold'
 @endsection
+
