@@ -79,8 +79,4 @@ Route::get('/', function () {
 Route::get('/template', function () {
     return view('template');
 });
-Route::get('/tryaddinternship', function () {
-    return view('tryaddinternship');
-});
 
-Route::get('/email', [EmailController::class, 'index'] );
