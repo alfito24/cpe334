@@ -44,6 +44,10 @@ Route::get('/updateprofile', [AccountController::class, 'updateaccount']);
 Route::post('/updateprofile/{id}', [AccountController::class, 'updateprofile']);
 
 // Job/InternhipController
+Route::get('/', [JobController::class, 'home']);
+Route::get('/list_internship', [JobController::class, 'list_internship']);
+Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship']);
+Route::get('/detail_company/{id}', [JobController::class, 'detail_company']);
 Route::post('/addinternship', [JobController::class, 'store']);
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
 Route::post('/editinternship/{id}', [JobController::class, 'update'] );
@@ -71,12 +75,17 @@ Route::get('/addinternship', function () {
 });
 
 //Landing Page
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home_new');
+// });
 
 //template
 Route::get('/template', function () {
-    return view('template');
+    return view('template_new');
 });
-
+Route::get('/tailwind', function () {
+    return view('template_tailwind');
+});
+Route::get('/company', function () {
+    return view('company');
+});

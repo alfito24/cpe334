@@ -14,7 +14,7 @@
 <body>
     <div class="container mx-auto font-poppins max-w-sm m-9 bg-[#FBFCFF]  lg:max-w-4xl">
         <div class="rounded-lg flex shadow-full lg:rounded-none lg:rounded-r-lg">
-            <div class="hidden bg-[#3166AD] lg:inline lg:flex-1 lg:rounded-l-lg">
+            <div class="hidden bg-[#0EA89B] lg:inline lg:flex-1 lg:rounded-l-lg">
                 <h1 class="font-bold text-center text-white mt-1 lg:text-2xl lg:py-16">We help you to <br> apply your internship</h1>
                 <img src="{{asset('images/login-removebg-preview.png')}}" alt="" class="w-[90%] sm:w-[70%] px-16">
             </div>
@@ -27,13 +27,13 @@
                     @csrf
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
-                            <input type="email" placeholder="Enter your email" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] " name="email">
+                            <input type="email" placeholder="Enter your email" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B] " name="email">
                         </label>
                     </div>
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
                             <div class="relative">
-                                <input placeholder="Enter your password" :type="show ? 'password' : 'text'"  class="mt-2 px-3 py-2 shadow rounded-lg w-full  text-sm border-2 border-[#3166AD] " name="password">
+                                <input placeholder="Enter your password" :type="show ? 'password' : 'text'"  class="mt-2 px-3 py-2 shadow rounded-lg w-full  text-sm border-2 border-[#0EA89B] " name="password">
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                                     <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
                                     :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
@@ -53,11 +53,11 @@
                             </div>
                         </label>
                     </div>
-                    <button class="mt-3 text-lg font-semibold bg-[#3166AD] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
+                    <button class="mt-3 text-lg font-semibold bg-[#0EA89B] w-full text-white rounded-xl px-6 py-3 block  hover:text-black hover:bg-[#0EA89B]" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
                         Login
                     </button>
                 </form>
-                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Don’t have an account? <a href="/chooserole" class="text-[#3166AD] font-semibold"> Sign up here </a></p>
+                <p class="pt-7 text-md text-[#B5B3BC] text-center"> Don’t have an account? <a href="/chooserole" class="text-[#0EA89B] font-semibold" style="color: #0EA89B"> Sign up here </a></p>
             </div>
         </div>
     </div>

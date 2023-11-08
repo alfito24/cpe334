@@ -18,7 +18,7 @@
 <body>
     <div class="container mx-auto font-poppins max-w-sm m-9 bg-[rgb(251,252,255)]  lg:max-w-4xl">
         <div class="rounded-lg lg:flex shadow-full lg:rounded-none lg:rounded-r-lg">
-            <div class="hidden bg-[#3166AD] lg:inline lg:flex-1 lg:rounded-l-lg">
+            <div class="hidden bg-[#0EA89B] lg:inline lg:flex-1 lg:rounded-l-lg">
                 <h2 class="font-bold text-center text-white mt-7 lg:text-2xl lg:py-28">Streamlining Internship
                     Connections with <br> Efficiency and Intelligence</h2>
                 <img src="{{ asset('images/login-removebg-preview.png') }}" alt="" class="px-16">
@@ -45,7 +45,7 @@
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
                             <input type="email" placeholder="Enter your email" value="{{ old('email') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] "
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
                                 name="email">
                         </label>
                         @error('email')
@@ -55,9 +55,21 @@
                         @enderror
                     </div>
                     <div class="mt-5">
+                        <label for="name"><span class="font-semibold text-md">Company Representative</span>
+                            <input type="text" placeholder="Enter your name" value="{{ old('name') }}"
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
+                                name="name">
+                        </label>
+                        @error('name')
+                            <div class="text-red-700">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
                         <label for="company"><span class="font-semibold text-md">Company Name</span>
                             <input type="text" placeholder="Enter your company name" value="{{ old('company') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] "
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
                                 name="company">
                         </label>
                         @error('company')
@@ -70,20 +82,31 @@
                         <label for="file"><span class="font-semibold text-md">Company Logo</span>
                             <img id="imagePreview" src=""
                                 class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full">
-                            <input type="file" value="{{ old('file') }}" id='imageUpload' name="file"
-                                class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 border-[#3166AD]"
-                                name="file" onchange="previewImage()">
+                            <input type="file" value="{{ old('picture') }}" id='imageUpload' name="picture"
+                                class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 "
+                               onchange="previewImage()">
                         </label>
-                        @error('file')
+                        @error('picture')
                             <div class="text-red-700">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
                     <div class="mt-5">
+                        <label for="company_website" class="font-semibold text-md">Company Website</label>
+                        <input type="text" placeholder="Enter your company website" value="{{ old('company_website') }}"
+                        class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
+                        name="company_website">
+                    </div>
+                    @error('company_website')
+                        <div class="text-red-700">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    <div class="mt-5">
                         <label for="company_description" class="font-semibold text-md">Company Description</label>
                         <textarea placeholder="Enter your company description"
-                            class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]" name="company_description"
+                            class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 " name="company_description"
                             rows="4">{{ old('company_description') }}</textarea>
                     </div>
                     @error('company_description')
@@ -92,23 +115,10 @@
                         </div>
                     @enderror
                     <div class="mt-5">
-                        <label for="company_established"><span class="font-semibold text-md">Company Established</span>
-                            <input type="date" placeholder="Enter your company established"
-                                value="{{ old('company_established') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] "
-                                name="company_established">
-                        </label>
-                        @error('company_established')
-                            <div class="text-red-700">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="mt-5">
-                        <label for="address"><span class="font-semibold text-md">Address</span>
+                        <label for="address"><span class="font-semibold text-md">Location</span>
                             <input name="address" type="text" placeholder="Enter your Address"
                                 value="{{ old('address') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] "
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
                                 name="address">
                         </label>
                         @error('address')
@@ -118,10 +128,46 @@
                         @enderror
                     </div>
                     <div class="mt-5">
+                        <label for="company_size"><span class="font-semibold text-md">Company Size</span>
+                            <input name="company_size" type="text" placeholder="Enter the number of your employees"
+                                value="{{ old('company_size') }}"
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
+                                name="company_size">
+                        </label>
+                        @error('company_size')
+                            <div class="text-red-700">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
+                        <label for="company_workdays"><span class="font-semibold text-md">Company Work Days</span>
+                            <input name="company_workdays" type="text" placeholder="Enter your company work days"
+                                value="{{ old('company_workdays') }}"
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
+                                name="company_workdays">
+                        </label>
+                        @error('company_workdays')
+                            <div class="text-red-700">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
+                        <label for="company_worktype"><span class="font-semibold text-md">Company Worktype</span>
+                            <select name="company_worktype"
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 ">
+                                <option value="Onsite">Onsite</option>
+                                <option value="Online">Online</option>
+                                <option value="Hybrid">Online</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="mt-5">
                         <label for="phone_number"><span class="font-semibold text-md">Phone Number</span>
                             <input type="phone_number" placeholder="Enter your name"
                                 value="{{ old('phone_number') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] "
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
                                 name="phone_number">
                         </label>
                         @error('phone_number')
@@ -131,9 +177,9 @@
                         @enderror
                     </div>
                     <div class="mt-5" hidden>
-                        <label for="education"><span class="font-semibold text-md">Highest Education</span>
+                        <label for="role_id"><span class="font-semibold text-md">Role</span>
                             <select name="role_id"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 ">
                                 <option value="0">0</option>
                                 <option selected value="1">1</option>
                             </select>
@@ -141,8 +187,8 @@
                     </div>
                     <div class="mt-5">
                         <label for="business_area"><span class="font-semibold text-md">Area of Business</span>
-                            <select id="skillsDropdown" name="business_area"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD]">
+                            <select id="skillsDropdown"
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 ">
                                 <option value="" disabled selected>Select Area of Business</option>
                                 <option value="IT">IT</option>
                                 <option value="Medicine">Medicine</option>
@@ -169,7 +215,7 @@
                     <div class="mt-5">
                         <input type="text" id="selectedSkills" value="{{ old('business_area') }}"
                             name="business_area"
-                            class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2"
+                            class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-2"
                             placeholder="Selected Area of Business" readonly>
                     </div>
 
@@ -177,7 +223,7 @@
                         <label for="password"><span class="font-semibold text-md">Password</span>
                             <div class="relative">
                                 <input placeholder="Enter your password" :type="show ? 'password' : 'text'"
-                                    class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#3166AD] "
+                                    class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
                                     name="password">
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                                     <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
@@ -204,13 +250,13 @@
                         @enderror
                     </div>
                     <button
-                        class="mt-8 text-lg font-semibold bg-[#3166AD] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]"
+                        class="mt-8 text-lg font-semibold bg-[#0EA89B] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]"
                         style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
                         Sign Up
                     </button>
                 </form>
                 <p class="pt-7 text-md text-[#B5B3BC] text-center"> Already have an account? <a href="/login"
-                        class="text-[#3166AD] font-semibold"> Login here </a></p>
+                        class="font-semibold" style="color: #0EA89B"> Login here </a></p>
             </div>
         </div>
     </div>

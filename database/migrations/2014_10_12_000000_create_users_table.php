@@ -18,8 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('username')->unique()->nullable();
             $table->string('company')->nullable();
-            $table->string('company_description')->nullable();
-            $table->date('company_established')->nullable();
+            $table->text('company_description')->nullable();
+            $table->string('company_website')->nullable();
+            $table->string('company_size')->nullable();
+            $table->string('company_workdays')->nullable();
             $table->text('picture')->nullable();
             $table->string('email')->unique();
             $table->string('gender')->nullable();

@@ -13,16 +13,16 @@ use Carbon\Carbon;
         @endif
     @endforeach
 @if (!$jobFound)
-    <h1 class="mb-10">No Jobs Found</h1>
+    <h1 class="">No Jobs Found</h1>
 @else
 @guest
-<h1 class="mb-10">View All Internships</h1>
+<h1 class="">View All Internships</h1>
 @endguest
 @auth
 @if (Auth::user()->role_id == 0)
-<h1 class="mb-10">{{ $title }}</h1>
+<h1 class="">{{ $title }}</h1>
 @else
-<h1 class="mb-10">View your Internship Here</h1>
+<h1 class="">View your Internship Here</h1>
 @endif
 @endauth
 
@@ -30,7 +30,7 @@ use Carbon\Carbon;
 
 </div>
 @guest
-<div class="w-1/2 mx-auto mt-5 md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
+<div class="w-1/2 mx-auto  md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
     <form action="/internship/search" method="get" class="w-full flex items-center">
         <input type="text" name="search" id="search" class="w-full p-2 rounded-lg border-2 border-[#3367AD] focus:outline-none" placeholder="Search internships...">
         <button type="submit" class="ml-4 px-4 py-2 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">
@@ -41,7 +41,7 @@ use Carbon\Carbon;
 @endguest
 @auth
 @if (Auth::user()->role_id == 1)
-<div class="w-1/2 mx-auto mt-5 md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
+<div class="w-1/2 mx-auto md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
     <form action="/internship/search/company" method="get" class="w-full flex items-center">
         <input type="text" name="search" id="search" class="w-full p-2 rounded-lg border-2 border-[#3367AD] focus:outline-none" placeholder="Search internships...">
         <button type="submit" class="ml-4 px-4 py-2 bg-gradient-to-r from-[#0162A7] to-[#BFD9EB] text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:from-[#BFD9EB] hover:text-[black] transition duration-300">

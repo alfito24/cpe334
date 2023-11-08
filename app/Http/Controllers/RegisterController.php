@@ -40,24 +40,28 @@ class RegisterController extends Controller
     public function storeCompany(Request $request)
     {
         $validatedData = $request->validate([
+            'name' => 'required',
             'company' => 'required',
             'company_description' => 'required',
-            'company_established' => 'required|date|before:today',
+            'company_website' => 'required',
+            'company_size' => 'required',
+            'company_workdays' => 'required',
+            'company_worktype' => 'required',
             'email' => 'required|unique:users|email:dns',
             'address' => 'required',
             'phone_number' => 'required|unique:users',
             'password' => 'required',
             'business_area' => 'required',
             'role_id' => 'required',
-            'file' => 'image|mimes:jpeg,png,jpg|max:4096',
+            'picture' => 'image',
         ]);
+        $filename = null;
 
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filename = time() . '_' . $file->getClientOriginalName(); // Generating a unique name for the file
-            $file->move(public_path('data_file'), $filename); // Moving the file to the public/data_file directory
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('data_file'), $filename);
         }
-
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['picture'] = $filename;
         User::create($validatedData);

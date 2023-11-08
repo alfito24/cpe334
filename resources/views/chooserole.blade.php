@@ -20,12 +20,12 @@
                 </div>
                 <h1 class="font-bold text-2xl text-center mt-1 lg:text-3xl">Choose your Role</h1>
                    <a href="/studentregister">
-                    <button class="mt-3 text-lg font-semibold bg-[#3166AD] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
+                    <button class="mt-3 text-lg font-semibold bg-[#0EA89B] w-full text-white rounded-xl px-6 py-3 block  hover:text-[#0EA89B] hover:bg-[#FFFFFF] transition duration-300" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
                         Student
                     </button>
                    </a>
                    <a href="/companyregister">
-                    <button class="mt-3 text-lg font-semibold bg-[#3166AD] w-full text-white rounded-xl px-6 py-3 block  hover:text-white hover:bg-[#11468c]" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
+                    <button class="mt-3 text-lg font-semibold bg-[#0EA89B] w-full text-white rounded-xl px-6 py-3 block  hover:text-[#0EA89B] hover:bg-[#FFFFFF] transition duration-300" style="box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.25);">
                         Company
                     </button>
             </div>

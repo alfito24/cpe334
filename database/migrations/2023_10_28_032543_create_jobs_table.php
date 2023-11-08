@@ -18,13 +18,13 @@ class CreateJobsTable extends Migration
             $table->foreignUuid('user_id')->constraint();
             $table->string('position');
             $table->string('description');
-            $table->string('qualifications');
-            $table->string('duration');
+            $table->string('responsibilites');
+            $table->string('salary');
             $table->string('location');
-            $table->string('worktype');
             $table->string('area_of_expertise');
-            $table->date('start');
+            $table->string('internship_type');
             $table->date('deadline');
+            $table->date('start');
             $table->timestamps();
         });
     }

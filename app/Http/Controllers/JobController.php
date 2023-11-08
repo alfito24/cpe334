@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\job;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,33 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function home()
+    {
+        $jobs = job::take(6)->get();
+        $it_jobs_count = job::where('area_of_expertise', 'IT')->count();
+        $marketing_jobs_count = job::where('area_of_expertise', 'Marketing')->count();
+        $finance_jobs_count = job::where('area_of_expertise', 'Finance')->count();
+        $sales_jobs_count = job::where('area_of_expertise', 'Sales')->count();
+        return view('home_new', compact('jobs', 'it_jobs_count', 'marketing_jobs_count', 'sales_jobs_count', 'finance_jobs_count'));
+    }
+    public function list_internship()
+    {
+        $job = Job::inRandomOrder()->first();
+        $jobs = job::all();
+        return view('list_internship', compact('jobs', 'job'));
+    }
+    public function detail_internship($id)
+    {
+        $job = job::where('job_id', $id)->firstOrFail();
+        $interns = job::all();
+        return view('detail_internship', compact('job', 'interns'));
+    }
+    public function detail_company($id)
+    {
+        $company = User::where('user_id', $id)->firstOrFail();
+        $interns = job::where('user_id', $id)->take(3)->get();
+        return view('detail_company', compact('company', 'interns'));
+    }
     public function index()
     {
         $jobs = job::where('user_id', Auth::id())->get();
@@ -63,10 +91,10 @@ class JobController extends Controller
         $validatedData = $request->validate([
             'position' => 'required',
             'description' => 'required',
-            'qualifications' => 'required',
-            'duration' => 'required',
+            'internship_type' => 'required',
+            'responsibilites' => 'required',
+            'salary' => 'required',
             'location' => 'required',
-            'worktype' => 'required',
             'area_of_expertise' => 'required',
             'deadline' => 'required|date|after_or_equal:today',
             'start' => 'required|date|after_or_equal:today',
