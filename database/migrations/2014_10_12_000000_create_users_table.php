@@ -23,10 +23,12 @@ class CreateUsersTable extends Migration
             $table->string('company_size')->nullable();
             $table->string('company_workdays')->nullable();
             $table->text('picture')->nullable();
+            $table->text('about_me')->nullable();
+            $table->string('job_dream')->nullable();
             $table->string('email')->unique();
             $table->string('gender')->nullable();
             $table->string('education')->nullable();
-            $table->string('area_of_interest')->nullable();
+            $table->string('skills')->nullable();
             $table->string('business_area')->nullable();
             $table->date('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();

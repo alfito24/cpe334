@@ -77,9 +77,11 @@
                   </div>
                 </div>
                 <div class="ml-4 flex-shrink-0">
-                  <button class="bg-[#0EA89B] py-2 px-4 border border-transparent rounded-md text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    View company profile
-                  </button>
+                  <a href="/detail_company/{{ $job->user->user_id }}">
+                    <button class="bg-[#0EA89B] py-2 px-4 border border-transparent rounded-md text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                      View company profile
+                    </button>
+                  </a>
                 </div>
               </div>
               <div class="border-t border-gray-200">

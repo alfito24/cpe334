@@ -10,6 +10,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\EducationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,9 @@ Route::get('/chooserole', function () {
 });
 
 // AccountController
+Route::get('/user_profile', [AccountController::class, 'index'] );
+Route::get('/profile_edit', [AccountController::class, 'profile_edit'] );
+Route::post('/profile_edit', [AccountController::class, 'profile_edit_update'] );
 Route::get('/myaccount', [AccountController::class, 'account'] );
 Route::get('/updateprofile', [AccountController::class, 'updateaccount']);
 Route::post('/updateprofile/{id}', [AccountController::class, 'updateprofile']);
@@ -46,9 +51,11 @@ Route::post('/updateprofile/{id}', [AccountController::class, 'updateprofile']);
 // Job/InternhipController
 Route::get('/', [JobController::class, 'home']);
 Route::get('/list_internship', [JobController::class, 'list_internship']);
+Route::get('/company_internship', [JobController::class, 'company_internship']);
 Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship']);
 Route::get('/detail_company/{id}', [JobController::class, 'detail_company']);
 Route::post('/addinternship', [JobController::class, 'store']);
+Route::post('/add_internship', [JobController::class, 'add_internship']);
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
 Route::post('/editinternship/{id}', [JobController::class, 'update'] );
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
@@ -74,6 +81,13 @@ Route::get('/addinternship', function () {
     return view('addinternship');
 });
 
+// ExperienceController
+Route::get('/add_experience', function () {
+    return view('add_experience');
+});
+Route::post('/add_experience', [ExperienceController::class, 'store']);
+Route::post('/add_education', [EducationController::class, 'store']);
+
 //Landing Page
 // Route::get('/', function () {
 //     return view('home_new');
@@ -86,6 +100,12 @@ Route::get('/template', function () {
 Route::get('/tailwind', function () {
     return view('template_tailwind');
 });
-Route::get('/company', function () {
-    return view('company');
+Route::get('/profile_edit/experience', function () {
+    return view('profile_edit_experience');
+});
+Route::get('/profile_edit/education', function () {
+    return view('profile_edit_education');
+});
+Route::get('/add_internship', function () {
+    return view('add_internship');
 });

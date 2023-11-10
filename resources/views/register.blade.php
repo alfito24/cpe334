@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;900&family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-  <link rel="icon" href="{{asset('images/internhub-high-resolution-logo.png')}}">
+  <link rel="icon" href="{{asset('images/Image 1.png')}}">
   <title>Register</title>
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
@@ -98,6 +98,26 @@
                         @enderror
                     </div>
                     <div class="mt-5">
+                        <label for="about_me"><span class="font-semibold text-md">About Me</span>
+                            <input name='about_me' type="text" placeholder="Write the description of yourself" value="{{ old('about_me') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B]">
+                        </label>
+                        @error('about_me')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
+                        <label for="job_dream"><span class="font-semibold text-md">Job Dream</span>
+                            <input name='job_dream' type="text" placeholder="Write the description of yourself" value="{{ old('job_dream') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B]">
+                        </label>
+                        @error('job_dream')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
                         <label for="address"><span class="font-semibold text-md">Address</span>
                             <input name="address" type="text" placeholder="Enter your Address" value="{{ old('address') }}" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B] " name="address">
                         </label>
@@ -133,7 +153,7 @@
                         @enderror
                     </div>
                     <div class="mt-5">
-                        <label for="area_of_interest"><span class="font-semibold text-md">Area of Expertise</span>
+                        <label for="skills"><span class="font-semibold text-md">Area of Expertise</span>
                             <select id="skillsDropdown"  class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B]">
                                 <option value="" disabled selected>Select Area of Expertise</option>
                                 <option value="Software Development">Software Development</option>
@@ -175,7 +195,7 @@
                         @enderror
                     </div>
                     <div class="mt-5">
-                        <input type="text" id="selectedSkills" value="{{ old('area_of_interest') }}" name="area_of_interest" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#0EA89B] border-2" placeholder="Selected Area of Expertise" readonly>
+                        <input type="text" id="selectedSkills" value="{{ old('skills') }}" name="skills" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#0EA89B] border-2" placeholder="Selected Area of Expertise" readonly>
                     </div>
                     <div class="mt-5" x-data="{ show: true }">
                         <label for="password"><span class="font-semibold text-md">Password</span>
@@ -230,6 +250,6 @@
                 this.selectedIndex = 0;
             });
         });
-        </script>
+    </script>
 </body>
 </html>

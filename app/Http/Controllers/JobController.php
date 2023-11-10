@@ -37,6 +37,11 @@ class JobController extends Controller
         $interns = job::all();
         return view('detail_internship', compact('job', 'interns'));
     }
+    public function company_internship()
+    {
+        $jobs = job::where('user_id', Auth::id())->get();
+        return view('company_internship', compact('jobs'));
+    }
     public function detail_company($id)
     {
         $company = User::where('user_id', $id)->firstOrFail();
@@ -98,6 +103,24 @@ class JobController extends Controller
             'area_of_expertise' => 'required',
             'deadline' => 'required|date|after_or_equal:today',
             'start' => 'required|date|after_or_equal:today',
+        ]);
+        $validatedData['user_id'] = Auth::user()->user_id;
+        job::create($validatedData);
+        return redirect()->back()->with('success', 'Job already posted');
+    }
+    public function add_internship(Request $request)
+    {
+        $validatedData = $request->validate([
+            'position' => 'required',
+            'location' => 'required',
+            'internship_type' => 'required',
+            'salary' => 'nullable',
+            'description' => 'required',
+            'location' => 'required',
+            'area_of_expertise' => 'required',
+            'skills' => 'required',
+            'responsibilites' => 'required',
+            'deadline' => 'required',
         ]);
         $validatedData['user_id'] = Auth::user()->user_id;
         job::create($validatedData);

@@ -13,6 +13,8 @@ use App\Models\Transaction;
 use Illuminate\Support\Str;
 use App\Models\job;
 use App\Models\application;
+use App\Models\Experience;
+use App\Models\Education;
 
 class User extends Authenticatable
 {
@@ -76,5 +78,13 @@ class User extends Authenticatable
     public function applications()
     {
         return $this->hasMany(application::class, 'user_id', 'user_id');
+    }
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class, 'user_id', 'user_id');
+    }
+    public function educations()
+    {
+        return $this->hasMany(Education::class, 'user_id', 'user_id');
     }
 }

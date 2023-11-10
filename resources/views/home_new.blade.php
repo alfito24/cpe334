@@ -70,7 +70,6 @@
                         <img class="w-10 h-10" src="{{asset('images/finance.png')}}" alt="Company Logo">
                         @endif
                       <h3 class="text-lg font-semibold">{{ $job->position }}</h3>
-                      {{-- <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Hot</span> --}}
                     </div>
                     <div class="text-lg">$95K - $120K</div>
                     <div class="flex items-center space-x-2 text-gray-600">

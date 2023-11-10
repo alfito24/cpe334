@@ -28,13 +28,15 @@ class RegisterController extends Controller
             'password' => 'required',
             'education' => 'required',
             'role_id' => 'required',
-            'area_of_interest' => 'required',
+            'skills' => 'required',
+            'about_me' => 'required',
+            'job_dream' => 'required',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
         // $request->session()->flash('success', 'Registration was successful! Please Login to your account');
-        return redirect('/login')->with('success', 'Registration was successful! Please Login to your account');
+        return redirect('/login')->with('success', 'Account created successfully.');
     }
 
     public function storeCompany(Request $request)

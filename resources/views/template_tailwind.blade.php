@@ -32,17 +32,16 @@
                         <div class="hidden md:flex items-center space-x-1">
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Home</a>
                             @guest
-                            <a @yield('list_internship') href="/allinternshiplist" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
-                            <a @yield('company') href="/companies" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Companies</a>
+                            <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
+                            {{-- <a @yield('company') href="/companies" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Companies</a> --}}
                             @endguest
                             @auth
                             @if(Auth::user()->role_id == 0)
-                            <a @yield('internshiplist') href="/allinternshiplist" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Intern Lists</a>
-                            <a @yield('matchinternship') href="/internship/matching" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Intern For Me</a>
+                            <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Intern Lists</a>
                             @endif
                             @if(Auth::user()->role_id == 1)
-                            <a @yield('addinternship') href="/addinternship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Add Internship</a>
-                            <a @yield('internshiplist') href="/myinternshiplist" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship Lists</a>
+                            <a @yield('addinternship') href="/add_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Add Internship</a>
+                            <a @yield('internshiplist') href="/company_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship Lists</a>
                             @endif
                             @endauth
                         </div>
@@ -52,7 +51,7 @@
                             <a href="/chooserole" class="py-2 px-6 font-medium text-[#323842] rounded hover:bg-[#0EA89B] hover:text-white transition duration-300">Register</a>
                             @else
                             <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                                <button @click="open = !open" class="flex flex-row items-center py-2 px-6 font-semibold text-[#323842] rounded hover:bg-[#BFD9EB] transition duration-300">
+                                <button @click="open = !open" class="flex flex-row items-center py-2 px-6 font-semibold text-[#323842] rounded hover:bg-[#0EA89B] hover:text-white transition duration-300">
                                     @if(Auth::user()->role_id == 0)
                                   <span>{{ Auth::user()->name }}</span>
                                   @elseif (Auth::user()->role_id == 1)
@@ -62,7 +61,7 @@
                                 </button>
                                 <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
                                   <div class="px-2 py-2 bg-white rounded-md shadow">
-                                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/myaccount">My Account</a>
+                                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/user_profile">My Account</a>
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                         <form action="/logout" method="POST">
                                             @csrf
@@ -101,9 +100,9 @@
 					<li><a @yield('buyproducts1active') href="/allinternshiplist" class="block text-sm px-2 py-4 text-[#323842] hover:bg-[#BFD9EB] transition duration-300">All Internship List</a></li>
                     @if (Auth::check())
                     <li>
-                        <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                            <button @click="open = !open" class="flex flex-row w-full px-2 py-4 text-sm text-[#323842] hover:bg-[#BFD9EB] transition duration-300">
-                              <span>{{ Auth::user()->name }}</span>
+                        <div @yield('profile_edit') @click.away="open = false" class="relative" x-data="{ open: false }">
+                            <button  @click="open = !open" class="flex flex-row w-full px-2 py-4 text-sm text-[#323842] hover:bg-[#BFD9EB] transition duration-300">
+                              <span @yield('profile_edit')>{{ Auth::user()->name }}</span>
                               <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </button>
                             <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-1/2 mt-2 origin-top-right rounded-md shadow-lg md:w-48">

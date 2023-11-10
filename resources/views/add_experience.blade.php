@@ -17,12 +17,12 @@
 </div>
 <div class="w-1/2 mx-auto">
     @if(session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{ session('success') }}</span>
-        </div>
-    @endif
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+        <span class="block sm:inline">{{ session('success') }}</span>
+    </div>
+@endif
 </div>
-<form method="POST" action="/addinternship">
+<form method="POST" action="/add_experience">
     @csrf
     <div class="grid grid-cols-1 gap-x-28 gap-y-16 font-poppins mt-16 px-12 md:grid-cols-2 md:mt-16 md:px-20">
         
@@ -31,42 +31,16 @@
                 <input type="text" id="position" name="position" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Position :">
             </div>
             <div class="mt-3">
-                <textarea id="description" name="description" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Description :"></textarea>
+                <textarea id="description" name="company" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Company :"></textarea>
             </div>
             <div class="mt-3">
-                <input type="text" id="location" name="location" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
+                <input type="text" id="location" name="start_year" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Start year :">
             </div>
             <div class="mt-3">
-                <div class=" font-poppins font-bold grid justify-items-center mx-auto">
-                    <h1>Application Deadline</h1>
-                </div>
-                <input type="date" id="deadline" name="deadline" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Location :">
-            </div>
-            <div class="mt-3">
-                <div class=" font-poppins font-bold grid justify-items-center mx-auto">
-                    <h1>Internship Start</h1>
-                </div>
-                <input  type="date" id="dateInput" name="start" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum">
+                <input type="text" id="location" name="end_year" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="End year :">
             </div>
         </div>
         <div>
-            <div class="">
-                <select id="duration" name="duration" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2">
-                    <option value="" disabled selected>Duration (months) :</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-            </div>
             <div class="mt-3">
                 <textarea id="qualifications" name="qualifications" class="block p-2.5 w-full z-20 text-sm text-gray-900 rounded-lg border-[#3367AD] border-2" placeholder="Qualifications : Final year student,Minimum GPA 3.0,Experience in Scrum"></textarea>
             </div>
