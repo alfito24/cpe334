@@ -57,6 +57,14 @@ class ApplicationController extends Controller
         ]);
         return redirect('/')->with('success', 'Internship already applied');
     }
+    public function apply_internship(Request $request, $id)
+    {
+        application::create([
+            'user_id'=>Auth::id(),
+            'job_id'=>$id
+        ]);
+        return back()->with('success', 'Internship already applied');
+    }
 
     /**
      * Display the specified resource.
@@ -85,6 +93,7 @@ class ApplicationController extends Controller
 
         return back();
     }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -63,6 +63,7 @@ Route::get('/myinternshiplist', [JobController::class, 'index'] );
 Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
 Route::get('/allinternshiplist', [JobController::class, 'indexall']);
 Route::get('/applyinternship/{id}', [JobController::class, 'apply']);
+
 Route::get('/internship/search', [JobController::class, 'search']);
 Route::get('/internship/search/company', [JobController::class, 'search2']);
 Route::get('/internship/matching', [JobController::class, 'match']);
@@ -75,6 +76,7 @@ Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
 Route::get('/applyinternship', function () {
     return view('/apply');
 });
+Route::get('/apply_internship/{id}', [ApplicationController::class, 'apply_internship']);
 Route::post('/application/{id}/review', [ApplicationController::class, 'markAsUnderReview'])->name('application.under_review');
 
 Route::get('/addinternship', function () {

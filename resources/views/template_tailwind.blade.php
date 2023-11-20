@@ -17,34 +17,32 @@
         @show
 	</head>
 	<body>
-		<!-- Navbar goes here -->
 		<nav class="bg-[#FFFFFF] font-poppins shadow-lg fixed w-full z-20 top-0 left-0">
 			<div class="max-w-6xl mx-auto px-4">
 				<div class="flex justify-between">
-					<div class="flex space-x-7">
-						<div>
-							<a href="/" class="flex items-center py-4 px-2">
-                                <img src="{{asset('images/Image 1.png')}}" alt="Logo" class="w-28 ">
-							</a>
-						</div>
-                    </div>
                     <div class="flex space-x-7">
                         <div class="hidden md:flex items-center space-x-1">
+                            <div>
+                                <a href="/" class="flex items-center py-4 px-2">
+                                    <img src="{{asset('images/Image 1.png')}}" alt="Logo" class="w-28 ">
+                                </a>
+                            </div>
                             <a @yield('homeactive') href="/" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Home</a>
                             @guest
                             <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
-                            {{-- <a @yield('company') href="/companies" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Companies</a> --}}
                             @endguest
                             @auth
-                            @if(Auth::user()->role_id == 0)
-                            <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Intern Lists</a>
-                            @endif
                             @if(Auth::user()->role_id == 1)
                             <a @yield('addinternship') href="/add_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Add Internship</a>
                             <a @yield('internshiplist') href="/company_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship Lists</a>
+                            @elseif (Auth::user()->role_id == 0)
+                            <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
+                            <a @yield('internship_for_me') href="/internship/matching" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship for Me</a>
                             @endif
                             @endauth
                         </div>
+                    </div>
+                    <div class="flex space-x-7">
                         <div class="hidden md:flex items-center space-x-3 ">
                             @guest
                             <a href="/login" class="py-2 px-6 bg-[#0EA89B] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">Log In</a>

@@ -12,7 +12,6 @@
     </div>
 </div>
 <div class="p-10 mt-10">
-    <!-- Title -->
     <h2 class="text-[#323842] text-3xl font-bold text-center mb-5">Explore more Internships</h2>
     <div class="w-1/2 mx-auto  md:w-1/2 bg-white shadow-md rounded-lg p-4 flex items-center">
         <form action="/internship/search" method="get" class="w-full flex items-center">
@@ -22,39 +21,39 @@
             </button>
         </form>
     </div>
-    <div class="flex overflow-hidden space-x-4 mx-auto mt-10 p-10">
-        <div class="flex space-x-16 mx-auto">
-            <div class="bg-cyan-100 rounded-xl p-4 text-center">
-                <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
-                    <img src="{{asset('images/sales.png')}}" alt="">
-                </div>
-                <div class="font-bold text-cyan-900">Sales</div>
-                <div class="text-sm text-cyan-700">{{ $sales_jobs_count }} Internships</div>
+<div class="w-3/4 mx-auto mt-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto">
+        <div class="bg-cyan-100 rounded-xl p-4 text-center">
+            <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
+                <img src="{{asset('images/sales.png')}}" alt="">
             </div>
-            <div class="bg-cyan-100 rounded-xl p-4 text-center">
-                <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
-                    <img src="{{asset('images/it.png')}}" alt="">
-                </div>
-                <div class="font-bold text-cyan-900">IT</div>
-                <div class="text-sm text-cyan-700">{{ $it_jobs_count }} Internships</div>
-            </div>
-            <div class="bg-cyan-100 rounded-xl p-4 text-center">
-                <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
-                    <img src="{{asset('images/marketing.png')}}" alt="">
-                </div>
-                <div class="font-bold text-cyan-900">Marketing</div>
-                <div class="text-sm text-cyan-700">{{ $marketing_jobs_count }} Internships</div>
-            </div>
-            <div class="bg-cyan-100 rounded-xl p-4 text-center">
-                <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
-                    <img src="{{asset('images/finance.png')}}" alt="">
-                </div>
-                <div class="font-bold text-cyan-900">Finance</div>
-                <div class="text-sm text-cyan-700">{{ $finance_jobs_count }} Internships</div>
-            </div>
+            <div class="font-bold text-cyan-900">Sales</div>
+            <div class="text-sm text-cyan-700">{{ $sales_jobs_count }} Internships</div>
         </div>
-    </div>  
-    <div class=" p-10">
+        <div class="bg-cyan-100 rounded-xl p-4 text-center">
+            <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
+                <img src="{{asset('images/it.png')}}" alt="">
+            </div>
+            <div class="font-bold text-cyan-900">IT</div>
+            <div class="text-sm text-cyan-700">{{ $it_jobs_count }} Internships</div>
+        </div>
+        <div class="bg-cyan-100 rounded-xl p-4 text-center">
+            <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
+                <img src="{{asset('images/marketing.png')}}" alt="">
+            </div>
+            <div class="font-bold text-cyan-900">Marketing</div>
+            <div class="text-sm text-cyan-700">{{ $marketing_jobs_count }} Internships</div>
+        </div>
+        <div class="bg-cyan-100 rounded-xl p-4 text-center">
+            <div class="p-2 inline-flex items-center justify-center rounded-full mb-2">
+                <img src="{{asset('images/finance.png')}}" alt="">
+            </div>
+            <div class="font-bold text-cyan-900">Finance</div>
+            <div class="text-sm text-cyan-700">{{ $finance_jobs_count }} Internships</div>
+        </div>
+    </div>
+</div>
+    <div class=" p-10 mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($jobs as $job)
             <a href="/detail_internship/{{ $job->job_id }}">

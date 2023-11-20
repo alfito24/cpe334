@@ -37,30 +37,32 @@
             <div class="grid">
               @if (count($jobs))
                 @foreach ($jobs as $job )
-                <div class="flex items-start mb-4 border-2 border-black rounded p-5">
-                  <div class="flex-shrink-0">
-                    @if ($job->area_of_expertise == 'IT')
-                    <img src="{{asset('images/it.png')}}" class="w-8 h-8 rounded-full mr-2">
-                    @elseif ($job->area_of_expertise == 'Marketing')
-                    <img src="{{asset('images/marketing.png')}}" class="w-8 h-8 rounded-full mr-2">
-                    @elseif ($job->area_of_expertise == 'Sales')
-                    <img src="{{asset('images/sales.png')}}" class="w-8 h-8 rounded-full mr-2">
-                    @else
-                    <img src="{{asset('images/finance.png')}}" class="w-8 h-8 rounded-full mr-2">
-                    @endif
-                  </div>
-                  <div class="flex-grow">
-                      <div class="flex items-center justify-between">
-                          <h3 class="text-lg font-semibold">{{ $job->position }}</h3>
-                      </div>
-                      <div class="text-sm text-gray-500 mb-2">
-                          <span class="font-medium">🔁 {{ $job->internship_type }}</span> |📍 <span>{{ $job->user->company  }}</span>
-                      </div>
-                      <p class="text-gray-700">
-                          {{ $job->description }}
-                      </p>
-                  </div>
-              </div>
+                <a href="/detail_internship/{{ $job->job_id }}">
+                    <div class="flex items-start mb-4 border-2 border-black rounded p-5">
+                        <div class="flex-shrink-0">
+                          @if ($job->area_of_expertise == 'IT')
+                          <img src="{{asset('images/it.png')}}" class="w-8 h-8 rounded-full mr-2">
+                          @elseif ($job->area_of_expertise == 'Marketing')
+                          <img src="{{asset('images/marketing.png')}}" class="w-8 h-8 rounded-full mr-2">
+                          @elseif ($job->area_of_expertise == 'Sales')
+                          <img src="{{asset('images/sales.png')}}" class="w-8 h-8 rounded-full mr-2">
+                          @else
+                          <img src="{{asset('images/finance.png')}}" class="w-8 h-8 rounded-full mr-2">
+                          @endif
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">{{ $job->position }}</h3>
+                            </div>
+                            <div class="text-sm text-gray-500 mb-2">
+                                <span class="font-medium">🔁 {{ $job->internship_type }}</span> |📍 <span>{{ $job->user->company  }}</span>
+                            </div>
+                            <p class="text-gray-700">
+                                {{ $job->description }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
               @endforeach
               @else
               <p class="mb-2">No Internship Added</p>
@@ -79,10 +81,10 @@
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection
 
-@section('internshiplist')
+@section('list_internship')
 class='border-b-4 border-[#0EA89B] text-[#0EA89B] font-semibold py-4 px-2'
 @endsection
 
-@section('internshiplist')
+@section('list_internship')
 class='block text-sm px-2 py-4 bg-[#FBE0C4] font-semibold'
 @endsection

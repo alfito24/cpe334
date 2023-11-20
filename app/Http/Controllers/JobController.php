@@ -33,9 +33,10 @@ class JobController extends Controller
     }
     public function detail_internship($id)
     {
+        $application = application::where('job_id', $id)->where('user_id',  Auth::id())->first();
         $job = job::where('job_id', $id)->firstOrFail();
         $interns = job::all();
-        return view('detail_internship', compact('job', 'interns'));
+        return view('detail_internship', compact('job', 'interns', 'application'));
     }
     public function company_internship()
     {
@@ -61,21 +62,46 @@ class JobController extends Controller
             'title' => 'View All Internships',
         ]);
     }
+    // public function match()
+    // {
+    //     $currentUser = Auth::user();
+    //     if ($currentUser) {
+    //         $skills = $currentUser->skills;
+    //         $jobs = job::where('skills', 'like', '%' . $skills . '%')->get();
+    //         return view('internship_matching', [
+    //             'jobs' => $jobs,
+    //             'title' => 'View All Internships that Match your Profile'
+    //         ]);
+    //     }
+    //     else{
+    //         return redirect('/login');
+    //     }
+    // }
     public function match()
-    {
-        $currentUser = Auth::user(); // Get the currently authenticated user
-        if ($currentUser) {
-            $areaOfExpertise = $currentUser->area_of_interest;
-            $jobs = job::where('area_of_expertise', 'like', '%' . $areaOfExpertise . '%')->get();
-            return view('matchinternship', [
-                'jobs' => $jobs,
-                'title' => 'View All Internships that Match your Profile'
-            ]);
-        }
-        else{
-            return redirect('/login');
-        }
+{
+    $currentUser = Auth::user();
+    if ($currentUser) {
+        $skills = $currentUser->skills;
+
+        // Hapus spasi berlebih dan pecah menjadi array
+        $skillsArray = preg_split('/\s+/', $skills, -1, PREG_SPLIT_NO_EMPTY);
+
+        // Buat query untuk mencari pekerjaan yang memiliki setidaknya satu keterampilan yang cocok
+        $jobs = job::where(function ($query) use ($skillsArray) {
+            foreach ($skillsArray as $skill) {
+                $query->orWhere('skills', 'like', '%' . $skill . '%');
+            }
+        })->get();
+
+        return view('internship_matching', [
+            'jobs' => $jobs,
+            'title' => 'View All Internships that Match your Profile'
+        ]);
+    } else {
+        return redirect('/login');
     }
+}
+
     public function detail($id)
     {
         $job = job::where('job_id', $id)->first();
@@ -202,7 +228,7 @@ class JobController extends Controller
         }
 
         $jobs = $query->get();
-        return view('searchinternshiplist', [
+        return view('search_list', [
             'jobs' => $jobs,
             'title' => 'Search Intern',
             'search' => $search
@@ -224,8 +250,7 @@ class JobController extends Controller
         $jobs = $query->get();
         return view('searchinternshiplist', [
             'jobs' => $jobs,
-            'title' => 'Search Intern',
-            'search' => $search
+            'title' => 'the Result for '.$search.' Position'
         ]);
     }
 }

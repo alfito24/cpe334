@@ -6,7 +6,7 @@
     <div class="bg-white rounded-lg shadow-lg overflow-hidden p-8">
       <div class="mb-6 mt-6">
         <!-- Banner image and heading -->
-        <div class="mb-4">
+        <div class="mb-4 mt-4">
             <img src="{{asset('images/company.png')}}" alt="">
           <div class="flex items-center">
             <div class="bg-blue-500 rounded-full h-14 w-14 flex items-center justify-center text-white text-2xl font-bold">S</div>
@@ -51,18 +51,6 @@
           </ul>
         </p>
       </div>
-  
-      <!-- Life at Laborum -->
-      {{-- <div class="mb-6">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">Life at Laborum</h3>
-        <div class="grid grid-cols-3 gap-4">
-          <!-- Images here -->
-          <!-- Replace src with your image paths -->
-          <img src="/path-to-your-image.jpg" alt="Image description" class="w-full h-auto rounded-lg" />
-          <!-- ... more images -->
-        </div>
-      </div> --}}
-  
       <!-- Recent job openings -->
       <div class="mb-6">
         <h3 class="text-lg font-bold text-gray-900 mb-4">Recent job openings</h3>
@@ -100,10 +88,10 @@
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection
 
-@section('company')
+@section('list_internship')
 class='border-b-4 border-[#0EA89B] text-[#0EA89B] font-semibold py-4 px-2'
 @endsection
 
-@section('company')
+@section('list_internship')
 class='block text-sm px-2 py-4 bg-[#FBE0C4] font-semibold'
 @endsection
