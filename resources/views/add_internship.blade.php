@@ -23,7 +23,7 @@
         </li>
       </ul>
     </div>
-  
+
     <!-- Content Area -->
     <div class="flex-1">
         <div class="min-h-screen bg-gray-100 p-5">
@@ -39,32 +39,50 @@
                 </div>
               @endif
               <form method="POST" action="/add_internship">
-                @csrf       
+                @csrf
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-semibold mb-2">Internship Position</label>
-                <input name="position" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="">
-              </div>
+                <input name="position" value="{{ old('position') }}" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="">
+                @error('position')
+                <div class="text-red-700">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
               <div class="mb-4 flex justify-between space-x-4">
                 <div class="w-1/2">
                   <label class="block text-gray-700 text-sm font-semibold mb-2" for="location">Internship Location</label>
-                  <input name="location" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                  <input name="location" value="{{ old('location') }}" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                  @error('location')
+                  <div class="text-red-700">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
                 <div class="w-1/2">
                   <label class="block text-gray-700 text-sm font-semibold mb-2" for="internship_type">Internship Type</label>
-                  {{-- <input name="internship_type" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
-                   --}}
                    <select name="internship_type" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B]">
                     <option value="">Select Internship Type</option>
                     <option value="Full Time">Full Time</option>
                     <option value="Part Time">Part Time</option>
                     <option value="Remote">Remote</option>
                 </select>
+                @error('internship_type')
+                        <div class="text-red-700">
+                          {{ $message }}
+                        </div>
+                        @enderror
                 </div>
               </div>
               <div class="mb-4 flex justify-between space-x-4">
                 <div class="w-1/2">
                   <label class="block text-gray-700 text-sm font-semibold mb-2" for="start_year">Stipend Range ($)</label>
-                  <input id="start_year" name="salary" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                  <input id="start_year" type="number" min="0" name="salary" value="{{ old('salary') }}" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                  @error('salary')
+                  <div class="text-red-700">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
                 <div class="w-1/2">
                   <label class="block text-gray-700 text-sm font-semibold mb-2" for="stipend">No Stipend</label>
@@ -73,8 +91,13 @@
               </div>
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-semibold mb-2">Job Description</label>
-                <textarea name="description" class=" border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text"></textarea>
-              </div>
+                <textarea name="description" class=" border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">{{ old('description') }}</textarea>
+                @error('description')
+                <div class="text-red-700">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-semibold mb-2">Job Area</label>
                 <select name="area_of_expertise" class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 border-[#0EA89B]">
@@ -84,11 +107,21 @@
                     <option value="Sales">Sales</option>
                     <option value="Finance">Finance</option>
                 </select>
-              </div>
+                @error('area_of_expertise')
+                <div class="text-red-700">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
               <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-semibold mb-2">Responsibilities</label>
-                <input name="responsibilites" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="">
-              </div>
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Responsibilites</label>
+                <input name="responsibilites" value="{{ old('responsibilites') }}" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="">
+                @error('responsibilites')
+                <div class="text-red-700">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
               <div class="mb-4 flex justify-between space-x-4">
                 <div class="w-1/2">
                   <label class="block text-gray-700 text-sm font-semibold mb-2" for="location">Select Skills</label>
@@ -128,25 +161,35 @@
                 </div>
                 <div class="w-1/2">
                   <label class="block text-gray-700 text-sm font-semibold mb-2" for="internship_type">Skills Selected</label>
-                  <input type="text" name="skills" id="selectedSkills" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Skills selected">
+                  <input type="text" value="{{ old('skills') }}" name="skills" id="selectedSkills" class="border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Skills selected">
+                  @error('skills')
+                  <div class="text-red-700">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-semibold mb-2">Application Deadline</label>
-                <input name="deadline" class=" border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date">
-              </div>
+                <input name="deadline" value="{{ old('deadline') }}" class=" border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date">
+                @error('deadline')
+                <div class="text-red-700">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
               <div class="flex items-center justify-start">
                 <button class="bg-[#0EA89B] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                   Save
                 </button>
               </div>
-            </form>   
+            </form>
             </div>
           </div>
-          
+
     </div>
   </div>
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -169,14 +212,14 @@ function toggleStipendRange() {
 document.addEventListener('DOMContentLoaded', function() {
         const skillsDropdown = document.getElementById('skillsDropdown');
         const selectedSkills = document.getElementById('selectedSkills');
-    
+
         skillsDropdown.addEventListener('change', function() {
             if (selectedSkills.value) {
                 selectedSkills.value += ', ' + this.value;
             } else {
                 selectedSkills.value = this.value;
             }
-    
+
             this.selectedIndex = 0;
         });
     });
