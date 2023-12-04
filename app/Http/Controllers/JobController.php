@@ -87,43 +87,7 @@ class JobController extends Controller
         $job = job::where('job_id', $id)->first();
         return view('apply', compact('job'));
     }
-    // function to store the new internship
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'position' => 'required',
-            'description' => 'required',
-            'internship_type' => 'required',
-            'responsibilites' => 'required',
-            'salary' => 'required',
-            'location' => 'required',
-            'area_of_expertise' => 'required',
-            'deadline' => 'required|date|after_or_equal:today',
-            'start' => 'required|date|after_or_equal:today',
-        ]);
-        $validatedData['user_id'] = Auth::user()->user_id;
-        job::create($validatedData);
-        return redirect()->back()->with('success', 'Job already posted');
-    }
-     // function to store the new internship
-    public function add_internship(Request $request)
-    {
-        $validatedData = $request->validate([
-            'position' => 'required',
-            'location' => 'required',
-            'internship_type' => 'required',
-            'salary' => 'nullable|numeric',
-            'description' => 'required',
-            'location' => 'required',
-            'area_of_expertise' => 'required',
-            'skills' => 'required',
-            'responsibilites' => 'required',
-            'deadline' => 'required|date|after:today',
-        ]);
-        $validatedData['user_id'] = Auth::user()->user_id;
-        job::create($validatedData);
-        return redirect()->back()->with('success', 'Job already posted');
-    }
+
     // function to display the edit internship page
     public function edit($id)
     {
