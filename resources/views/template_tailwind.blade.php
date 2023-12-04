@@ -49,7 +49,7 @@
                             <a href="/chooserole" class="py-2 px-6 font-medium text-[#323842] rounded hover:bg-[#0EA89B] hover:text-white transition duration-300">Register</a>
                             @else
                             <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                                <button @click="open = !open" class="flex flex-row items-center py-2 px-6 font-semibold text-[#323842] rounded hover:bg-[#0EA89B] hover:text-white transition duration-300">
+                                <button @click="open = !open" class="flex flex-row items-center py-2 px-6 font-semibold text-[#323842] rounded hover:bg-[#0EA89B] hover:text-[#0EA89B] transition duration-300">
                                     @if(Auth::user()->role_id == 0)
                                   <span>{{ Auth::user()->name }}</span>
                                   @elseif (Auth::user()->role_id == 1)
@@ -59,7 +59,11 @@
                                 </button>
                                 <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
                                   <div class="px-2 py-2 bg-white rounded-md shadow">
+                                    @if (Auth::user()->role_id == 1)
+                                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/company_dashboard">Dashboard</a>
+                                    @else
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/user_profile">My Account</a>
+                                    @endif
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                         <form action="/logout" method="POST">
                                             @csrf
@@ -131,7 +135,7 @@
             @show
         </div>
         <footer>
-            <a href="/register">
+            <a href="/list_internship">
                 <img src="{{asset('images/footer.png')}}" alt="">
             </a>
         </footer>

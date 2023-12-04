@@ -13,17 +13,27 @@
                 <ul class="space-y-2">
                   <li>
                     <a href="/add_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium">Add Internship</span>
+                      <span class="ml-2 text-sm font-medium">Dashboard</span>
                     </a>
                   </li>
                   <li>
-                    <a href="company_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium text-[#0EA89B]">Internship List</span>
+                    <a href="/company_detail" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
+                      <span class="ml-2 text-sm font-medium ">Profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/add_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
+                      <span class="ml-2 text-sm font-medium">Post Internship</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/company_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
+                      <span class="ml-2 text-sm font-medium text-[#0EA89B]">All Internship</span>
                     </a>
                   </li>
                   <li>
                     <a href="/profile_edit/education" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium ">Receive Application</span>
+                      <span class="ml-2 text-sm font-medium ">Applied Candidates</span>
                     </a>
                   </li>
                 </ul>
@@ -67,11 +77,8 @@
               @else
               <p class="mb-2">No Internship Added</p>
               @endif
-
             </div>
           </div>
-          
-          
         </div>
       </div>
       

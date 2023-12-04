@@ -40,6 +40,13 @@
                 </button>
               </a>
             </div>
+            <div class="flex justify-center pb-3 mt-1">
+              <a href="/profile_edit">
+                <button class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded">
+                  Application History
+                </button>
+              </a>
+            </div>
           </div>
           
       </div>

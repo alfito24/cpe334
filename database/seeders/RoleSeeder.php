@@ -22,5 +22,9 @@ class RoleSeeder extends Seeder
             'role_id'=>1,
             'name'=>'company',
         ]);
+        DB::table('roles')->insert([
+            'role_id'=>2,
+            'name'=>'admin',
+        ]);
     }
 }

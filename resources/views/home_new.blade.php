@@ -8,7 +8,8 @@
     <div class="order-2 sm:order-1 px-24 sm:px-5 md:px-7 lg:px-32 flex flex-col items-center justify-center md:items-start ">
         <h4 class="text-[#0EA89B] text-center sm:text-start font-bold md:text-3xl">Your Dream Internships</h4>
         <h4 class="text-[#323842] text-center sm:text-start font-bold md:text-3xl">Waiting for You</h4>
-        <a href="/login" class="mt-5 sm:mt-7 py-2 min-w-[50%] sm:min-w-[65%] lg:min-w-[50%] bg-[#0EA89B] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-cyan-400 transition duration-300 block text-center">Explore Now</a>
+        <a href="/list_internship" class="mt-5 sm:mt-7 py-2 min-w-[50%] sm:min-w-[65%] lg:min-w-[50%] bg-[#0EA89B] text-xl font-bold text-white rounded hover:from-[#BFD9EB] hover:text-cyan-400 transition duration-300 block text-center">Explore Now</a>
+
     </div>
 </div>
 <div class="p-10 mt-10">

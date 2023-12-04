@@ -17,13 +17,13 @@ class CreateApplicationsTable extends Migration
             $table->uuid('application_id')->primary();
             $table->foreignUuid('user_id')->constraint();
             $table->foreignUuid('job_id')->constraint();
+            $table->foreignUuid('company_id')->constraint();
             $table->enum('status', ['submitted', 'under_review', 'accepted', 'rejected'])->default('submitted');
             $table->date('submission_date')->default(now());
             $table->string('cv_file_path')->nullable();
+            $table->string('cover_letter_file_path')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            // $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
         });
     }
 

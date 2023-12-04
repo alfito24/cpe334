@@ -12,6 +12,8 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +52,10 @@ Route::post('/updateprofile/{id}', [AccountController::class, 'updateprofile']);
 
 // Job/InternhipController
 Route::get('/', [JobController::class, 'home']);
-Route::get('/list_internship', [JobController::class, 'list_internship']);
-Route::get('/company_internship', [JobController::class, 'company_internship']);
-Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship']);
-Route::get('/detail_company/{id}', [JobController::class, 'detail_company']);
+Route::get('/list_internship', [JobController::class, 'list_internship'])->middleware('RedirectIfNotAuthenticated');
+Route::get('/company_internship', [JobController::class, 'company_internship'])->middleware('RedirectIfNotAuthenticated');
+Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship'])->middleware('RedirectIfNotAuthenticated');
+Route::get('/detail_company/{id}', [JobController::class, 'detail_company'])->middleware('RedirectIfNotAuthenticated');
 Route::post('/addinternship', [JobController::class, 'store']);
 Route::post('/add_internship', [JobController::class, 'add_internship']);
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
@@ -63,20 +65,22 @@ Route::get('/myinternshiplist', [JobController::class, 'index'] );
 Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
 Route::get('/allinternshiplist', [JobController::class, 'indexall']);
 Route::get('/applyinternship/{id}', [JobController::class, 'apply']);
-
 Route::get('/internship/search', [JobController::class, 'search']);
 Route::get('/internship/search/company', [JobController::class, 'search2']);
 Route::get('/internship/matching', [JobController::class, 'match']);
+Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']);
 
 // ApplicationController
 Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );
+Route::get('/application_history', [ApplicationController::class, 'application_history'] );
 Route::post('/applyinternship/{id}/apply', [ApplicationController::class, 'store']);
 Route::get('/internship/{id}/accept', [ApplicationController::class, 'accept']);
 Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
 Route::get('/applyinternship', function () {
     return view('/apply');
 });
-Route::get('/apply_internship/{id}', [ApplicationController::class, 'apply_internship']);
+Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']);
+Route::get('/company_dashboard', [ApplicationController::class, 'summary']);
 Route::post('/application/{id}/review', [ApplicationController::class, 'markAsUnderReview'])->name('application.under_review');
 
 Route::get('/addinternship', function () {
@@ -87,13 +91,20 @@ Route::get('/addinternship', function () {
 Route::get('/add_experience', function () {
     return view('add_experience');
 });
+
+// Company Controller
+Route::get('/company_dashboard', [CompanyController::class, 'summary']);
+Route::get('/company_detail', [CompanyController::class, 'detail']);
+Route::get('/company_applicants', [CompanyController::class, 'company_applicants']);
+
 Route::post('/add_experience', [ExperienceController::class, 'store']);
 Route::post('/add_education', [EducationController::class, 'store']);
 
-//Landing Page
-// Route::get('/', function () {
-//     return view('home_new');
-// });
+// Admin Controller
+Route::get('/dashboard', [AdminController::class, 'summary']);
+Route::get('/list_companies', [AdminController::class, 'list_companies']);
+Route::get('/company/{id}/accept', [AdminController::class, 'accept']);
+Route::get('/company/{id}/reject', [AdminController::class, 'reject']);
 
 //template
 Route::get('/template', function () {
@@ -107,7 +118,4 @@ Route::get('/profile_edit/experience', function () {
 });
 Route::get('/profile_edit/education', function () {
     return view('profile_edit_education');
-});
-Route::get('/add_internship', function () {
-    return view('add_internship');
 });

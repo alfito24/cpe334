@@ -17,7 +17,7 @@ class JobSeeder extends Seeder
         $faker = \Faker\Factory::create();
         for ($i = 0; $i < 10; $i++) {
             job::create([
-                'position' => $faker->jobTitle,
+                'position' =>substr($faker->jobTitle, 0, 25),
                 'description' => $faker->paragraph,
                 'responsibilites' => implode(', ', $faker->sentences($nb = 3)),
                 'skills' => implode(', ', $faker->sentences($nb = 3)),
@@ -26,6 +26,7 @@ class JobSeeder extends Seeder
                 'area_of_expertise' => $faker->randomElement(['IT', 'Marketing', 'Finance', 'Sales']),
                 'internship_type' => $faker->randomElement(['Full Time', 'Part Time', 'Remote']),
                 'deadline' => $faker->date($format = 'Y-m-d', $min = '2023-12-31'),
+                'start' => $faker->date($format = 'Y-m-d', $min = '2024-01-01'),
                 'user_id' => 'd8472241-64b9-4552-8ab3-34f9d96de186'
             ]);
         }

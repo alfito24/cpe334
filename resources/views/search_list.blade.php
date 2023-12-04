@@ -8,7 +8,7 @@
     <h1 class="mx-auto text-xl font-bold">the Result for {{ ucwords($search) }} Position</h1>
 </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="md:col-span-1">
+      <div class="md:col-span-1 custom-scroll-height">
       @foreach ($jobs as $job )
         <a href="/detail_internship/{{ $job->job_id }}">
           <div class="mb-4 p-4 bg-white border border-gray-200 rounded">
@@ -113,7 +113,16 @@
     </div>
   </div>
   
-
+  <style>
+    .custom-scroll-height {
+      max-height: 800px;
+      overflow-y: auto;
+    }
+    .md\:col-span-3 {
+      max-height: 800px; 
+      overflow-y: auto;
+    }
+  </style>
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection
 

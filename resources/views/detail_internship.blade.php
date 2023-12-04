@@ -5,7 +5,7 @@
 
 <div class="container mx-auto px-4 mt-20 mb-20">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="md:col-span-1">
+      <div class="md:col-span-1 custom-scroll-height">
       @foreach ($interns as $intern )
       @php
         $isCurrentJob = request()->segment(2) == 'detail_internship' && request()->segment(3) == $intern->job_id;
@@ -41,7 +41,7 @@
                 @if ($application)
                   <div class="bg-[#0EA89B] text-white px-4 py-2 rounded">Applied</div>
                 @else
-                <a href="/apply_internship/{{ $job->job_id }}">
+                <a href="/apply_intern/{{ $job->job_id }}">
                   <button class="bg-[#0EA89B] text-white px-4 py-2 rounded hover:bg-blue-600">Apply Now</button>
                 </a>
                 @endif
@@ -55,11 +55,6 @@
         
         <!-- Job Details Content -->
         <div class="bg-white p-4 border border-gray-200 rounded">
-          <!-- Contact Recruiter -->
-          <div class="mb-4">
-            <h3 class="font-bold mb-2">Contact recruiter</h3>
-            <!-- Recruiter Details -->
-          </div>
           
           <!-- Job Description -->
           <div class="mb-4">
@@ -148,7 +143,16 @@
     </div>
   </div>
   
-
+  <style>
+    .custom-scroll-height {
+      max-height: 800px;
+      overflow-y: auto;
+    }
+    .md\:col-span-3 {
+      max-height: 800px; 
+      overflow-y: auto;
+    }
+  </style>
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection
 

@@ -16,6 +16,7 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // function to display available internships
     public function home()
     {
         $jobs = job::take(6)->get();
@@ -25,68 +26,47 @@ class JobController extends Controller
         $sales_jobs_count = job::where('area_of_expertise', 'Sales')->count();
         return view('home_new', compact('jobs', 'it_jobs_count', 'marketing_jobs_count', 'sales_jobs_count', 'finance_jobs_count'));
     }
+    // function to display 1 internship information
     public function list_internship()
     {
+        session(['redirect_to' => url()->full()]);
         $job = Job::inRandomOrder()->first();
-        $jobs = job::all();
+        $jobs = Job::all();
         return view('list_internship', compact('jobs', 'job'));
     }
+    // function to show the detail of the internship
     public function detail_internship($id)
     {
+        session(['redirect_to' => url()->full()]);
         $application = application::where('job_id', $id)->where('user_id',  Auth::id())->first();
         $job = job::where('job_id', $id)->firstOrFail();
         $interns = job::all();
         return view('detail_internship', compact('job', 'interns', 'application'));
     }
+    // function to display the internship that posted by authenticated company
     public function company_internship()
     {
         $jobs = job::where('user_id', Auth::id())->get();
         return view('company_internship', compact('jobs'));
     }
+    // function to display the detail of the company
     public function detail_company($id)
     {
+        session(['redirect_to' => url()->full()]);
         $company = User::where('user_id', $id)->firstOrFail();
         $interns = job::where('user_id', $id)->take(3)->get();
         return view('detail_company', compact('company', 'interns'));
     }
-    public function index()
-    {
-        $jobs = job::where('user_id', Auth::id())->get();
-        return view('internshiplist', compact('jobs'));
-    }
-    public function indexall()
-    {
-        $jobs = job::all();
-        return view('internshiplist', [
-            'jobs' => $jobs,
-            'title' => 'View All Internships',
-        ]);
-    }
-    // public function match()
-    // {
-    //     $currentUser = Auth::user();
-    //     if ($currentUser) {
-    //         $skills = $currentUser->skills;
-    //         $jobs = job::where('skills', 'like', '%' . $skills . '%')->get();
-    //         return view('internship_matching', [
-    //             'jobs' => $jobs,
-    //             'title' => 'View All Internships that Match your Profile'
-    //         ]);
-    //     }
-    //     else{
-    //         return redirect('/login');
-    //     }
-    // }
+    // function to display internship that matched with the user
     public function match()
-{
+    {
+    session(['redirect_to' => url()->full()]);
     $currentUser = Auth::user();
     if ($currentUser) {
         $skills = $currentUser->skills;
 
-        // Hapus spasi berlebih dan pecah menjadi array
         $skillsArray = preg_split('/\s+/', $skills, -1, PREG_SPLIT_NO_EMPTY);
 
-        // Buat query untuk mencari pekerjaan yang memiliki setidaknya satu keterampilan yang cocok
         $jobs = job::where(function ($query) use ($skillsArray) {
             foreach ($skillsArray as $skill) {
                 $query->orWhere('skills', 'like', '%' . $skill . '%');
@@ -97,26 +77,17 @@ class JobController extends Controller
             'jobs' => $jobs,
             'title' => 'View All Internships that Match your Profile'
         ]);
-    } else {
+        } else {
         return redirect('/login');
+        }
     }
-}
 
-    public function detail($id)
-    {
-        $job = job::where('job_id', $id)->first();
-        return view('internshipdetail', compact('job'));
-    }
     public function apply($id)
     {
         $job = job::where('job_id', $id)->first();
         return view('apply', compact('job'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // function to store the new internship
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -134,6 +105,7 @@ class JobController extends Controller
         job::create($validatedData);
         return redirect()->back()->with('success', 'Job already posted');
     }
+     // function to store the new internship
     public function add_internship(Request $request)
     {
         $validatedData = $request->validate([
@@ -152,39 +124,13 @@ class JobController extends Controller
         job::create($validatedData);
         return redirect()->back()->with('success', 'Job already posted');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\job  $job
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\job  $job
-     * @return \Illuminate\Http\Response
-     */
+    // function to display the edit internship page
     public function edit($id)
     {
         $job = DB::table('jobs')->where('job_id', $id)->first();
         return view('editinternship', compact('job'));
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\job  $job
-     * @return \Illuminate\Http\Response
-     */
+    // function to update the information of the internship
     public function update(Request $request, $id)
     {
         $job = job::find($id);
@@ -204,18 +150,13 @@ class JobController extends Controller
 
         return redirect('/myinternshiplist');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\job  $job
-     * @return \Illuminate\Http\Response
-     */
+    // function to delete the internship
     public function destroy($id)
     {
         DB::table('job')->where('job_id', $id)->delete();
         return redirect('/addinternship');
     }
+    // function to search internship by keywords
     public function search(Request $request)
     {
         $search = $request->search;
@@ -234,6 +175,7 @@ class JobController extends Controller
             'search' => $search
         ]);
     }
+    // function to search internship by keywords
     public function search2(Request $request)
     {
         $search = $request->search;
@@ -252,5 +194,12 @@ class JobController extends Controller
             'jobs' => $jobs,
             'title' => 'the Result for '.$search.' Position'
         ]);
+    }
+    // function to show detail job before apply
+    public function apply_intern($id)
+    {
+        $intern = job::where('job_id', $id)->firstOrFail();
+        $user = User::where('user_id', Auth::id())->firstOrFail();
+        return view('apply_intern', compact(['intern', 'user']));
     }
 }
