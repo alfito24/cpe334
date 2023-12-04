@@ -112,13 +112,13 @@ class JobController extends Controller
             'position' => 'required',
             'location' => 'required',
             'internship_type' => 'required',
-            'salary' => 'nullable',
+            'salary' => 'nullable|numeric',
             'description' => 'required',
             'location' => 'required',
             'area_of_expertise' => 'required',
             'skills' => 'required',
             'responsibilites' => 'required',
-            'deadline' => 'required',
+            'deadline' => 'required|date|after:today',
         ]);
         $validatedData['user_id'] = Auth::user()->user_id;
         job::create($validatedData);
