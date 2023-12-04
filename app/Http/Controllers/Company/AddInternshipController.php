@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class AddInternshipController extends Controller
 {
+      // function to show the add internship page
+      public function add_internship()
+      {
+         return view('add_internship');
+      }
+
     // function to store the new internship
     public function storeInternship(Request $request)
     {
@@ -17,6 +23,7 @@ class AddInternshipController extends Controller
             'description' => 'required',
             'internship_type' => 'required',
             'responsibilites' => 'required',
+            'skills' => 'required',
             'salary' => 'required',
             'location' => 'required',
             'area_of_expertise' => 'required',
@@ -26,10 +33,5 @@ class AddInternshipController extends Controller
         $validatedData['user_id'] = Auth::user()->user_id;
         job::create($validatedData);
         return redirect()->back()->with('success', 'Job already posted');
-    }
-     // function to show the add internship page
-    public function add_internship()
-    {
-       return view('add_internship');
     }
 }
