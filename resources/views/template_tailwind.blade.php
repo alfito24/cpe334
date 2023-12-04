@@ -32,7 +32,7 @@
                             <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
                             @endguest
                             @auth
-                            @if(Auth::user()->role_id == 1)
+                            @if(Auth::user()->role_id == 1 && Auth::user()->company_review == 'accepted')
                             <a @yield('addinternship') href="/add_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Add Internship</a>
                             <a @yield('internshiplist') href="/company_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship Lists</a>
                             @elseif (Auth::user()->role_id == 0)
