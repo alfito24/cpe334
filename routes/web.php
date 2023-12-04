@@ -14,6 +14,7 @@ use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Company\AddInternshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +47,10 @@ Route::get('/chooserole', function () {
 Route::get('/user_profile', [AccountController::class, 'index'] );
 Route::get('/profile_edit', [AccountController::class, 'profile_edit'] );
 Route::post('/profile_edit', [AccountController::class, 'profile_edit_update'] );
-Route::get('/myaccount', [AccountController::class, 'account'] );
-Route::get('/updateprofile', [AccountController::class, 'updateaccount']);
-Route::post('/updateprofile/{id}', [AccountController::class, 'updateprofile']);
+
+// Company/AddInternshipController
+Route::post('/add_internship', [AddInternshipController::class, 'storeInternship']); // Validate and Send the Internship Data to DB
+Route::get('/add_internship', [AddInternshipController::class, 'add_internship']); // Display Add Internship Page
 
 // Job/InternhipController
 Route::get('/', [JobController::class, 'home']);
@@ -56,8 +58,6 @@ Route::get('/list_internship', [JobController::class, 'list_internship'])->middl
 Route::get('/company_internship', [JobController::class, 'company_internship'])->middleware('RedirectIfNotAuthenticated');
 Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship'])->middleware('RedirectIfNotAuthenticated');
 Route::get('/detail_company/{id}', [JobController::class, 'detail_company'])->middleware('RedirectIfNotAuthenticated');
-Route::post('/addinternship', [JobController::class, 'store']);
-Route::post('/add_internship', [JobController::class, 'add_internship']);
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
 Route::post('/editinternship/{id}', [JobController::class, 'update'] );
 Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
@@ -119,3 +119,4 @@ Route::get('/profile_edit/experience', function () {
 Route::get('/profile_edit/education', function () {
     return view('profile_edit_education');
 });
+

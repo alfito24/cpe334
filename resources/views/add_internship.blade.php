@@ -188,6 +188,15 @@
                 </div>
                 @enderror
             </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Internship Start</label>
+                <input name="start" value="{{ old('start') }}" class=" border-2 border-[#0EA89B] appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date">
+                @error('start')
+                <div class="text-red-700">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
               <div class="flex items-center justify-start">
                 <button class="bg-[#0EA89B] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                   Save
