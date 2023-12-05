@@ -17,9 +17,9 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role_id === 1) {
+        if (Auth::check() && Auth::user()->role_id === 2) {
             return $next($request);
           }
-          return abort(403, 'Maaf Anda Tidak Memiliki Akses');
+          return abort(403, "Whoa, You are not the admin");
     }
 }

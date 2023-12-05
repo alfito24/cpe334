@@ -1,20 +1,23 @@
 <?php
 
+use App\Http\Middleware\IsAdmin;
+
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PickupController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CompanyConfirmationController;
+
 use App\Http\Controllers\Company\AddInternshipController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +71,7 @@ Route::get('/applyinternship/{id}', [JobController::class, 'apply']);
 Route::get('/internship/search', [JobController::class, 'search']);
 Route::get('/internship/search/company', [JobController::class, 'search2']);
 Route::get('/internship/matching', [JobController::class, 'match']);
-Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']);
+Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']); // Display the Internship Application Page
 
 // ApplicationController
 Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );
@@ -79,7 +82,7 @@ Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
 Route::get('/applyinternship', function () {
     return view('/apply');
 });
-Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']);
+Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data
 Route::get('/company_dashboard', [ApplicationController::class, 'summary']);
 Route::post('/application/{id}/review', [ApplicationController::class, 'markAsUnderReview'])->name('application.under_review');
 
@@ -101,10 +104,12 @@ Route::post('/add_experience', [ExperienceController::class, 'store']);
 Route::post('/add_education', [EducationController::class, 'store']);
 
 // Admin Controller
-Route::get('/dashboard', [AdminController::class, 'summary']);
-Route::get('/list_companies', [AdminController::class, 'list_companies']);
-Route::get('/company/{id}/accept', [AdminController::class, 'accept']);
-Route::get('/company/{id}/reject', [AdminController::class, 'destroy']);
+Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin can access those endpoints)
+    Route::get('/dashboard', [DashboardController::class, 'summary']);
+    Route::get('/list_companies', [DashboardController::class, 'list_companies']);
+    Route::get('/company/{id}/accept', [CompanyConfirmationController::class, 'accept']);
+    Route::get('/company/{id}/reject', [CompanyConfirmationController::class, 'destroy']);
+    });
 
 //template
 Route::get('/template', function () {
