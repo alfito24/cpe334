@@ -33,7 +33,7 @@
         </li>
       </ul>
     </div>
-  
+
     <!-- Content Area -->
 <div class="antialiased font-sans">
   <div class="container mx-auto px-4 sm:px-8">
@@ -69,6 +69,10 @@
               </th>
               <th
                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                Review Cover Letter
+              </th>
+              <th
+                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Accept
               </th>
               <th
@@ -78,7 +82,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($applicants as $a)
+            @foreach ($applicants as $applicant)
             <tr>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
@@ -87,36 +91,41 @@
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                  {{ $a->job->position }}
+                  {{ $applicant->job->position }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                  {{ $a->user->name }}
+                  {{ $applicant->user->name }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                  {{ \Carbon\Carbon::parse($a->created_at)->format('d/m/Y') }}
+                  {{ \Carbon\Carbon::parse($applicant->created_at)->format('d/m/Y') }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <a href="{{ asset('storage/cvs/' . $a->cv_file_path) }}" class="text-blue-600 hover:text-blue-900">
+                <a href="{{ asset('storage/cvs/' . $applicant->cv_file_path) }}" class="text-blue-600 hover:text-blue-900" target="_blank">
                   Review
                 </a>
               </td>
-              @if ($a->status == 'submitted')
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <button onclick="location.href='/internship/{{ $a->user_id }}/accept'" class="py-2 px-6 bg-[#0EA89B] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">
+                <a href="{{ asset('storage/cover_letters/' . $applicant->cover_letter_file_path) }}" class="text-blue-600 hover:text-blue-900" target="_blank">
+                  Review
+                </a>
+              </td>
+              @if ($applicant->status == 'submitted')
+              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <button onclick="location.href='/internship/{{ $applicant->user_id }}/accept'" class="py-2 px-6 bg-[#0EA89B] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">
                   Accept
                 </button>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <button onclick="location.href='/internship/{{ $a->user_id }}/reject'" class="py-2 px-6 bg-[#FF0000] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">
+                <button onclick="location.href='/internship/{{ $applicant->user_id }}/reject'" class="py-2 px-6 bg-[#FF0000] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">
                   Reject
                 </button>
               </td>
-              @elseif($a->status == 'accepted')
+              @elseif($applicant->status == 'accepted')
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <button class="py-2 px-6 bg-[#0EA89B] font-medium text-white rounded hover:from-[#BFD9EB] hover:text-[#BFD9EB] transition duration-300">
                   Accepted
@@ -142,7 +151,7 @@
 </div>
 
   </div>
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -165,14 +174,14 @@ function toggleStipendRange() {
 document.addEventListener('DOMContentLoaded', function() {
         const skillsDropdown = document.getElementById('skillsDropdown');
         const selectedSkills = document.getElementById('selectedSkills');
-    
+
         skillsDropdown.addEventListener('change', function() {
             if (selectedSkills.value) {
                 selectedSkills.value += ', ' + this.value;
             } else {
                 selectedSkills.value = this.value;
             }
-    
+
             this.selectedIndex = 0;
         });
     });

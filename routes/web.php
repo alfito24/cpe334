@@ -68,7 +68,7 @@ Route::get('/applyinternship/{id}', [JobController::class, 'apply']);
 Route::get('/internship/search', [JobController::class, 'search']);
 Route::get('/internship/search/company', [JobController::class, 'search2']);
 Route::get('/internship/matching', [JobController::class, 'match']);
-Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']);
+Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']); // Display the Internship Application Page
 
 // ApplicationController
 Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );
@@ -79,7 +79,7 @@ Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
 Route::get('/applyinternship', function () {
     return view('/apply');
 });
-Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']);
+Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data
 Route::get('/company_dashboard', [ApplicationController::class, 'summary']);
 Route::post('/application/{id}/review', [ApplicationController::class, 'markAsUnderReview'])->name('application.under_review');
 
