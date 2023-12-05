@@ -13,23 +13,24 @@ use App\Models\User;
 
 class CompanyConfirmationController extends Controller
 {
-     // function to accept company
-     public function accept($id)
-     {
-         $company = User::where('user_id', $id)->first();
-         $company->company_review = 'accepted';
-         $status = 'accepted';
-         $company->save();
-         return back()->with('success', 'Company accepted');
-     }
+    // function to accept company
+    public function accept($id)
+    {
+        $company = User::where('user_id', $id)->first();
+        $company->company_review = 'accepted';
+        $status = 'accepted';
+        $company->save();
+        return back()->with('success', 'Company accepted');
+    }
 
-     // function to reject company
-     public function reject($id)
-     {
-         $company = User::where('user_id', $id)->first();
-         $company->company_review = 'rejected';
-         $status = 'rejected';
-         $company->save();
-         return back()->with('success', 'Company rejected');
-     }
+    // function to reject company
+    public function destroy($id)
+    {
+        $user = User::where('user_id', $id)->first();
+        if ($user) {
+            $user->delete();
+            return redirect('/dashboard')->with('success', 'User deleted successfully.');
+        }
+        return redirect('/dashboard')->with('error', 'User not found.');
+    }
 }
