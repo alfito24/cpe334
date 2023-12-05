@@ -41,4 +41,13 @@ class AdminController extends Controller
             $company->save();
             return back()->with('success', 'Company rejected');
         }
+        public function destroy($id)
+        {
+            $user = User::where('user_id', $id)->first();
+            if ($user) {
+                $user->delete();
+                return redirect('/dashboard')->with('success', 'User deleted successfully.');
+            }
+            return redirect('/dashboard')->with('error', 'User not found.');
+        }
 }

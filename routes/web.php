@@ -104,7 +104,7 @@ Route::post('/add_education', [EducationController::class, 'store']);
 Route::get('/dashboard', [AdminController::class, 'summary']);
 Route::get('/list_companies', [AdminController::class, 'list_companies']);
 Route::get('/company/{id}/accept', [AdminController::class, 'accept']);
-Route::get('/company/{id}/reject', [AdminController::class, 'reject']);
+Route::get('/company/{id}/reject', [AdminController::class, 'destroy']);
 
 //template
 Route::get('/template', function () {
