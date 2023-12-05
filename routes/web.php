@@ -12,8 +12,12 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CompanyConfirmationController;
+
 use App\Http\Controllers\Company\AddInternshipController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,11 +104,11 @@ Route::post('/add_experience', [ExperienceController::class, 'store']);
 Route::post('/add_education', [EducationController::class, 'store']);
 
 // Admin Controller
-Route::middleware([IsAdmin::class])->group(function(){
-Route::get('/dashboard', [AdminController::class, 'summary'])->middleware('IsAdmin');
-Route::get('/list_companies', [AdminController::class, 'list_companies'])->middleware('IsAdmin');
-Route::get('/company/{id}/accept', [AdminController::class, 'accept'])->middleware('IsAdmin');
-Route::get('/company/{id}/reject', [AdminController::class, 'reject'])->middleware('IsAdmin');
+Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin can access those endpoints)
+Route::get('/dashboard', [DashboardController::class, 'summary']);
+Route::get('/list_companies', [DashboardController::class, 'list_companies']);
+Route::get('/company/{id}/accept', [CompanyConfirmationController::class, 'accept']);
+Route::get('/company/{id}/reject', [CompanyConfirmationController::class, 'reject']);
 });
 
 //template
