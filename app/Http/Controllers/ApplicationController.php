@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\application;
 use App\Models\job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ApplicationStatusChanged;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class ApplicationController extends Controller
 {
@@ -88,6 +90,7 @@ class ApplicationController extends Controller
         $applications = application::where('user_id', Auth::id())->get();
         return view('application_history', compact('applications'));
     }
+    
 
     
 }

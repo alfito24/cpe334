@@ -104,12 +104,10 @@ Route::post('/add_experience', [ExperienceController::class, 'store']);
 Route::post('/add_education', [EducationController::class, 'store']);
 
 // Admin Controller
-Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin can access those endpoints)
-Route::get('/dashboard', [DashboardController::class, 'summary']);
-Route::get('/list_companies', [DashboardController::class, 'list_companies']);
-Route::get('/company/{id}/accept', [CompanyConfirmationController::class, 'accept']);
-Route::get('/company/{id}/reject', [CompanyConfirmationController::class, 'reject']);
-});
+Route::get('/dashboard', [AdminController::class, 'summary']);
+Route::get('/list_companies', [AdminController::class, 'list_companies']);
+Route::get('/company/{id}/accept', [AdminController::class, 'accept']);
+Route::get('/company/{id}/reject', [AdminController::class, 'reject']);
 
 //template
 Route::get('/template', function () {
