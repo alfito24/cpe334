@@ -1,12 +1,11 @@
 <?php
 
+use App\Http\Middleware\IsAdmin;
+
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PickupController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
@@ -101,10 +100,12 @@ Route::post('/add_experience', [ExperienceController::class, 'store']);
 Route::post('/add_education', [EducationController::class, 'store']);
 
 // Admin Controller
-Route::get('/dashboard', [AdminController::class, 'summary']);
-Route::get('/list_companies', [AdminController::class, 'list_companies']);
-Route::get('/company/{id}/accept', [AdminController::class, 'accept']);
-Route::get('/company/{id}/reject', [AdminController::class, 'reject']);
+Route::middleware([IsAdmin::class])->group(function(){
+Route::get('/dashboard', [AdminController::class, 'summary'])->middleware('IsAdmin');
+Route::get('/list_companies', [AdminController::class, 'list_companies'])->middleware('IsAdmin');
+Route::get('/company/{id}/accept', [AdminController::class, 'accept'])->middleware('IsAdmin');
+Route::get('/company/{id}/reject', [AdminController::class, 'reject'])->middleware('IsAdmin');
+});
 
 //template
 Route::get('/template', function () {
