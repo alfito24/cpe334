@@ -57,51 +57,36 @@ Route::get('/add_internship', [AddInternshipController::class, 'add_internship']
 
 // Job/InternhipController
 Route::get('/', [JobController::class, 'home']);
-Route::get('/list_internship', [JobController::class, 'list_internship'])->middleware('RedirectIfNotAuthenticated');
-Route::get('/company_internship', [JobController::class, 'company_internship'])->middleware('RedirectIfNotAuthenticated');
-Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship'])->middleware('RedirectIfNotAuthenticated');
-Route::get('/detail_company/{id}', [JobController::class, 'detail_company'])->middleware('RedirectIfNotAuthenticated');
-Route::get('/editinternship/{id}', [JobController::class, 'edit'] );
-Route::post('/editinternship/{id}', [JobController::class, 'update'] );
-Route::get('/internshipdetail/{id}', [JobController::class, 'detail'] );
-Route::get('/myinternshiplist', [JobController::class, 'index'] );
-Route::get('/job/{id}/applicants', [JobController::class, 'applicants'])->name('job.applicants');
-Route::get('/allinternshiplist', [JobController::class, 'indexall']);
-Route::get('/applyinternship/{id}', [JobController::class, 'apply']);
-Route::get('/internship/search', [JobController::class, 'search']);
-Route::get('/internship/search/company', [JobController::class, 'search2']);
-Route::get('/internship/matching', [JobController::class, 'match']);
+Route::get('/list_internship', [JobController::class, 'list_internship'])->middleware('RedirectIfNotAuthenticated'); // Applicant
+Route::get('/company_internship', [JobController::class, 'company_internship'])->middleware('RedirectIfNotAuthenticated'); // Company
+Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship'])->middleware('RedirectIfNotAuthenticated'); // Both, but mainly for Applicant
+Route::get('/detail_company/{id}', [JobController::class, 'detail_company'])->middleware('RedirectIfNotAuthenticated'); // Both, but mainly for Applicant
+Route::get('/editinternship/{id}', [JobController::class, 'edit'] ); /** UNUSED ??? */
+Route::post('/editinternship/{id}', [JobController::class, 'update'] ); /** UNUSED ??? */
+
+Route::get('/internship/search', [JobController::class, 'search']); // Both, but mainly for Applicant
+Route::get('/internship/search/company', [JobController::class, 'search2']); // Both, but mainly for Applicant
+Route::get('/internship/matching', [JobController::class, 'match']); // Applicant
 Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']); // Display the Internship Application Page
 
 // ApplicationController
 Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );
-Route::get('/application_history', [ApplicationController::class, 'application_history'] );
-Route::post('/applyinternship/{id}/apply', [ApplicationController::class, 'store']);
-Route::get('/internship/{id}/accept', [ApplicationController::class, 'accept']);
-Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']);
-Route::get('/applyinternship', function () {
-    return view('/apply');
-});
-Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data
-Route::get('/company_dashboard', [ApplicationController::class, 'summary']);
-Route::post('/application/{id}/review', [ApplicationController::class, 'markAsUnderReview'])->name('application.under_review');
+Route::get('/application_history', [ApplicationController::class, 'application_history'] ); // Applicant
+Route::get('/internship/{id}/accept', [ApplicationController::class, 'accept']); // Company
+Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']); // Company
 
-Route::get('/addinternship', function () {
-    return view('addinternship');
-});
+Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data
 
 // ExperienceController
-Route::get('/add_experience', function () {
-    return view('add_experience');
-});
+
 
 // Company Controller
-Route::get('/company_dashboard', [CompanyController::class, 'summary']);
+Route::get('/company_dashboard', [CompanyController::class, 'summary']); // Company
 Route::get('/company_detail', [CompanyController::class, 'detail']);
-Route::get('/company_applicants', [CompanyController::class, 'company_applicants']);
+Route::get('/company_applicants', [CompanyController::class, 'company_applicants']); // Company
 
-Route::post('/add_experience', [ExperienceController::class, 'store']);
-Route::post('/add_education', [EducationController::class, 'store']);
+Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data
+Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data
 
 // Admin Controller
 Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin can access those endpoints)
@@ -112,16 +97,13 @@ Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin
     });
 
 //template
-Route::get('/template', function () {
-    return view('template_new');
-});
 Route::get('/tailwind', function () {
     return view('template_tailwind');
 });
 Route::get('/profile_edit/experience', function () {
-    return view('profile_edit_experience');
+    return view('profile_edit_experience'); // Display the Add Experience Page
 });
 Route::get('/profile_edit/education', function () {
-    return view('profile_edit_education');
+    return view('profile_edit_education'); // Display the Add Education Page
 });
 

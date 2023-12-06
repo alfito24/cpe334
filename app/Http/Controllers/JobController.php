@@ -82,12 +82,6 @@ class JobController extends Controller
         }
     }
 
-    public function apply($id)
-    {
-        $job = job::where('job_id', $id)->first();
-        return view('apply', compact('job'));
-    }
-
     // function to display the edit internship page
     public function edit($id)
     {

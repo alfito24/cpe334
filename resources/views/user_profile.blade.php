@@ -5,17 +5,9 @@
 
 <div class="container mx-auto px-4 mt-20 mb-20">
   <h2 class="font-bold text-3xl mb-2">My Profile</h2>
-  
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       <div class="md:col-span-1">
-        {{-- <a href="/detail_internship/">
-          <div class="mb-4 p-4 bg-white border border-gray-200 rounded">
-              <h4 class="font-bold text-purple-600">Software Engineer</h4>
-              <p>100k</p>
-              <p>Bangkok</p>
-              <p>Full Time</p>
-          </div>
-        </a> --}}
         <div class="bg-white rounded-lg shadow-lg max-w-sm mt-4">
             <div class="flex justify-center">
               <div class="relative">
@@ -41,14 +33,14 @@
               </a>
             </div>
             <div class="flex justify-center pb-3 mt-1">
-              <a href="/profile_edit">
+              <a href="/application_history">
                 <button class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded">
                   Application History
                 </button>
               </a>
             </div>
           </div>
-          
+
       </div>
       {{-- @foreach ($job as $j) --}}
       <div class="md:col-span-3">
@@ -59,7 +51,7 @@
             <h3 class="font-bold mb-2">About</h3>
             <p>{{ $user->about_me }}</p>
           </div>
-          
+
           <!-- Responsibilities -->
           <div class="mb-4">
             <h3 class="font-bold mb-2">Work Experience</h3>
@@ -128,15 +120,15 @@
             @endif
             </div>
           </div>
-          
-          
+
+
         </div>
       </div>
       {{-- @endforeach --}}
-      
+
     </div>
   </div>
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection

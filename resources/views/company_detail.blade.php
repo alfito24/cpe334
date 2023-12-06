@@ -7,7 +7,7 @@
     <div class="w-64 px-4 py-6 bg-white shadow-md">
       <ul class="space-y-2">
         <li>
-          <a href="/add_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
+          <a href="/company_dashboard" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
             <span class="ml-2 text-sm font-medium">Dashboard</span>
           </a>
         </li>
@@ -33,7 +33,7 @@
         </li>
       </ul>
     </div>
-  
+
     <!-- Content Area -->
     <div class="max-w-7xl mx-auto">
         <div class="bg-white rounded-lg shadow-lg overflow-hidden p-5">
@@ -62,7 +62,7 @@
               </div>
             </div>
           </div>
-      
+
           <!-- About Us -->
           <div class="mb-6">
             <h3 class="text-lg font-bold text-gray-900 mb-2">About us</h3>
@@ -70,7 +70,7 @@
               {{ $company->company_description }}
             </p>
           </div>
-    
+
           <!-- Why choose us -->
           <div class="">
             <h3 class="text-lg font-bold text-gray-900 mb-2">Why choosing us</h3>
@@ -87,7 +87,7 @@
         </div>
       </div>
   </div>
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -110,14 +110,14 @@ function toggleStipendRange() {
 document.addEventListener('DOMContentLoaded', function() {
         const skillsDropdown = document.getElementById('skillsDropdown');
         const selectedSkills = document.getElementById('selectedSkills');
-    
+
         skillsDropdown.addEventListener('change', function() {
             if (selectedSkills.value) {
                 selectedSkills.value += ', ' + this.value;
             } else {
                 selectedSkills.value = this.value;
             }
-    
+
             this.selectedIndex = 0;
         });
     });

@@ -5,7 +5,7 @@
 
 <div class="container mx-auto px-4 mt-20 mb-20">
   <h2 class="font-bold text-3xl mb-2">My Profile</h2>
-  
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       <div class="md:col-span-1">
         <div class="bg-white rounded-lg shadow-lg max-w-sm mt-4">
@@ -32,7 +32,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/profile_edit/education" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
+                    <a href="/company_applicants" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
                       <span class="ml-2 text-sm font-medium ">Applied Candidates</span>
                     </a>
                   </li>
@@ -81,9 +81,9 @@
           </div>
         </div>
       </div>
-      
+
   </div>
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection

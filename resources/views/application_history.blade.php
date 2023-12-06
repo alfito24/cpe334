@@ -15,7 +15,7 @@
       <div class="w-full overflow-x-auto mt-6">
         <table class="min-w-full leading-normal">
           <thead>
-            @foreach ($applications as $a) 
+            @foreach ($applications as $a)
             <tr>
               <th
                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -35,27 +35,31 @@
               </th>
               <th
                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Review Resume
+                Resume
+              </th>
+              <th
+                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                Cover Letter
               </th>
             </tr>
             @endforeach
           </thead>
           <tbody>
-            @foreach ($applications as $a)
+            @foreach ($applications as $application)
             <tr>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                  {{ $a->job->user->company }}
+                  {{ $application->job->user->company }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                  {{ $a->job->position }}
+                  {{ $application->job->position }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                  {{ \Carbon\Carbon::parse($a->created_at)->format('d/m/Y') }}
+                  {{ \Carbon\Carbon::parse($application->created_at)->format('d/m/Y') }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -63,12 +67,17 @@
                   class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                   <span aria-hidden
                     class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                  <span class="relative">{{ $a->status }}</span>
+                  <span class="relative">{{ $application->status }}</span>
                 </span>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <a href="{{ asset('storage/cvs/' . $a->cv_file_path) }}" class="text-blue-600 hover:text-blue-900">
-                  Review
+                <a href="{{ asset('storage/cvs/' . $application->cv_file_path) }}" target="_blank" class="text-blue-600 hover:text-blue-900">
+                  Resume
+                </a>
+              </td>
+              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <a href="{{ asset('storage/cover_letters/' . $application->cover_letter_file_path) }}" target="_blank" class="text-blue-600 hover:text-blue-900">
+                  Cover Letter
                 </a>
               </td>
             </tr>
@@ -82,7 +91,7 @@
 </div>
 
 
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -105,14 +114,14 @@ function toggleStipendRange() {
 document.addEventListener('DOMContentLoaded', function() {
         const skillsDropdown = document.getElementById('skillsDropdown');
         const selectedSkills = document.getElementById('selectedSkills');
-    
+
         skillsDropdown.addEventListener('change', function() {
             if (selectedSkills.value) {
                 selectedSkills.value += ', ' + this.value;
             } else {
                 selectedSkills.value = this.value;
             }
-    
+
             this.selectedIndex = 0;
         });
     });
