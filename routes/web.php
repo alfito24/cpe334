@@ -4,7 +4,11 @@ use App\Http\Middleware\IsAdmin;
 
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+
+/** Auth Classes Import */
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
@@ -29,10 +33,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // LoginController
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+
+// Logout Controller
+Route::post('/logout', [LogoutController::class, 'logout']);
 
 
 // RegisterController

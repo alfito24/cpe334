@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,7 @@ class LoginController extends Controller
     {
         return view('login');
     }
-    
+
     // function to authenticate the user
     public function authenticate(Request $request)
     {
@@ -34,29 +35,15 @@ class LoginController extends Controller
 
         // Default redirect
         if (Auth::user()->role_id === 2) {
-            return redirect('/dashboard');
+            return redirect('/dashboard'); // Change to the admin dashboard route
         }
         else{
-            return redirect('/'); // Change to the admin dashboard route
+            return redirect('/'); // Login as the company/applicant
         }
-        // elseif (Auth::user()->role_id === 1) {
-        //     return redirect('/'); // Change to the admin dashboard route
-        // }
 
         return redirect('/');
     }
 
     return back()->with('loginError', 'Login Failed');
 }
-    // function to logout
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
-    }
 }
