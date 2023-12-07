@@ -13,6 +13,9 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Register\StudentRegisterController;
 use App\Http\Controllers\Register\CompanyRegisterController;
 
+/** Profile View and Edit Classes Import */
+use App\Http\Controllers\Account\ViewProfileController;
+use App\Http\Controllers\Account\EditProfileController;
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
@@ -54,14 +57,17 @@ Route::post('/registerStudent', [StudentRegisterController::class, 'storeStudent
 Route::view('/companyregister', 'registercompany'); // Company Registration Page UI
 Route::post('/registerCompany', [CompanyRegisterController::class, 'storeCompany']); // Send the Company Registration Data to DB
 
-// AccountController
-Route::get('/user_profile', [AccountController::class, 'index'] );
-Route::get('/profile_edit', [AccountController::class, 'profile_edit'] );
-Route::post('/profile_edit', [AccountController::class, 'profile_edit_update'] );
+// User Profile View and Edit (Profile Controllers)
+/** User Profile View */
+Route::get('/user_profile', [ViewProfileController::class, 'index'] );
+
+/** Profile Edit */
+Route::get('/profile_edit', [EditProfileController::class, 'profile_edit'] );
+Route::post('/profile_edit', [EditProfileController::class, 'profile_edit_update'] );
 
 // Company/AddInternshipController
+Route::view('/add_internship', 'add_internship'); // Display Add Internship Page/Add Internship UI
 Route::post('/add_internship', [AddInternshipController::class, 'storeInternship']); // Validate and Send the Internship Data to DB
-Route::get('/add_internship', [AddInternshipController::class, 'add_internship']); // Display Add Internship Page
 
 // Job/InternhipController
 Route::get('/', [JobController::class, 'home']);

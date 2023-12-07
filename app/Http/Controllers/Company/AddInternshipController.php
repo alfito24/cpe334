@@ -9,12 +9,6 @@ use Illuminate\Http\Request;
 
 class AddInternshipController extends Controller
 {
-      // function to show the add internship page
-      public function add_internship()
-      {
-         return view('add_internship');
-      }
-
     // function to store the new internship
     public function storeInternship(Request $request)
     {

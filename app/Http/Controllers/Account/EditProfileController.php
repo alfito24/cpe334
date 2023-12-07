@@ -1,31 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Account;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use App\Models\application;
-use App\Models\job;
 use App\Models\User;
 
-class AccountController extends Controller
+class EditProfileController extends Controller
 {
-    public function index()
-    {
-        $user = User::find(Auth::id());
-        $workExperiences = $user->experiences;
-        $educations = $user->educations;
-        $jobs = job::take(2)->get();
-        return view('user_profile', compact('user', 'jobs', 'workExperiences', 'educations'));
-    }
     public function profile_edit()
     {
             $user = User::find(Auth::id());
-            // $skills = $user->skills ? array_map('trim', explode(',', $user->skills)) : [];
             return view('profile_edit', compact('user'));
-
     }
+
     public function profile_edit_update(Request $request)
     {
         // First, validate all incoming data.
