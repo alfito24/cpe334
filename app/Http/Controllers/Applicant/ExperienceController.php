@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Applicant;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Experience;
 use App\Models\User;
@@ -11,7 +12,7 @@ class ExperienceController extends Controller
 {
     public function index()
     {
-        $user = User::findOrFail($Auth::id());
+        $user = User::findOrFail(Auth::id());
         $workExperiences = $user->experiences;
         return view('work_experiences.index', compact('workExperiences'));
     }

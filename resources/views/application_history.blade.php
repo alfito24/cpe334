@@ -15,7 +15,6 @@
       <div class="w-full overflow-x-auto mt-6">
         <table class="min-w-full leading-normal">
           <thead>
-            @foreach ($applications as $a)
             <tr>
               <th
                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -42,7 +41,6 @@
                 Cover Letter
               </th>
             </tr>
-            @endforeach
           </thead>
           <tbody>
             @foreach ($applications as $application)

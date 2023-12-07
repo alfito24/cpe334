@@ -4,6 +4,9 @@ use App\Http\Middleware\IsAdmin;
 
 use Illuminate\Support\Facades\Route;
 
+/** Home Class Import */
+use App\Http\Controllers\HomeController;
+
 /** Auth Classes Import */
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -19,20 +22,26 @@ use App\Http\Controllers\Account\EditProfileController;
 /** Company Classes Import */
 use App\Http\Controllers\Company\CompanyDashboardController;
 use App\Http\Controllers\Company\CompanyProfileController;
+use App\Http\Controllers\Company\AddInternshipController;
 use App\Http\Controllers\Company\InternshipListController;
 use App\Http\Controllers\Company\InternshipApplicantsController;
 use App\Http\Controllers\Company\ApplicationConfirmationController;
 
+/** Applicant Classes Import */
+use App\Http\Controllers\Applicant\InternshipController;
+use App\Http\Controllers\Applicant\SearchInternshipController;
+use App\Http\Controllers\Applicant\ExperienceController;
+use App\Http\Controllers\Applicant\EducationController;
+use App\Http\Controllers\Applicant\ApplicationHistoryController;
+use App\Http\Controllers\Applicant\ApplyInternshipController;
+use App\Http\Controllers\Applicant\MatchInternshipController;
+
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
-use App\Http\Controllers\ExperienceController;
-use App\Http\Controllers\EducationController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CompanyConfirmationController;
-
-use App\Http\Controllers\Company\AddInternshipController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -48,6 +57,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/login', 'login'); // Login UI
 Route::post('/login', [LoginController::class, 'authenticate']); // Login Controller
+
+Route::get('/', [HomeController::class, 'home']); // Home
 
 Route::post('/logout', [LogoutController::class, 'logout']); // Logout Controller
 
@@ -94,29 +105,42 @@ Route::controller(ApplicationConfirmationController::class)->group(function(){
     Route::get('/internship/{id}/accept', 'accept'); // Company
     Route::get('/internship/{id}/reject', 'reject'); // Company
 });
-
-// Job/InternhipController
-Route::get('/', [JobController::class, 'home']);
-Route::get('/list_internship', [JobController::class, 'list_internship'])->middleware('RedirectIfNotAuthenticated'); // Applicant
-Route::get('/detail_internship/{id}', [JobController::class, 'detail_internship'])->middleware('RedirectIfNotAuthenticated'); // Both, but mainly for Applicant
-Route::get('/detail_company/{id}', [JobController::class, 'detail_company'])->middleware('RedirectIfNotAuthenticated'); // Both, but mainly for Applicant
 Route::get('/editinternship/{id}', [JobController::class, 'edit'] ); /** UNUSED ??? */
 Route::post('/editinternship/{id}', [JobController::class, 'update'] ); /** UNUSED ??? */
+Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] ); /** UNUSED */
 
-Route::get('/internship/search', [JobController::class, 'search']); // Both, but mainly for Applicant
-Route::get('/internship/search/company', [JobController::class, 'search2']); /** UNUSED */
-Route::get('/internship/matching', [JobController::class, 'match']); // Applicant
-Route::get('/apply_intern/{id}', [JobController::class, 'apply_intern']); // Display the Internship Application Page // Applicant
+// Applicant Controllers
+/****  InternshipController ****/
+Route::controller(InternshipController::class)->group(function(){
+    /** Available Internship List */
+    Route::get('/list_internship', 'list_internship')->middleware('RedirectIfNotAuthenticated'); // Applicant
+    /** Internship Detail */
+    Route::get('/detail_internship/{id}', 'detail_internship')->middleware('RedirectIfNotAuthenticated'); // Applicant
+    /** Company Detail */
+    Route::get('/detail_company/{id}', 'detail_company')->middleware('RedirectIfNotAuthenticated'); // Applicant
+});
 
-// ApplicationController
-Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] );
-Route::get('/application_history', [ApplicationController::class, 'application_history'] ); // Applicant
+/** Internship Search (by Position) */
+Route::get('/internship/search', [SearchInternshipController::class, 'search']); // Both, but mainly for Applicant
 
-Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data to DB // Applicant
+/** Match Internship by Applicant Skills and Required Skills from the Internship */
+Route::get('/internship/matching', [MatchInternshipController::class, 'match']); // Applicant
 
-// ExperienceController
+/** Apply Internship */
+Route::controller(ApplyInternshipController::class)->group(function(){
+    Route::get('/apply_intern/{id}', 'apply_intern'); // Display the Internship Application Page // Applicant
+    Route::post('/apply/{id}', 'apply_internship'); // Send the Internship Application Data to DB // Applicant
+});
 
+/** Applied Internship List */
+Route::get('/application_history', [ApplicationHistoryController::class, 'application_history'] ); // Applicant
+
+/** Work Experience Add/Edit */
+Route::view('/profile_edit/experience', 'profile_edit_experience');
 Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data to DB // Applicant
+
+/** Educational History Add/Edit */
+Route::view('/profile_edit/education', 'profile_edit_education');
 Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data to DB // Applicant
 
 // Admin Controller
@@ -131,10 +155,3 @@ Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin
 Route::get('/tailwind', function () {
     return view('template_tailwind');
 });
-Route::get('/profile_edit/experience', function () {
-    return view('profile_edit_experience'); // Display the Add Experience Page // Applicant
-});
-Route::get('/profile_edit/education', function () {
-    return view('profile_edit_education'); // Display the Add Education Page // Applicant
-});
-
