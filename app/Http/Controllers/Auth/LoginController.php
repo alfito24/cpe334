@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    // function to show login page
-    public function show()
-    {
-        return view('login');
-    }
-
     // function to authenticate the user
     public function authenticate(Request $request)
     {

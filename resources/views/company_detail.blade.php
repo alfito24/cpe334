@@ -42,7 +42,9 @@
             <div class="mb-4 mt-4">
                 <img src="{{asset('images/company.png')}}" alt="">
               <div class="flex items-center">
-                <div class="bg-blue-500 rounded-full h-14 w-14 flex items-center justify-center text-white text-2xl font-bold">S</div>
+                <div class="rounded-full h-14 w-14 flex items-center justify-center text-white text-2xl font-bold">
+                    <img src="{{ url('/data_file/'.$company->picture) }}" alt="">
+                </div>
                 <div class="ml-4">
                   <h2 class="text-xl font-bold text-gray-900">{{ $company->company }}</h2>
                   <p class="text-sm text-gray-600">{{ $company->business_area }}</p>

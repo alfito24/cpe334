@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 
-use App\Http\Controllers\RegisterController;
+/** Register Classes Import */
+use App\Http\Controllers\Register\StudentRegisterController;
+use App\Http\Controllers\Register\CompanyRegisterController;
+
+
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
@@ -34,24 +38,21 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-// LoginController
-Route::get('/login', [LoginController::class, 'show']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::view('/login', 'login'); // Login UI
+Route::post('/login', [LoginController::class, 'authenticate']); // Login Controller
 
-// Logout Controller
-Route::post('/logout', [LogoutController::class, 'logout']);
+Route::post('/logout', [LogoutController::class, 'logout']); // Logout Controller
 
+// User Register
+Route::view('/chooserole', 'chooserole'); // Role Picking UI
 
-// RegisterController
-Route::get('/studentregister', [RegisterController::class, 'show']);
-Route::post('/registerStudent', [RegisterController::class, 'storeStudent']);
-Route::post('/registerCompany', [RegisterController::class, 'storeCompany']);
-Route::get('/companyregister', function () {
-    return view('registercompany');
-});
-Route::get('/chooserole', function () {
-    return view('chooserole');
-});
+/** Student/Applicant Registration */
+Route::view('/studentregister', 'register'); // Student/Applicant Registration Page UI
+Route::post('/registerStudent', [StudentRegisterController::class, 'storeStudent']); // Send the Student/Applicant Registration Data to DB
+
+/** Company Registration */
+Route::view('/companyregister', 'registercompany'); // Company Registration Page UI
+Route::post('/registerCompany', [CompanyRegisterController::class, 'storeCompany']); // Send the Company Registration Data to DB
 
 // AccountController
 Route::get('/user_profile', [AccountController::class, 'index'] );
@@ -82,7 +83,7 @@ Route::get('/application_history', [ApplicationController::class, 'application_h
 Route::get('/internship/{id}/accept', [ApplicationController::class, 'accept']); // Company
 Route::get('/internship/{id}/reject', [ApplicationController::class, 'reject']); // Company
 
-Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data
+Route::post('/apply/{id}', [ApplicationController::class, 'apply_internship']); // Send the Internship Application Data to DB
 
 // ExperienceController
 
@@ -92,8 +93,8 @@ Route::get('/company_dashboard', [CompanyController::class, 'summary']); // Comp
 Route::get('/company_detail', [CompanyController::class, 'detail']);
 Route::get('/company_applicants', [CompanyController::class, 'company_applicants']); // Company
 
-Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data
-Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data
+Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data to DB
+Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data to DB
 
 // Admin Controller
 Route::middleware([IsAdmin::class])->group(function(){ // Middleware (only Admin can access those endpoints)
