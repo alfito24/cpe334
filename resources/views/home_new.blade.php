@@ -4,7 +4,7 @@
 <div class="bg-[#ECFDFC] py-7 md:py-9 grid grid-cols-1 gap-x-10 gap-y-12 font-poppins sm:grid-cols-2 md:mt-16">
     <div class="order-1 sm:order-2">
         <img src="{{asset('images/Container 3.png')}}" class="w-[90%] sm:w-[70%] mx-auto">
-    </div>    
+    </div>
     <div class="order-2 sm:order-1 px-24 sm:px-5 md:px-7 lg:px-32 flex flex-col items-center justify-center md:items-start ">
         <h4 class="text-[#0EA89B] text-center sm:text-start font-bold md:text-3xl">Your Dream Internships</h4>
         <h4 class="text-[#323842] text-center sm:text-start font-bold md:text-3xl">Waiting for You</h4>
@@ -92,7 +92,7 @@
         </a>
         </div>
       </div>
-      
+
 </div>
 
 

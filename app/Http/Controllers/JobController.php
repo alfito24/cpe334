@@ -43,12 +43,7 @@ class JobController extends Controller
         $interns = job::all();
         return view('detail_internship', compact('job', 'interns', 'application'));
     }
-    // function to display the internship that posted by authenticated company
-    public function company_internship()
-    {
-        $jobs = job::where('user_id', Auth::id())->get();
-        return view('company_internship', compact('jobs'));
-    }
+
     // function to display the detail of the company
     public function detail_company($id)
     {
