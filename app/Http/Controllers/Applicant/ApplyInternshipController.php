@@ -13,7 +13,7 @@ use App\Models\application;
 class ApplyInternshipController extends Controller
 {
     // function to show detail job before apply
-    public function apply_intern($id)
+    public function applyIntern($id)
     {
         $intern = job::where('job_id', $id)->firstOrFail();
         $user = User::where('user_id', Auth::id())->firstOrFail();
@@ -21,7 +21,7 @@ class ApplyInternshipController extends Controller
     }
 
     // function to send application internship data
-    public function apply_internship(Request $request, $id)
+    public function applyInternship(Request $request, $id)
     {
         // Validate the incoming request data
         $request->validate([

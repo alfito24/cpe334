@@ -13,7 +13,7 @@ use App\Models\application;
 class InternshipController extends Controller
 {
     // function to display 1 internship information
-    public function list_internship()
+    public function listInternship()
     {
         session(['redirect_to' => url()->full()]);
         $job = Job::inRandomOrder()->first();
@@ -22,7 +22,7 @@ class InternshipController extends Controller
     }
 
     // function to show the detail of the internship
-    public function detail_internship($id)
+    public function detailInternship($id)
     {
         session(['redirect_to' => url()->full()]);
         $application = application::where('job_id', $id)->where('user_id',  Auth::id())->first();
@@ -32,7 +32,7 @@ class InternshipController extends Controller
     }
 
     // function to display the detail of the company
-    public function detail_company($id)
+    public function detailCompany($id)
     {
         session(['redirect_to' => url()->full()]);
         $company = User::where('user_id', $id)->firstOrFail();

@@ -9,13 +9,13 @@ use App\Models\User;
 
 class EditProfileController extends Controller
 {
-    public function profile_edit()
+    public function profileEdit()
     {
             $user = User::find(Auth::id());
             return view('profile_edit', compact('user'));
     }
 
-    public function profile_edit_update(Request $request)
+    public function profileEditUpdate(Request $request)
     {
         // First, validate all incoming data.
         $this->validate($request, [

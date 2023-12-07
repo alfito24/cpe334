@@ -9,7 +9,7 @@ use App\Models\application;
 
 class InternshipApplicantsController extends Controller
 {
-    public function company_applicants()
+    public function companyApplicants()
     {
         session(['redirect_to' => url()->full()]);
         $applicants = application::where('company_id', Auth::id())->get();

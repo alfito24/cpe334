@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class InternshipListController extends Controller
 {
     // function to display the internship that posted by authenticated company
-    public function company_internship()
+    public function companyInternship()
     {
         $jobs = job::where('user_id', Auth::id())->get();
         return view('company_internship', compact('jobs'));

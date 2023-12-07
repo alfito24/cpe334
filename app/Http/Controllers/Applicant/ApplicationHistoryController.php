@@ -10,7 +10,7 @@ use App\Models\application;
 
 class ApplicationHistoryController extends Controller
 {
-    public function application_history()
+    public function applicationHistory()
     {
         $applications = application::where('user_id', Auth::id())->get();
         return view('application_history', compact('applications'));

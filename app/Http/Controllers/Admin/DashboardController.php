@@ -19,7 +19,7 @@ class DashboardController extends Controller
         return view('admin.summary', compact(['jobs', 'applicants', 'companies']));
     }
 
-    public function list_companies()
+    public function listCompanies()
     {
         $requested_companies = User::where('company_review', 'under_review')->get();
         $registered_companies = User::where('company_review', 'accepted')->get();
