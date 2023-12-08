@@ -12,7 +12,10 @@ class InternshipApplicantsController extends Controller
     public function companyApplicants()
     {
         session(['redirect_to' => url()->full()]);
+
+        $active = 'company_applicants';
         $applicants = application::where('company_id', Auth::id())->get();
-        return view('company/company_applicants', compact('applicants'));
+
+        return view('company/company_applicants', compact('active', 'applicants'));
     }
 }

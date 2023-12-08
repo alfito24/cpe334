@@ -9,35 +9,8 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       <div class="md:col-span-1">
         <div class="bg-white rounded-lg shadow-lg max-w-sm mt-4">
-            <div class="w-64 px-4 py-6 bg-white shadow-md">
-                <ul class="space-y-2">
-                  <li>
-                    <a href="/add_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium">Dashboard</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/company_detail" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium ">Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/add_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium">Post Internship</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/company_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium text-[#0EA89B]">All Internship</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/company_applicants" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-                      <span class="ml-2 text-sm font-medium ">Applied Candidates</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            {{-- Sidebar --}}
+            @include('company.sidebar')
       </div>
     </div>
       <div class="md:col-span-3">

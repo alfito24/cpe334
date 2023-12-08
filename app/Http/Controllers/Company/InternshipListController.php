@@ -13,7 +13,9 @@ class InternshipListController extends Controller
     // function to display the internship that posted by authenticated company
     public function companyInternship()
     {
+        $active = 'company_internship';
         $jobs = job::where('user_id', Auth::id())->get();
-        return view('company/company_internship', compact('jobs'));
+
+        return view('company/company_internship', compact('active', 'jobs'));
     }
 }

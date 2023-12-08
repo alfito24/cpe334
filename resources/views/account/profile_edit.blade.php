@@ -3,29 +3,11 @@
 @section('content')
 <div class="flex h-screen bg-gray-100 mt-20">
     <!-- Sidebar -->
-    <div class="w-64 px-4 py-6 bg-white shadow-md">
-      <ul class="space-y-2">
-        <li>
-          <a href="/profile_edit" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium text-[#0EA89B]">General Information</span>
-          </a>
-        </li>
-        <li>
-          <a href="/profile_edit/experience" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium">Add Work Experiences</span>
-          </a>
-        </li>
-        <li>
-          <a href="/profile_edit/education" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium">Add Education</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  
+    @include('account.sidebar')
+
     <!-- Content Area -->
     <div class="flex-1">
-      
+
         <div class="min-h-screen bg-gray-100 p-5">
             <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
               <div class="flex justify-between items-center pb-5 border-b border-gray-200 mb-5">
@@ -108,10 +90,10 @@
             </form>
             </div>
           </div>
-          
+
     </div>
   </div>
-  
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>

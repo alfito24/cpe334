@@ -11,9 +11,10 @@ class EditProfileController extends Controller
 {
     public function profileEdit()
     {
+            $active = 'profile_edit';
             $user = User::find(Auth::id());
 
-            return view('account/profile_edit', compact('user'));
+            return view('account/profile_edit', compact('active', 'user'));
     }
 
     public function profileEditUpdate(Request $request)

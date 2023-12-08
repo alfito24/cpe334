@@ -4,35 +4,7 @@
 
 <div class="flex h-screen mt-20 mb-20">
     <!-- Sidebar -->
-    <div class="w-64 px-4 py-6 bg-white shadow-md">
-      <ul class="space-y-2">
-        <li>
-          <a href="/company_dashboard" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="/company_detail" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium text-[#0EA89B]">Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="/add_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium">Post Internship</span>
-          </a>
-        </li>
-        <li>
-          <a href="/company_internship" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium ">All Internship</span>
-          </a>
-        </li>
-        <li>
-          <a href="company_applicants" class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-200">
-            <span class="ml-2 text-sm font-medium ">Applied Candidates</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+    @include('company.sidebar')
 
     <!-- Content Area -->
     <div class="max-w-7xl mx-auto">
