@@ -14,7 +14,7 @@ class ViewProfileController extends Controller
         $user = User::find(Auth::id());
         $workExperiences = $user->experiences;
         $educations = $user->educations;
-        $jobs = job::take(2)->get();
-        return view('user_profile', compact('user', 'jobs', 'workExperiences', 'educations'));
+
+        return view('account/user_profile', compact('user', 'workExperiences', 'educations'));
     }
 }

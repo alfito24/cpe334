@@ -66,14 +66,14 @@ Route::get('/', [HomeController::class, 'home']); // Home
 Route::post('/logout', [LogoutController::class, 'logout']); // Logout Controller
 
 // User Register
-Route::view('/chooserole', 'chooserole'); // Role Picking UI
+Route::view('/chooserole', 'register/chooserole'); // Role Picking UI
 
 /** Student/Applicant Registration */
-Route::view('/studentregister', 'register'); // Student/Applicant Registration Page UI
+Route::view('/studentregister', 'register/register'); // Student/Applicant Registration Page UI
 Route::post('/registerStudent', [StudentRegisterController::class, 'storeStudent']); // Send the Student/Applicant Registration Data to DB
 
 /** Company Registration */
-Route::view('/companyregister', 'registercompany'); // Company Registration Page UI
+Route::view('/companyregister', 'register/registercompany'); // Company Registration Page UI
 Route::post('/registerCompany', [CompanyRegisterController::class, 'storeCompany']); // Send the Company Registration Data to DB
 
 // User Profile View and Edit (Profile Controllers)
@@ -94,7 +94,7 @@ Route::get('/company_dashboard', [CompanyDashboardController::class, 'summary'])
 Route::get('/company_detail', [CompanyProfileController::class, 'detail']); // Company
 
 /** Add/Post Internship */
-Route::view('/add_internship', 'add_internship'); // Display Add Internship Page/Add Internship UI
+Route::view('/add_internship', 'company/add_internship'); // Display Add Internship Page/Add Internship UI
 Route::post('/add_internship', [AddInternshipController::class, 'storeInternship']); // Validate and Send the Internship Data to DB
 
 /** Posted Internship List */
@@ -136,11 +136,11 @@ Route::controller(ApplyInternshipController::class)->group(function(){
 Route::get('/application_history', [ApplicationHistoryController::class, 'applicationHistory'] ); // Applicant
 
 /** Add Work Experience */
-Route::view('/profile_edit/experience', 'profile_edit_experience'); // Display the Add Work Experience Page
+Route::view('/profile_edit/experience', 'account/profile_edit_experience'); // Display the Add Work Experience Page
 Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data to DB // Applicant
 
 /** Add Educational History */
-Route::view('/profile_edit/education', 'profile_edit_education'); // Display the Add Educational History Page
+Route::view('/profile_edit/education', 'account/profile_edit_education'); // Display the Add Educational History Page
 Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data to DB // Applicant
 
 // Admin Controller

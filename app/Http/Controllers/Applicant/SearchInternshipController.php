@@ -22,7 +22,7 @@ class SearchInternshipController extends Controller
         }
 
         $jobs = $query->get();
-        return view('search_list', [
+        return view('applicant/search_list', [
             'jobs' => $jobs,
             'title' => 'Search Intern',
             'search' => $search

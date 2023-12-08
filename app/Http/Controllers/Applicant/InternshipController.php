@@ -18,7 +18,7 @@ class InternshipController extends Controller
         session(['redirect_to' => url()->full()]);
         $job = Job::inRandomOrder()->first();
         $jobs = Job::all();
-        return view('list_internship', compact('jobs', 'job'));
+        return view('applicant/list_internship', compact('jobs', 'job'));
     }
 
     // function to show the detail of the internship
@@ -28,7 +28,7 @@ class InternshipController extends Controller
         $application = application::where('job_id', $id)->where('user_id',  Auth::id())->first();
         $job = job::where('job_id', $id)->firstOrFail();
         $interns = job::all();
-        return view('detail_internship', compact('job', 'interns', 'application'));
+        return view('applicant/detail_internship', compact('job', 'interns', 'application'));
     }
 
     // function to display the detail of the company
@@ -37,6 +37,6 @@ class InternshipController extends Controller
         session(['redirect_to' => url()->full()]);
         $company = User::where('user_id', $id)->firstOrFail();
         $interns = job::where('user_id', $id)->take(3)->get();
-        return view('detail_company', compact('company', 'interns'));
+        return view('applicant/detail_company', compact('company', 'interns'));
     }
 }

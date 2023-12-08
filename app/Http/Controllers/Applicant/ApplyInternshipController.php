@@ -17,7 +17,7 @@ class ApplyInternshipController extends Controller
     {
         $intern = job::where('job_id', $id)->firstOrFail();
         $user = User::where('user_id', Auth::id())->firstOrFail();
-        return view('apply_intern', compact(['intern', 'user']));
+        return view('applicant/apply_intern', compact(['intern', 'user']));
     }
 
     // function to send application internship data

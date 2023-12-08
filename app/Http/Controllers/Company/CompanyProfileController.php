@@ -13,6 +13,7 @@ class CompanyProfileController extends Controller
     {
         session(['redirect_to' => url()->full()]);
         $company = User::where('user_id', Auth::id())->firstOrFail();
-        return view('company_detail', compact('company'));
+
+        return view('company/company_detail', compact('company'));
     }
 }

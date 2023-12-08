@@ -16,6 +16,7 @@ class CompanyDashboardController extends Controller
         $jobs = job::where('user_id', Auth::id())->count();
         $applicants = application::where('company_id', Auth::id())->count();
         $applicants_accepted = application::where('company_id', Auth::id())->where('status', 'accepted')->count();
-        return view('company_dashboard', compact(['jobs', 'applicants', 'applicants_accepted']));
+
+        return view('company/company_dashboard', compact(['jobs', 'applicants', 'applicants_accepted']));
     }
 }

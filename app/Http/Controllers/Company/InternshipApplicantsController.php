@@ -13,6 +13,6 @@ class InternshipApplicantsController extends Controller
     {
         session(['redirect_to' => url()->full()]);
         $applicants = application::where('company_id', Auth::id())->get();
-        return view('company_applicants', compact('applicants'));
+        return view('company/company_applicants', compact('applicants'));
     }
 }

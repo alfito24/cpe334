@@ -28,7 +28,7 @@ class MatchInternshipController extends Controller
             }
         })->get();
 
-        return view('internship_matching', [
+        return view('applicant/internship_matching', [
             'jobs' => $jobs,
             'title' => 'View All Internships that Match your Profile'
         ]);

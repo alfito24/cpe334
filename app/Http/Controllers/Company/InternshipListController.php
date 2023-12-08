@@ -14,6 +14,6 @@ class InternshipListController extends Controller
     public function companyInternship()
     {
         $jobs = job::where('user_id', Auth::id())->get();
-        return view('company_internship', compact('jobs'));
+        return view('company/company_internship', compact('jobs'));
     }
 }

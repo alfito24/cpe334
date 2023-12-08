@@ -13,6 +13,6 @@ class ApplicationHistoryController extends Controller
     public function applicationHistory()
     {
         $applications = application::where('user_id', Auth::id())->get();
-        return view('application_history', compact('applications'));
+        return view('applicant/application_history', compact('applications'));
     }
 }
