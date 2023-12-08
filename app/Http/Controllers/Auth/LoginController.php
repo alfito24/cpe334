@@ -19,8 +19,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Check if the user came from a specific page
-            if (session()->has('redirect_to')) {
+            // Check if the user came from a specific page. Only redirect if the logged in user role is applicant (role_id = 0)
+            if (session()->has('redirect_to') && Auth::user()->role_id === 0) {
                 $redirectTo = session('redirect_to');
                 session()->forget('redirect_to'); // Clear the session value
 

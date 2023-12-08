@@ -3,20 +3,30 @@
         <div class="flex justify-between">
             <div class="flex space-x-7">
                 <div class="hidden md:flex items-center space-x-1">
+                    @guest
                     <div>
                         <a href="/" class="flex items-center py-4 px-2">
                             <img src="{{asset('images/Image 1.png')}}" alt="Logo" class="w-28 ">
                         </a>
                     </div>
                     <a @yield('homeactive') href="/" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Home</a>
-                    @guest
                     <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
                     @endguest
                     @auth
                     @if(Auth::user()->role_id == 1 && Auth::user()->company_review == 'accepted')
+                    <div>
+                        <a href="/company_dashboard" class="flex items-center py-4 px-2">
+                            <img src="{{asset('images/Image 1.png')}}" alt="Logo" class="w-28 ">
+                        </a>
+                    </div>
                     <a @yield('addinternship') href="/add_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Add Internship</a>
                     <a @yield('internshiplist') href="/company_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship Lists</a>
                     @elseif (Auth::user()->role_id == 0)
+                    <div>
+                        <a href="/" class="flex items-center py-4 px-2">
+                            <img src="{{asset('images/Image 1.png')}}" alt="Logo" class="w-28 ">
+                        </a>
+                    </div>
                     <a @yield('list_internship') href="/list_internship" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">All Internships</a>
                     <a @yield('internship_for_me') href="/internship/matching" class="py-4 px-2 text-[#323842] font-semibold hover:text-[#0EA89B] transition duration-300">Internship for Me</a>
                     @endif
@@ -30,7 +40,7 @@
                     <a href="/chooserole" class="py-2 px-6 font-medium text-[#323842] rounded hover:bg-[#0EA89B] hover:text-white transition duration-300">Register</a>
                     @else
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                        <button @click="open = !open" class="flex flex-row items-center py-2 px-6 font-semibold text-[#323842] rounded hover:bg-[#0EA89B] hover:text-[#0EA89B] transition duration-300">
+                        <button @click="open = !open" class="py-2 px-6 font-medium text-[#323842] rounded hover:bg-[#0EA89B] hover:text-white transition duration-300">
                             @if(Auth::user()->role_id == 0)
                           <span>{{ Auth::user()->name }}</span>
                           @elseif (Auth::user()->role_id == 1)
@@ -111,3 +121,5 @@
         });
     </script>
 </nav>
+
+
