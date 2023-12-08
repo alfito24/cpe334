@@ -3,6 +3,7 @@
 /** Middleware */
 use App\Http\Middleware\IsAdmin; // Admin
 use App\Http\Middleware\IsCompany; // Company
+use App\Http\Middleware\RedirectIfNotAuthenticated; // Company
 
 use Illuminate\Support\Facades\Route;
 
@@ -100,7 +101,7 @@ Route::middleware([IsCompany::class])->group(function(){ // Company Middleware (
     Route::post('/add_internship', [AddInternshipController::class, 'storeInternship']); // Validate and Send the Internship Data to DB
 
     /** Posted Internship List */
-    Route::get('/company_internship', [InternshipListController::class, 'companyInternship'])->middleware('RedirectIfNotAuthenticated'); // Company
+    Route::get('/company_internship', [InternshipListController::class, 'companyInternship']); // Company
 
     /** Applied Applicants List */
     Route::get('/company_applicants', [InternshipApplicantsController::class, 'companyApplicants']); // Company
@@ -118,13 +119,15 @@ Route::middleware([IsCompany::class])->group(function(){ // Company Middleware (
 // Applicant Controllers
 /****  InternshipController ****/
 Route::controller(InternshipController::class)->group(function(){
-    Route::get('/list_internship', 'listInternship')->middleware('RedirectIfNotAuthenticated'); // Applicant /** Available Internship List */
-    Route::get('/detail_internship/{id}', 'detailInternship')->middleware('RedirectIfNotAuthenticated'); // Applicant /** Internship Detail */
-    Route::get('/detail_company/{id}', 'detailCompany')->middleware('RedirectIfNotAuthenticated'); // Applicant /** Company Detail */
+    Route::middleware(RedirectIfNotAuthenticated::class)->group(function(){
+        Route::get('/list_internship', 'listInternship'); // Applicant /** Available Internship List */
+        Route::get('/detail_internship/{id}', 'detailInternship'); // Applicant /** Internship Detail */
+        Route::get('/detail_company/{id}', 'detailCompany'); // Applicant /** Company Detail */
+    });
 });
 
 /** Internship Search (by Position) */
-Route::get('/internship/search', [SearchInternshipController::class, 'search']); // Both, but mainly for Applicant
+Route::get('/internship/search', [SearchInternshipController::class, 'search']); // Applicant
 
 /** Match Internship by Applicant Skills and Required Skills from the Internship */
 Route::get('/internship/matching', [MatchInternshipController::class, 'match']); // Applicant

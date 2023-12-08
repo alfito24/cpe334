@@ -28,7 +28,7 @@ class LoginController extends Controller
             }
 
             // Default redirect
-            if (Auth::user()->role_id === 5) {
+            if (Auth::user()->role_id === 2) {
                 return redirect('/dashboard'); // Change to the admin dashboard route (role id 2)
             } elseif (Auth::user()->role_id === 1) {
                 return redirect('/company_dashboard'); // Login as the company (role id 1)
