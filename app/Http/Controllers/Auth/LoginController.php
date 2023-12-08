@@ -11,33 +11,34 @@ class LoginController extends Controller
     // function to authenticate the user
     public function authenticate(Request $request)
     {
-    $credentials = $request->validate([ // validate the email and password
-        'email' => 'required|email:dns',
-        'password' => 'required'
-    ]);
+        $credentials = $request->validate([ // validate the email and password
+            'email' => 'required|email:dns',
+            'password' => 'required'
+        ]);
 
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        // Check if the user came from a specific page
-        if (session()->has('redirect_to')) {
-            $redirectTo = session('redirect_to');
-            session()->forget('redirect_to'); // Clear the session value
+            // Check if the user came from a specific page
+            if (session()->has('redirect_to')) {
+                $redirectTo = session('redirect_to');
+                session()->forget('redirect_to'); // Clear the session value
 
-            return redirect()->to($redirectTo);
+                return redirect()->to($redirectTo);
+            }
+
+            // Default redirect
+            if (Auth::user()->role_id === 5) {
+                return redirect('/dashboard'); // Change to the admin dashboard route (role id 2)
+            } elseif (Auth::user()->role_id === 1) {
+                return redirect('/company_dashboard'); // Login as the company (role id 1)
+            } else {
+                return redirect('/'); // Login as the company/applicant
+            }
+
+            return redirect('/');
         }
 
-        // Default redirect
-        if (Auth::user()->role_id === 2) {
-            return redirect('/dashboard'); // Change to the admin dashboard route
-        }
-        else{
-            return redirect('/'); // Login as the company/applicant
-        }
-
-        return redirect('/');
+        return back()->with('loginError', 'Invalid Email or Password');
     }
-
-    return back()->with('loginError', 'Login Failed');
-}
 }
