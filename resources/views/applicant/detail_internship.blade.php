@@ -14,7 +14,12 @@
                     <a href="/detail_internship/{{ $intern->job_id }}">
                         <div class="mb-4 p-4 {{ $bgColorClass }} border border-gray-200 rounded">
                             <h4 class="font-bold text-[#0EA89B]">{{ $intern->position }}</h4>
-                            <p>{{ $intern->salary }}</p>
+                            @if ($intern->salary == 0)
+                                {{-- If the salary is 0 or no stipend, show no salary --}}
+                                <p>No Salary</p>
+                            @else
+                                <p>${{ $intern->salary }}</p>
+                            @endif
                             <p>{{ $intern->location }}</p>
                             <p>{{ $intern->internship_type }}</p>
                         </div>
@@ -58,7 +63,13 @@
 
                 <!-- Job Details Content -->
                 <div class="bg-white p-4 border border-gray-200 rounded">
-
+                    <div class="bg-white p-4 border border-gray-200 rounded">
+                        <!-- Contact Recruiter -->
+                        <div class="mb-4">
+                            <h3 class="font-bold mb-2">Contact recruiter</h3>
+                            <!-- Recruiter Details -->
+                            {{ $job->user->phone_number }} - {{ $job->user->name }}
+                        </div>
                     <!-- Job Description -->
                     <div class="mb-4">
                         <h3 class="font-bold mb-2">Job Description</h3>
@@ -81,8 +92,8 @@
                     <div class="mb-4">
                         <h3 class="font-bold mb-2">Skills</h3>
                         <ul class="list-disc pl-5">
-                            @foreach ($skills as $r)
-                                <li>{{ $r }}</li>
+                            @foreach ($skills as $s)
+                                <li>{{ $s }}</li>
                             @endforeach
                         </ul>
                     </div>

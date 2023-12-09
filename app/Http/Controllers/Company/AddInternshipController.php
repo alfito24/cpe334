@@ -18,7 +18,7 @@ class AddInternshipController extends Controller
             'internship_type' => 'required',
             'responsibilites' => 'required',
             'skills' => 'required',
-            'salary' => 'required',
+            'salary' => 'numeric',
             'location' => 'required',
             'area_of_expertise' => 'required',
             'deadline' => 'required|date|after_or_equal:today',
@@ -26,6 +26,6 @@ class AddInternshipController extends Controller
         ]);
         $validatedData['user_id'] = Auth::user()->user_id;
         job::create($validatedData);
-        return redirect()->back()->with('success', 'Job already posted');
+        return redirect()->back()->with('success', 'Job posted successfully');
     }
 }

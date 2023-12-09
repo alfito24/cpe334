@@ -77,7 +77,11 @@
                                 @endif
                                 <h3 class="text-lg font-semibold">{{ $job->position }}</h3>
                             </div>
-                            <div class="text-lg">$95K - $120K</div>
+                            @if ($job->salary == 0)
+                                <div class="text-lg">No Salary</div>
+                            @else
+                                <div class="text-lg">${{ $job->salary }}</div>
+                            @endif
                             <div class="flex items-center space-x-2 text-gray-600">
                                 <img class="w-5 h-5" src="{{ asset('images/location.png') }}" alt="Location Icon">
                                 <span>{{ $job->location }}</span>

@@ -33,7 +33,7 @@
                                 employees</p>
                         </div>
                         <div>
-                            <p class="flex items-center"><span class="mr-2">🔁</span> Hybrid</p>
+                            <p class="flex items-center"><span class="mr-2">🔁</span> Onsite</p>
                             <p class="flex items-center"><span class="mr-2">📅</span> {{ $company->company_workdays }}</p>
                         </div>
                     </div>

@@ -155,7 +155,7 @@
                                 class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 ">
                                 <option value="Onsite">Onsite</option>
                                 <option value="Online">Online</option>
-                                <option value="Hybrid">Online</option>
+                                <option value="Hybrid">Hybrid</option>
                             </select>
                         </label>
                     </div>

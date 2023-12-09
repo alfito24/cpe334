@@ -14,8 +14,8 @@ class InternshipApplicantsController extends Controller
     {
         $active = 'company_applicants';
         $applicants = application::where('company_id', Auth::id())->get();
-        $pending_applicants = application::where('status', 'submitted')->get();
-        $accepted_applicants = application::where('status', 'accepted')->get();
+        $pending_applicants = application::where('status', 'submitted')->where('company_id', Auth::id())->get();
+        $accepted_applicants = application::where('status', 'accepted')->where('company_id', Auth::id())->get();
 
         return view('company/company_applicants', compact('active', 'pending_applicants', 'accepted_applicants'));
     }

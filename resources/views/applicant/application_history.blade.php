@@ -62,11 +62,23 @@
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <span
-                                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                            class="relative inline-block px-3 py-1 font-semibold text-black-900 leading-tight">
+                                            @if($application->status === 'accepted')
                                             <span aria-hidden
                                                 class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
                                             <span class="relative">{{ $application->status }}</span>
                                         </span>
+                                        @elseif($application->status === 'submitted')
+                                            <span aria-hidden
+                                                class="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"></span>
+                                            <span class="relative">{{ $application->status }}</span>
+                                        </span>
+                                        @else
+                                            <span aria-hidden
+                                                class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                                            <span class="relative">{{ $application->status }}</span>
+                                        </span>
+                                        @endif
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <a href="{{ asset('storage/cvs/' . $application->cv_file_path) }}" target="_blank"
