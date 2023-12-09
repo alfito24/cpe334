@@ -12,8 +12,6 @@ class InternshipApplicantsController extends Controller
 {
     public function companyApplicants()
     {
-        session(['redirect_to' => url()->full()]);
-
         $active = 'company_applicants';
         $applicants = application::where('company_id', Auth::id())->get();
         $pending_applicants = application::where('status', 'submitted')->get();

@@ -12,7 +12,7 @@ use App\Models\application;
 
 class InternshipController extends Controller
 {
-    // function to display 1 internship information
+    // function to display internships
     public function listInternship()
     {
         session(['redirect_to' => url()->full()]);

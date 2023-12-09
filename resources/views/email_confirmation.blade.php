@@ -11,7 +11,7 @@
 
 <p>Once again, congratulations on your selection, and we can't wait to have you on board.</p>
 @elseif($status == 'rejected')
-<p>We hope this email finds you well. We would like to express our appreciation for your interest in the internship opportunity at  {{ $application->job->user->company }}. After careful consideration, we regret to inform you that we have chosen to move forward with another candidate for this position.</p>
+<p>We hope this email finds you well. We would like to express our appreciation for your interest in the internship opportunity at  {{ $application->job->user->company }} for {{ $application->job->position }} position. After careful consideration, we regret to inform you that we have chosen to move forward with another candidate for this position.</p>
 
 <p>Please know that our decision was not an easy one, and we were truly impressed with your qualifications and interview performance. However, we had a limited number of positions available, and the competition was highly competitive.</p>
 

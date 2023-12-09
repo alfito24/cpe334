@@ -29,7 +29,7 @@
           </div>
           <p class="text-gray-600">{{ $jobs[0]->user->company }} |📍 {{ $jobs[0]->location }}</p>
         </div>
-        
+
         <!-- Job Details Content -->
         <div class="bg-white p-4 border border-gray-200 rounded">
           <!-- Contact Recruiter -->
@@ -37,13 +37,13 @@
             <h3 class="font-bold mb-2">Contact recruiter</h3>
             <!-- Recruiter Details -->
           </div>
-          
+
           <!-- Job Description -->
           <div class="mb-4">
             <h3 class="font-bold mb-2">Job Description</h3>
             <p>{{ $jobs[0]->description }}</p>
           </div>
-          
+
           <!-- Responsibilities -->
           @php
             $responsibilities = array_map('trim', explode(',', $jobs[0]->responsibilites));
@@ -106,20 +106,20 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
-  
+
     </div>
   </div>
-  
+
   <style>
     .custom-scroll-height {
       max-height: 800px;
       overflow-y: auto;
     }
     .md\:col-span-3 {
-      max-height: 800px; 
+      max-height: 800px;
       overflow-y: auto;
     }
   </style>

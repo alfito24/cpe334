@@ -11,7 +11,6 @@ class CompanyProfileController extends Controller
 {
     public function detail()
     {
-        session(['redirect_to' => url()->full()]);
         $active = 'company_detail';
         $company = User::where('user_id', Auth::id())->firstOrFail();
 

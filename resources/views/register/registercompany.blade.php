@@ -10,8 +10,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;900&family=Raleway&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <link rel="icon" href="{{asset('images/Image 1.png')}}">
-    <title>Register</title>
+    <link rel="icon" href="{{ asset('images/Image 1.png') }}">
+    <title>Company Register</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
@@ -45,8 +45,7 @@
                     <div class="mt-7">
                         <label for="email"><span class="font-semibold text-md">Email</span>
                             <input type="email" placeholder="Enter your email" value="{{ old('email') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
-                                name="email">
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  " name="email">
                         </label>
                         @error('email')
                             <div class="text-red-700">
@@ -57,8 +56,7 @@
                     <div class="mt-5">
                         <label for="name"><span class="font-semibold text-md">Company Representative</span>
                             <input type="text" placeholder="Enter your name" value="{{ old('name') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
-                                name="name">
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  " name="name">
                         </label>
                         @error('name')
                             <div class="text-red-700">
@@ -69,8 +67,7 @@
                     <div class="mt-5">
                         <label for="company"><span class="font-semibold text-md">Company Name</span>
                             <input type="text" placeholder="Enter your company name" value="{{ old('company') }}"
-                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
-                                name="company">
+                                class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  " name="company">
                         </label>
                         @error('company')
                             <div class="text-red-700">
@@ -83,8 +80,7 @@
                             <img id="imagePreview" src=""
                                 class="w-[50%] md:w-[30%] lg:w-[20%] mx-auto rounded-full">
                             <input type="file" value="{{ old('picture') }}" id='imageUpload' name="picture"
-                                class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 "
-                               onchange="previewImage()">
+                                class="mt-2 px-3 py-2 shadow w-full block text-sm border-2 " onchange="previewImage()">
                         </label>
                         @error('picture')
                             <div class="text-red-700">
@@ -94,9 +90,10 @@
                     </div>
                     <div class="mt-5">
                         <label for="company_website" class="font-semibold text-md">Company Website</label>
-                        <input type="text" placeholder="Enter your company website" value="{{ old('company_website') }}"
-                        class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
-                        name="company_website">
+                        <input type="text" placeholder="Enter your company website"
+                            value="{{ old('company_website') }}"
+                            class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
+                            name="company_website">
                     </div>
                     @error('company_website')
                         <div class="text-red-700">
@@ -106,8 +103,7 @@
                     <div class="mt-5">
                         <label for="company_description" class="font-semibold text-md">Company Description</label>
                         <textarea placeholder="Enter your company description"
-                            class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 " name="company_description"
-                            rows="4">{{ old('company_description') }}</textarea>
+                            class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2 " name="company_description" rows="4">{{ old('company_description') }}</textarea>
                     </div>
                     @error('company_description')
                         <div class="text-red-700">
@@ -129,8 +125,8 @@
                     </div>
                     <div class="mt-5">
                         <label for="company_size"><span class="font-semibold text-md">Company Size</span>
-                            <input name="company_size" type="text" placeholder="Enter the number of your employees"
-                                value="{{ old('company_size') }}"
+                            <input name="company_size" type="text"
+                                placeholder="Enter the number of your employees" value="{{ old('company_size') }}"
                                 class="mt-2 px-3 py-2 shadow rounded-lg w-full block text-sm border-2  "
                                 name="company_size">
                         </label>

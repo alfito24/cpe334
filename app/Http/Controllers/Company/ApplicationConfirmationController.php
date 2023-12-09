@@ -20,7 +20,7 @@ class ApplicationConfirmationController extends Controller
         $email_data = ['subject' => 'Internship Selection Announcement'];
         $application->save();
         Mail::to($application->user->email)->send(new ApplicationStatusChanged($application, $application->status, $email_data));
-        return back()->with('success', 'Applicant accepted');
+        return back()->with('accept', 'Applicant ' . $application->user->name . ' has been accepted for ' . $application->job->position . ' position');
     }
     // function to reject applicants including send email to them
     public function reject($id)
@@ -31,6 +31,6 @@ class ApplicationConfirmationController extends Controller
         $application->save();
         Mail::to($application->user->email)->send(new ApplicationStatusChanged($application, $application->status, $email_data));
 
-        return back()->with('failed', 'Applicant rejected');
+        return back()->with('reject', 'Applicant ' . $application->user->name . ' has been rejected for ' . $application->job->position . ' position');
     }
 }
