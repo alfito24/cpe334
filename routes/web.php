@@ -45,9 +45,6 @@ use App\Http\Controllers\Admin\CompanyConfirmationController;
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\EmailController;
-
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,8 +116,8 @@ Route::middleware([IsCompany::class])->group(function(){ // Company Middleware (
 // Applicant Controllers
 /****  InternshipController ****/
 Route::controller(InternshipController::class)->group(function(){
+    Route::get('/list_internship', 'listInternship'); // Applicant /** Available Internship List */
     Route::middleware(RedirectIfNotAuthenticated::class)->group(function(){
-        Route::get('/list_internship', 'listInternship'); // Applicant /** Available Internship List */
         Route::get('/detail_internship/{id}', 'detailInternship'); // Applicant /** Internship Detail */
         Route::get('/detail_company/{id}', 'detailCompany'); // Applicant /** Company Detail */
     });

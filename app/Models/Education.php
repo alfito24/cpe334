@@ -10,14 +10,18 @@ use App\Models\User;
 class Education extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['education_id'];
+    protected $primaryKey = 'education_id';
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    protected $guarded = ['education_id'];
-    protected $primaryKey = 'education_id';
-    protected $keyType = 'string';
-    public $incrementing = false;
+
     protected static function boot()
     {
         parent::boot();

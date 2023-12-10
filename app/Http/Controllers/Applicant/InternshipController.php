@@ -15,7 +15,6 @@ class InternshipController extends Controller
     // function to display internships
     public function listInternship()
     {
-        session(['redirect_to' => url()->full()]);
         $job = Job::inRandomOrder()->first();
         $jobs = Job::all();
         return view('applicant/list_internship', compact('jobs', 'job'));

@@ -10,14 +10,18 @@ use App\Models\User;
 class Experience extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['experience_id'];
+    protected $primaryKey = 'experience_id';
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    protected $guarded = ['experience_id'];
-    protected $primaryKey = 'experience_id';
-    protected $keyType = 'string';
-    public $incrementing = false;
+
     protected static function boot()
     {
         parent::boot();

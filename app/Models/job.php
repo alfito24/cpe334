@@ -14,15 +14,19 @@ class job extends Model
     protected $guarded = ['job_id'];
     protected $primaryKey = 'job_id';
     protected $keyType = 'string';
+
     public $incrementing = false;
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
+
     public function applications()
     {
         return $this->hasMany(application::class, 'job_id', 'job_id');
     }
+
     protected static function boot()
     {
         parent::boot();

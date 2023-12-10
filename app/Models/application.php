@@ -14,6 +14,7 @@ class application extends Model
     protected $guarded = ['application_id'];
     protected $primaryKey = 'application_id';
     protected $keyType = 'string';
+
     protected static function boot()
     {
         parent::boot();
@@ -23,10 +24,12 @@ class application extends Model
             }
         });
     }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
+
     public function job()
     {
         return $this->belongsTo(job::class, 'job_id', 'job_id');
