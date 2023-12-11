@@ -43,6 +43,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if($applications->count() == 0)
+                            <div class="center">
+                                No Applications Yet
+                            </div>
+                            @else
                             @foreach ($applications as $application)
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -97,6 +102,7 @@
                             <!-- ... other rows ... -->
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 /** Middleware */
 use App\Http\Middleware\IsAdmin; // Admin
 use App\Http\Middleware\IsCompany; // Company
-use App\Http\Middleware\RedirectIfNotAuthenticated; // Company
+use App\Http\Middleware\IsStudent; // Student/Applicant
 
 use Illuminate\Support\Facades\Route;
 
@@ -75,16 +75,6 @@ Route::post('/registerStudent', [StudentRegisterController::class, 'storeStudent
 Route::view('/companyregister', 'register/registercompany'); // Company Registration Page UI
 Route::post('/registerCompany', [CompanyRegisterController::class, 'storeCompany']); // Send the Company Registration Data to DB
 
-// User Profile View and Edit (Profile Controllers)
-/** User Profile View */
-Route::get('/user_profile', [ViewProfileController::class, 'index'] );
-
-/** Profile Edit */
-Route::controller(EditProfileController::class)->group(function(){
-    Route::get('/profile_edit', 'profileEdit');
-    Route::post('/profile_edit', 'profileEditUpdate');
-});
-
 // Company Controllers
 Route::middleware([IsCompany::class])->group(function(){ // Company Middleware (only Company users can access those endpoints)
     /** Company Dashboard */
@@ -108,45 +98,52 @@ Route::middleware([IsCompany::class])->group(function(){ // Company Middleware (
         Route::get('/internship/{id}/accept', 'accept'); // Company
         Route::get('/internship/{id}/reject', 'reject'); // Company
     });
-    Route::get('/editinternship/{id}', [JobController::class, 'edit'] ); /** UNUSED ??? */
-    Route::post('/editinternship/{id}', [JobController::class, 'update'] ); /** UNUSED ??? */
-    Route::get('/viewapplicantslist/{id}', [ApplicationController::class, 'applicants'] ); /** UNUSED */
 });
 
 // Applicant Controllers
 /****  InternshipController ****/
-Route::controller(InternshipController::class)->group(function(){
+Route::controller(InternshipController::class)->group(function(){ // Guest users can access those endpoints
     Route::get('/list_internship', 'listInternship'); // Applicant /** Available Internship List */
-    Route::middleware(RedirectIfNotAuthenticated::class)->group(function(){
-        Route::get('/detail_internship/{id}', 'detailInternship'); // Applicant /** Internship Detail */
-        Route::get('/detail_company/{id}', 'detailCompany'); // Applicant /** Company Detail */
+    Route::get('/detail_internship/{id}', 'detailInternship'); // Applicant /** Internship Detail */
+    Route::get('/detail_company/{id}', 'detailCompany'); // Applicant /** Company Detail */
+});
+
+Route::middleware(IsStudent::class)->group(function(){ // Student Middleware (only Student users can access those endpoints)
+    // --- User Profile View and Edit (Profile Controllers) --- //
+    /** User Profile View */
+    Route::get('/user_profile', [ViewProfileController::class, 'index'] );
+
+    /** Profile Edit */
+    Route::controller(EditProfileController::class)->group(function(){
+        Route::get('/profile_edit', 'profileEdit');
+        Route::post('/profile_edit', 'profileEditUpdate');
     });
+
+    /** Internship Search (by Position) */
+    Route::get('/internship/search', [SearchInternshipController::class, 'search']); // Applicant
+
+    /** Match Internship by Applicant Skills and Required Skills from the Internship */
+    Route::get('/internship/matching', [MatchInternshipController::class, 'match']); // Applicant
+
+    /** Apply Internship */
+    Route::controller(ApplyInternshipController::class)->group(function(){
+        Route::get('/apply_intern/{id}', 'applyIntern'); // Display the Internship Application Page // Applicant
+        Route::post('/apply/{id}', 'applyInternship'); // Send the Internship Application Data to DB // Applicant
+    });
+
+    /** Applied Internship List */
+    Route::get('/application_history', [ApplicationHistoryController::class, 'applicationHistory'] ); // Applicant
+
+    /** Add Work Experience */
+    Route::view('/profile_edit/experience', 'account/profile_edit_experience', ['active' => 'experience_edit']); // Display the Add Work Experience Page
+    Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data to DB // Applicant
+
+    /** Add Educational History */
+    Route::view('/profile_edit/education', 'account/profile_edit_education', ['active' => 'education_edit']); // Display the Add Educational History Page
+    Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data to DB // Applicant
 });
 
-/** Internship Search (by Position) */
-Route::get('/internship/search', [SearchInternshipController::class, 'search']); // Applicant
-
-/** Match Internship by Applicant Skills and Required Skills from the Internship */
-Route::get('/internship/matching', [MatchInternshipController::class, 'match']); // Applicant
-
-/** Apply Internship */
-Route::controller(ApplyInternshipController::class)->group(function(){
-    Route::get('/apply_intern/{id}', 'applyIntern'); // Display the Internship Application Page // Applicant
-    Route::post('/apply/{id}', 'applyInternship'); // Send the Internship Application Data to DB // Applicant
-});
-
-/** Applied Internship List */
-Route::get('/application_history', [ApplicationHistoryController::class, 'applicationHistory'] ); // Applicant
-
-/** Add Work Experience */
-Route::view('/profile_edit/experience', 'account/profile_edit_experience', ['active' => 'experience_edit']); // Display the Add Work Experience Page
-Route::post('/add_experience', [ExperienceController::class, 'store']); // Send the Experience Data to DB // Applicant
-
-/** Add Educational History */
-Route::view('/profile_edit/education', 'account/profile_edit_education', ['active' => 'education_edit']); // Display the Add Educational History Page
-Route::post('/add_education', [EducationController::class, 'store']); // Send the Education Data to DB // Applicant
-
-// Admin Controller
+// Admin Controllers
 Route::middleware([IsAdmin::class])->group(function(){ // Admin Middleware (only Admin can access those endpoints)
     Route::controller(DashboardController::class)->group(function(){
         Route::get('/dashboard', 'summary'); // Show Total Posted Internship, Companies, and Applicants

@@ -16,22 +16,27 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                @foreach ($requested_companies as $c)
+                @foreach ($requested_companies as $compn)
                     <tbody>
                         <tr>
-                            <td>{{ $c->company }}</td>
-                            <td>{{ $c->company_description }}</td>
-                            <td>{{ $c->company_size }}</td>
-                            <td>{{ $c->company_website }}</td>
-                            <td>{{ $c->business_area }}</td>
-                            <td><button onclick="location.href='/company/{{ $c->user_id }}/accept'"
+                            <td>{{ $compn->company }}</td>
+                            <td>{{ $compn->company_description }}</td>
+                            <td>{{ $compn->company_size }}</td>
+                            <td>{{ $compn->company_website }}</td>
+                            <td>{{ $compn->business_area }}</td>
+                            <td><button onclick="location.href='/company/{{ $compn->user_id }}/accept'"
                                     class="btn btn-success">Accept</button> | <button
-                                    onclick="location.href='/company/{{ $c->user_id }}/reject'"
+                                    onclick="location.href='/company/{{ $compn->user_id }}/reject'"
                                     class="btn btn-danger">Reject</button></td>
                         </tr>
                     </tbody>
                 @endforeach
             </table>
+            @if($requested_companies->count() == 0)
+            <div>
+                No Pending Companies Yet
+            </div>
+            @endif
         </div>
     </div>
     <div class="card">
@@ -49,18 +54,23 @@
                         <th>Business Area</th>
                     </tr>
                 </thead>
-                @foreach ($registered_companies as $c)
+                @foreach ($registered_companies as $compn)
                     <tbody>
                         <tr>
-                            <td>{{ $c->company }}</td>
-                            <td>{{ $c->company_description }}</td>
-                            <td>{{ $c->company_size }}</td>
-                            <td>{{ $c->company_website }}</td>
-                            <td>{{ $c->business_area }}</td>
+                            <td>{{ $compn->company }}</td>
+                            <td>{{ $compn->company_description }}</td>
+                            <td>{{ $compn->company_size }}</td>
+                            <td>{{ $compn->company_website }}</td>
+                            <td>{{ $compn->business_area }}</td>
                         </tr>
                     </tbody>
                 @endforeach
             </table>
+            @if($registered_companies->count() == 0)
+            <div>
+                No Accepted Companies Yet
+            </div>
+            @endif
         </div>
     </div>
 @endsection

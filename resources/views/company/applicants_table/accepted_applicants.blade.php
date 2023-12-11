@@ -23,14 +23,6 @@
                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                     Applied On
                 </th>
-                <th
-                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Review Resume
-                </th>
-                <th
-                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Review Cover Letter
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -55,18 +47,6 @@
                         <p class="text-gray-900 whitespace-no-wrap">
                             {{ \Carbon\Carbon::parse($applicant->created_at)->format('d/m/Y') }}
                         </p>
-                    </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <a href="{{ asset('storage/cvs/' . $applicant->cv_file_path) }}"
-                            class="text-blue-600 hover:text-blue-900" target="_blank">
-                            Review
-                        </a>
-                    </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <a href="{{ asset('storage/cover_letters/' . $applicant->cover_letter_file_path) }}"
-                            class="text-blue-600 hover:text-blue-900" target="_blank">
-                            Review
-                        </a>
                     </td>
                 </tr>
             @endforeach
